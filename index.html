@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microphone Test Pro - Advanced Audio Analytics & Diagnostics</title>
+    <meta name="description" content="Test your microphone quality instantly. Professional-grade real-time audio analysis, latency checks, and waveform visualization. Free, fast, and private.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-microphone-lines"></i>
+            <span>MicTest <strong>PRO</strong></span>
+        </div>
+        <div class="nav-actions">
+        </div>
+    </nav>
+
+    <!-- Main App Container -->
+    <main class="app-container">
+        
+        <!-- Tool Header & Selection -->
+        <header class="tool-header">
+            <div class="input-group">
+                <label for="micSelect">Select Microphone</label>
+                <div class="select-wrapper">
+                    <select id="micSelect">
+                        <option value="">Loading devices...</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="modeSelect">Optimization Mode</label>
+                <div class="select-wrapper mode-select">
+                    <select id="modeSelect">
+                        <option value="balanced">🎙️ Balanced (Default)</option>
+                        <option value="gaming">🎮 Gaming (Low Latency)</option>
+                        <option value="meeting">💼 Meeting (Voice Clarity)</option>
+                        <option value="podcast">📻 Podcast (Studio Quality)</option>
+                    </select>
+                </div>
+                <div id="modeDescription" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Select a mode based on your use case</div>
+            </div>
+        </header>
+
+        <!-- Dynamic Visualization Area -->
+        <section class="visualizer-section">
+            <div class="canvas-container">
+                <canvas id="waveformCanvas"></canvas>
+                <div id="recordingPulse" class="record-pulse hidden">REC</div>
+            </div>
+            
+            <div class="volume-meter-container">
+                <div class="volume-label">Input Level</div>
+                <div class="meter-bar">
+                    <div id="volumeFill" class="meter-fill"></div>
+                    <div class="meter-marks">
+                        <span>-40</span>
+                        <span>-24</span>
+                        <span>-12</span>
+                        <span>0dB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Controls -->
+        <section class="controls-section">
+            <button id="btnStartStop" class="btn-massive btn-start">
+                <i class="fa-solid fa-microphone"></i>
+                <span id="startStopText">Start Test</span>
+            </button>
+            <div class="playback-controls hidden" id="playbackControls">
+                <audio id="audioPlayback" controls></audio>
+                <button id="btnDownload" class="btn-secondary">
+                    <i class="fa-solid fa-download"></i> Download WAV
+                </button>
+            </div>
+            <div id="recordingTimer" class="timer">00:00</div>
+        </section>
+
+        <!-- Results Dashboard (Hidden until tested) -->
+        <section class="results-dashboard" id="resultsSection">
+            <div class="dashboard-grid">
+                
+                <!-- Main Score -->
+                <div class="card score-card">
+                    <h3>Quality Score</h3>
+                    <div class="score-circle">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path class="circle-bg"
+                            d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"
+                            />
+                            <path class="circle" id="scorePath"
+                            stroke-dasharray="0, 100"
+                            d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"
+                            />
+                            <text x="18" y="20.35" class="percentage" id="scoreText">--</text>
+                        </svg>
+                    </div>
+                    <div class="score-label" id="scoreLabel">Testing required</div>
+                </div>
+
+                <!-- Detailed Metrics -->
+                <div class="card metrics-card">
+                    <h3>Advanced Diagnostics</h3>
+                    <ul class="metrics-list">
+                        <li>
+                            <span class="metric-name"><i class="fa-solid fa-wave-square"></i> Background Noise</span>
+                            <span class="metric-value indicator-yellow" id="metricNoise">--</span>
+                        </li>
+                        <li>
+                            <span class="metric-name"><i class="fa-solid fa-stopwatch"></i> System Latency</span>
+                            <span class="metric-value" id="metricLatency">--</span>
+                        </li>
+                        <li>
+                            <span class="metric-name"><i class="fa-solid fa-tower-broadcast"></i> Gain / Sensitivity</span>
+                            <span class="metric-value" id="metricGain">--</span>
+                        </li>
+                        <li>
+                            <span class="metric-name"><i class="fa-solid fa-microchip"></i> Sample Rate</span>
+                            <span class="metric-value" id="metricSampleRate">--</span>
+                        </li>
+                        <li>
+                            <span class="metric-name"><i class="fa-solid fa-shield-halved"></i> Echo Cancellation</span>
+                            <span class="metric-value" id="metricEcho">--</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- AI Feedback -->
+                <div class="card ai-card">
+                    <h3><i class="fa-solid fa-robot"></i> AI Suggestions</h3>
+                    <div class="ai-feedback-content" id="aiFeedback">
+                        <p class="placeholder-text">Run a full test to generate personalized AI improvement strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 MicTest PRO. All rights reserved.</p>
+            <div class="faq-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
