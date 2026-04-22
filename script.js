@@ -1,40 +1,32 @@
-// --- MicTest PRO Javascript ---
+// MicTest PRO - script.js
 
-// DOM Elements
+// DOM
 const micSelect = document.getElementById('micSelect');
 const modeSelect = document.getElementById('modeSelect');
 const modeDescription = document.getElementById('modeDescription');
 const btnStartStop = document.getElementById('btnStartStop');
 const startStopText = document.getElementById('startStopText');
 const recordingPulse = document.getElementById('recordingPulse');
-
-// Canvas
 const canvas = document.getElementById('waveformCanvas');
 const canvasCtx = canvas.getContext('2d');
 const volumeFill = document.getElementById('volumeFill');
-
-// Timers & Playback
 const recordingTimer = document.getElementById('recordingTimer');
-const freeLimitWarning = document.getElementById('freeLimitWarning');
 const playbackControls = document.getElementById('playbackControls');
 const audioPlayback = document.getElementById('audioPlayback');
 const btnDownload = document.getElementById('btnDownload');
-
-// Results Dashboard
 const resultsSection = document.getElementById('resultsSection');
 const scorePath = document.getElementById('scorePath');
 const scoreText = document.getElementById('scoreText');
 const scoreLabel = document.getElementById('scoreLabel');
-
 const metricNoise = document.getElementById('metricNoise');
 const metricLatency = document.getElementById('metricLatency');
 const metricGain = document.getElementById('metricGain');
 const metricSampleRate = document.getElementById('metricSampleRate');
 const metricEcho = document.getElementById('metricEcho');
-
 const aiFeedback = document.getElementById('aiFeedback');
+const visPlaceholder = document.getElementById('visPlaceholder');
 
-// STATE
+// State
 let isRunning = false;
 let audioContext = null;
 let mediaStream = null;
@@ -44,22 +36,37 @@ let recordedPCM = [];
 let recordingInterval = null;
 let secondsRecorded = 0;
 let animationFrameId = null;
-let testCompleted = false;
-
-// Analytics State
 let noiseSamples = [];
 let clipCount = 0;
 let volumeSamples = [];
 let currentSampleRate = 44100;
 
-const modes = {
-    balanced: { noiseWeight: 0.3, volumeWeight: 0.5, consistencyWeight: 0.2 },
-    gaming: { noiseWeight: 0.2, volumeWeight: 0.4, consistencyWeight: 0.4 }, // Gamers need consistent voice, avoid spikes
-    meeting: { noiseWeight: 0.5, volumeWeight: 0.3, consistencyWeight: 0.2 }, // Meetings need zero background noise
-    podcast: { noiseWeight: 0.4, volumeWeight: 0.4, consistencyWeight: 0.2 }  // Studio quality
+// Unlock function — called by CPA locker buttons
+function unlockSection(overlayId, cardId) {
+    const overlay = document.getElementById(overlayId);
+    const card = document.getElementById(cardId);
+    if (overlay) overlay.style.display = 'none';
+    if (card) {
+        const blurred = card.querySelector('.blurred');
+        if (blurred) blurred.classList.remove('blurred');
+    }
+}
+
+// Mode descriptions
+const modeDescriptionsText = {
+    balanced: "Balanced performance for general use",
+    gaming: "Optimized for low latency gaming communication",
+    meeting: "Clear voice for Zoom and Teams meetings",
+    podcast: "High quality audio for recording and streaming"
 };
 
-// Initialize App
+modeSelect.addEventListener('change', (e) => {
+    if (modeDescription) {
+        modeDescription.textContent = modeDescriptionsText[e.target.value] || "Select a mode based on your use case";
+    }
+});
+
+// Init
 function init() {
     setupCanvas();
     getMicrophones();
@@ -70,84 +77,53 @@ window.addEventListener('resize', setupCanvas);
 function setupCanvas() {
     canvas.width = canvas.parentElement.clientWidth;
     canvas.height = canvas.parentElement.clientHeight;
-    canvasCtx.fillStyle = '#1A1E29';
+    canvasCtx.fillStyle = '#1a1a2e';
     canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-// Media Devices
+// Get Microphones
 async function getMicrophones() {
     try {
-        await navigator.mediaDevices.getUserMedia({ audio: true }); // Request perm first to get labels
+        await navigator.mediaDevices.getUserMedia({ audio: true });
         const devices = await navigator.mediaDevices.enumerateDevices();
         const mics = devices.filter(d => d.kind === 'audioinput');
-        
         micSelect.innerHTML = '';
         if (mics.length === 0) {
             micSelect.innerHTML = '<option>No microphones found</option>';
             return;
         }
-
-        mics.forEach((mic, index) => {
-            const option = document.createElement('option');
-            option.value = mic.deviceId;
-            option.textContent = mic.label || `Microphone ${index + 1}`;
-            micSelect.appendChild(option);
+        mics.forEach((mic, i) => {
+            const opt = document.createElement('option');
+            opt.value = mic.deviceId;
+            opt.textContent = mic.label || `Microphone ${i + 1}`;
+            micSelect.appendChild(opt);
         });
     } catch (err) {
-        console.error('Error accessing media devices.', err);
         micSelect.innerHTML = '<option value="">Microphone Access Denied</option>';
     }
 }
 
-// Start / Stop Logic
+// Start/Stop
 btnStartStop.addEventListener('click', () => {
-    if (isRunning) {
-        stopTest();
-    } else {
-        startTest();
-    }
-});
-
-const modeDescriptionsText = {
-    balanced: "Balanced performance for general use",
-    gaming: "Optimized for low latency gaming communication",
-    meeting: "Clear voice for Zoom and meetings",
-    podcast: "High quality audio for recording and streaming"
-};
-
-modeSelect.addEventListener('change', (e) => {
-    if (modeDescription) {
-        modeDescription.textContent = modeDescriptionsText[e.target.value] || "Select a mode based on your use case";
-    }
+    if (isRunning) stopTest(); else startTest();
 });
 
 async function startTest() {
     try {
         const deviceId = micSelect.value;
-        const mode = modeSelect.value;
-        
-        const constraints = {
-            audio: deviceId ? { deviceId: { exact: deviceId } } : true
-        };
-
+        const constraints = { audio: deviceId ? { deviceId: { exact: deviceId } } : true };
         mediaStream = await navigator.mediaDevices.getUserMedia(constraints);
-        
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         currentSampleRate = audioContext.sampleRate;
         const source = audioContext.createMediaStreamSource(mediaStream);
-        
         analyser = audioContext.createAnalyser();
         analyser.fftSize = 2048;
         analyser.smoothingTimeConstant = 0.8;
-        
-        // Setup ScriptProcessor for PCM capture
         processor = audioContext.createScriptProcessor(4096, 1, 1);
-        
         source.connect(analyser);
         analyser.connect(processor);
         processor.connect(audioContext.destination);
 
-        // Reset Data
         recordedPCM = [];
         noiseSamples = [];
         volumeSamples = [];
@@ -157,33 +133,27 @@ async function startTest() {
         scoreText.textContent = '--';
         scorePath.style.strokeDasharray = '0, 100';
 
-        // Update UI
         isRunning = true;
-        testCompleted = false;
-        
+
         btnStartStop.classList.remove('btn-start');
         btnStartStop.classList.add('btn-stop');
-        btnStartStop.innerHTML = '<i class="fa-solid fa-stop"></i> <span id="startStopText">Stop Test</span>';
+        btnStartStop.innerHTML = '<i class="fa-solid fa-stop"></i><span>Stop Test</span>';
         recordingPulse.classList.remove('hidden');
+        if (visPlaceholder) visPlaceholder.classList.add('hidden');
 
-        // Recording Loop
         processor.onaudioprocess = (e) => {
-            const inputData = e.inputBuffer.getChannelData(0);
-            recordedPCM.push(new Float32Array(inputData));
+            recordedPCM.push(new Float32Array(e.inputBuffer.getChannelData(0)));
         };
 
-        // Timer Loop
         recordingTimer.textContent = '00:00';
         recordingInterval = setInterval(() => {
             secondsRecorded++;
-            let pSec = secondsRecorded < 10 ? '0'+secondsRecorded : secondsRecorded;
-            recordingTimer.textContent = `00:${pSec}`;
+            const s = secondsRecorded < 10 ? '0' + secondsRecorded : secondsRecorded;
+            recordingTimer.textContent = `00:${s}`;
         }, 1000);
 
         visualize();
-
     } catch (err) {
-        console.error('Failed to start test:', err);
         alert('Could not access microphone. Please check permissions.');
     }
 }
@@ -192,23 +162,14 @@ function stopTest() {
     isRunning = false;
     btnStartStop.classList.remove('btn-stop');
     btnStartStop.classList.add('btn-start');
-    btnStartStop.innerHTML = '<i class="fa-solid fa-microphone"></i> <span id="startStopText">Start Test</span>';
+    btnStartStop.innerHTML = '<i class="fa-solid fa-microphone"></i><span>Start Test</span>';
     recordingPulse.classList.add('hidden');
     clearInterval(recordingInterval);
-
-    if (processor) {
-        processor.disconnect();
-        processor.onaudioprocess = null;
-    }
+    if (processor) { processor.disconnect(); processor.onaudioprocess = null; }
     if (analyser) analyser.disconnect();
-    if (mediaStream) {
-        mediaStream.getTracks().forEach(track => track.stop());
-    }
-    if (audioContext && audioContext.state !== 'closed') {
-        audioContext.close();
-    }
+    if (mediaStream) mediaStream.getTracks().forEach(t => t.stop());
+    if (audioContext && audioContext.state !== 'closed') audioContext.close();
     cancelAnimationFrame(animationFrameId);
-
     processResults();
     generateAudioPlayback();
 }
@@ -216,76 +177,58 @@ function stopTest() {
 function visualize() {
     if (!isRunning) return;
     animationFrameId = requestAnimationFrame(visualize);
-
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
     analyser.getByteTimeDomainData(dataArray);
 
-    // Draw Waveform
-    canvasCtx.fillStyle = 'rgba(26, 30, 41, 0.2)'; // fade effect
+    canvasCtx.fillStyle = 'rgba(26, 26, 46, 0.2)';
     canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
-    
     canvasCtx.lineWidth = 2;
-    canvasCtx.strokeStyle = 'hsl(250, 80%, 65%)'; // Primary color
+    canvasCtx.strokeStyle = '#2563eb';
     canvasCtx.beginPath();
 
-    const sliceWidth = canvas.width * 1.0 / bufferLength;
+    const sliceWidth = canvas.width / bufferLength;
     let x = 0;
-    
     let sumSquares = 0;
-    let maxAmp = 0;
 
     for (let i = 0; i < bufferLength; i++) {
         const v = dataArray[i] / 128.0;
         const y = v * canvas.height / 2;
-
-        if (i === 0) canvasCtx.moveTo(x, y);
-        else canvasCtx.lineTo(x, y);
-
+        if (i === 0) canvasCtx.moveTo(x, y); else canvasCtx.lineTo(x, y);
         x += sliceWidth;
-
-        // Data collection for analytics
         const amplitude = Math.abs(dataArray[i] - 128) / 128;
         sumSquares += amplitude * amplitude;
-        if (amplitude > maxAmp) maxAmp = amplitude;
         if (amplitude > 0.95) clipCount++;
     }
 
     canvasCtx.lineTo(canvas.width, canvas.height / 2);
     canvasCtx.stroke();
 
-    // Volume Meter
     const rms = Math.sqrt(sumSquares / bufferLength);
     volumeSamples.push(rms);
-    
-    // Track lowest 10% as background noise proxy
-    if (noiseSamples.length < 100 || rms < noiseSamples[noiseSamples.length-1]) {
+
+    if (noiseSamples.length < 100 || rms < noiseSamples[noiseSamples.length - 1]) {
         noiseSamples.push(rms);
-        noiseSamples.sort((a,b) => a - b);
-        if(noiseSamples.length > 50) noiseSamples.length = 50; 
+        noiseSamples.sort((a, b) => a - b);
+        if (noiseSamples.length > 50) noiseSamples.length = 50;
     }
 
-    // Convert RMS to roughly 0-100%
-    const level = Math.min(100, Math.max(0, (rms * 200)));
+    const level = Math.min(100, Math.max(0, rms * 200));
     volumeFill.style.width = `${level}%`;
 }
 
-// Processing Analytics
 function processResults() {
     playbackControls.classList.remove('hidden');
-
     if (volumeSamples.length === 0) return;
 
-    // Calculate metrics
     const avgVolume = volumeSamples.reduce((a, b) => a + b, 0) / volumeSamples.length;
     let bgNoise = noiseSamples.reduce((a, b) => a + b, 0) / (noiseSamples.length || 1);
-    
-    // Hardware constraints extraction
+
     const track = mediaStream.getAudioTracks()[0];
     const settings = track.getSettings();
-    
+
     metricSampleRate.textContent = `${settings.sampleRate || currentSampleRate} Hz`;
-    
+
     if (settings.echoCancellation !== undefined) {
         metricEcho.textContent = settings.echoCancellation ? 'Active ✅' : 'Inactive ❌';
     } else {
@@ -295,188 +238,132 @@ function processResults() {
     if (settings.latency) {
         metricLatency.textContent = `${(settings.latency * 1000).toFixed(1)} ms`;
     } else {
-        metricLatency.textContent = `~${(Math.random() * 15 + 10).toFixed(1)} ms (est)`; 
+        metricLatency.textContent = `~${(Math.random() * 15 + 10).toFixed(1)} ms (est)`;
     }
 
-    // Evaluate Quality
-    let noiseScore = 100 - (bgNoise * 1500); // 100 is silent, 0 is noisy
+    let noiseScore = 100 - (bgNoise * 1500);
     if (noiseScore < 0) noiseScore = 0;
-    
+
     let volScore = 100;
-    if (avgVolume < 0.05) volScore -= 40; // Too quiet
-    if (clipCount > 100) volScore -= 40; // Peaking
+    if (avgVolume < 0.05) volScore -= 40;
+    if (clipCount > 100) volScore -= 40;
 
     let score = Math.round((noiseScore * 0.5) + (volScore * 0.5));
-    if (score > 100) score = 100;
-    if (score < 10) score = 10;
+    score = Math.max(10, Math.min(100, score));
 
-    // Mode Adjustments (Mock logic differences)
     const activeMode = modeSelect.value;
-    if (activeMode === 'podcast' && noiseScore < 80) score -= 10; // Punish noise hard
-    if (activeMode === 'gaming' && settings.latency > 0.03) score -= 5; // Punish latency
+    if (activeMode === 'podcast' && noiseScore < 80) score -= 10;
+    if (activeMode === 'gaming' && settings.latency > 0.03) score -= 5;
 
-    // Display updates
     animateScore(score);
-    
-    // Updates UI texts
+
     if (noiseScore > 85) {
         metricNoise.textContent = 'Low (Excellent)';
-        metricNoise.className = 'metric-value color-good';
+        metricNoise.className = 'color-good';
     } else if (noiseScore > 50) {
         metricNoise.textContent = 'Moderate';
-        metricNoise.className = 'metric-value color-avg';
+        metricNoise.className = 'color-avg';
     } else {
         metricNoise.textContent = 'High (Poor)';
-        metricNoise.className = 'metric-value color-poor';
+        metricNoise.className = 'color-poor';
     }
 
-    if (avgVolume < 0.03) {
-        metricGain.textContent = 'Low Sensitivity';
-    } else if (clipCount > 100) {
-        metricGain.textContent = 'Gain Tool High (Clipping)';
-    } else {
-        metricGain.textContent = 'Balanced';
-    }
+    metricGain.textContent = avgVolume < 0.03 ? 'Low Sensitivity' : clipCount > 100 ? 'Too High (Clipping)' : 'Balanced';
 
     generateAIFeedback(score, noiseScore, avgVolume, clipCount, activeMode);
-    
-    // Task 2: Show CTA
-    if (document.getElementById('scoreCtaValue')) {
-        document.getElementById('scoreCtaValue').textContent = score;
-        document.getElementById('scoreCta').classList.remove('hidden');
-    }
 
-    testCompleted = true;
+    // Show rec section after test
+    const recSection = document.getElementById('recSection');
+    if (recSection) recSection.style.display = 'block';
 }
 
 function animateScore(targetScore) {
     let current = 0;
-    const duration = 1000;
-    const frameGap = 20;
-    const step = (targetScore / duration) * frameGap;
-
+    const step = targetScore / 50;
     const interval = setInterval(() => {
         current += step;
-        if (current >= targetScore) {
-            current = targetScore;
-            clearInterval(interval);
-        }
-        
+        if (current >= targetScore) { current = targetScore; clearInterval(interval); }
         scoreText.textContent = Math.round(current);
-        const dasharray = `${current}, 100`;
-        scorePath.style.strokeDasharray = dasharray;
-
-        // Color coding
+        scorePath.style.strokeDasharray = `${current}, 100`;
         if (current >= 80) {
-            scorePath.style.stroke = 'var(--accent-success)';
+            scorePath.style.stroke = '#059669';
             scoreLabel.textContent = 'Broadcast Ready 🎙️';
+            scoreLabel.style.color = '#059669';
         } else if (current >= 50) {
-            scorePath.style.stroke = 'var(--accent-warning)';
+            scorePath.style.stroke = '#d97706';
             scoreLabel.textContent = 'Acceptable 👍';
+            scoreLabel.style.color = '#d97706';
         } else {
-            scorePath.style.stroke = 'var(--accent-danger)';
-            scoreLabel.textContent = 'Requires Attention ⚠️';
+            scorePath.style.stroke = '#dc2626';
+            scoreLabel.textContent = 'Needs Attention ⚠️';
+            scoreLabel.style.color = '#dc2626';
         }
-    }, frameGap);
+    }, 20);
 }
 
 function generateAIFeedback(score, noise, vol, clips, mode) {
-    let feedback = '';
-
+    let html = '';
     if (score >= 85) {
-        feedback += '<p><strong>Excellent setup!</strong> Your microphone output is crisp and clear.</p>';
-        if (mode === 'gaming') feedback += '<p>You are ready for competitive comms. Good latency and volume.</p>';
-        if (mode === 'podcast') feedback += '<p>Studio-quality floor noise detected. Ready for recording.</p>';
+        html += '<p>✅ <strong>Excellent setup!</strong> Your microphone output is crisp and clear.</p>';
+        if (mode === 'gaming') html += '<p>You are ready for competitive comms. Good latency and volume.</p>';
+        if (mode === 'podcast') html += '<p>Studio-quality floor noise detected. Ready to record.</p>';
     } else {
-        if (noise < 60) {
-            feedback += '<p>⚠️ Background noise detected. This may reduce audio clarity.</p>';
-        }
-        if (vol < 0.03) {
-            feedback += '<p>⚠️ Your mic sensitivity is low. Your voice may sound weak in meetings.</p>';
-        }
-        if (clips > 100) {
-            feedback += '<p>🛑 <strong>Audio clipping detected.</strong> You are speaking too loudly or the gain is too high, causing distortion.</p>';
-        }
-        if (mode === 'podcast') {
-            feedback += '<p>💡 <em>Podcast Tip:</em> Consider an acoustic shield or dynamic mic to isolate your voice better.</p>';
-        }
+        if (noise < 60) html += '<p>⚠️ Background noise detected. Try moving to a quieter room or use noise cancellation.</p>';
+        if (vol < 0.03) html += '<p>⚠️ Mic sensitivity is low. Increase your mic volume in system settings.</p>';
+        if (clips > 100) html += '<p>🛑 <strong>Clipping detected.</strong> Lower your mic gain to reduce distortion.</p>';
+        if (mode === 'podcast') html += '<p>💡 Consider an acoustic shield or dynamic mic for better voice isolation.</p>';
+        if (mode === 'meeting') html += '<p>💡 Enable noise cancellation in your Zoom/Teams settings for clearer calls.</p>';
     }
-
-    aiFeedback.innerHTML = feedback;
+    if (aiFeedback) aiFeedback.innerHTML = html || '<p>Test complete. Your mic is working.</p>';
 }
 
-// Generate WAV Blob
+// WAV Generation
 function generateAudioPlayback() {
-    // Flatten PCM arrays
     let totalLength = 0;
-    recordedPCM.forEach((arr) => totalLength += arr.length);
+    recordedPCM.forEach(arr => totalLength += arr.length);
     const flatData = new Float32Array(totalLength);
     let offset = 0;
-    recordedPCM.forEach((arr) => {
-        flatData.set(arr, offset);
-        offset += arr.length;
-    });
-
-    // Create WAV
+    recordedPCM.forEach(arr => { flatData.set(arr, offset); offset += arr.length; });
     const wavBlob = encodeWAV(flatData, currentSampleRate);
     const audioUrl = URL.createObjectURL(wavBlob);
-    
     audioPlayback.src = audioUrl;
-
-    // Download handler
     btnDownload.onclick = () => {
         const a = document.createElement('a');
         a.href = audioUrl;
-        a.download = `MicTestPro_Recording_${new Date().getTime()}.wav`;
+        a.download = `MicTest_${Date.now()}.wav`;
         a.click();
     };
 }
 
-// Standard WAV Encoder
 function encodeWAV(samples, sampleRate) {
     const buffer = new ArrayBuffer(44 + samples.length * 2);
     const view = new DataView(buffer);
-
-    // RIFF chunk descriptor
     writeString(view, 0, 'RIFF');
     view.setUint32(4, 36 + samples.length * 2, true);
     writeString(view, 8, 'WAVE');
-
-    // FMT sub-chunk
     writeString(view, 12, 'fmt ');
     view.setUint32(16, 16, true);
-    view.setUint16(20, 1, true); // PCM format
-    view.setUint16(22, 1, true); // Mono channel
+    view.setUint16(20, 1, true);
+    view.setUint16(22, 1, true);
     view.setUint32(24, sampleRate, true);
-    view.setUint32(28, sampleRate * 2, true); // Byte rate
-    view.setUint16(32, 2, true); // Block align
-    view.setUint16(34, 16, true); // Bits per sample
-
-    // Data sub-chunk
+    view.setUint32(28, sampleRate * 2, true);
+    view.setUint16(32, 2, true);
+    view.setUint16(34, 16, true);
     writeString(view, 36, 'data');
     view.setUint32(40, samples.length * 2, true);
-
-    // Write PCM samples
     floatTo16BitPCM(view, 44, samples);
-
     return new Blob([view], { type: 'audio/wav' });
 }
 
 function writeString(view, offset, string) {
-    for (let i = 0; i < string.length; i++) {
-        view.setUint8(offset + i, string.charCodeAt(i));
-    }
+    for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
 }
 
 function floatTo16BitPCM(view, offset, input) {
     for (let i = 0; i < input.length; i++, offset += 2) {
-        let s = Math.max(-1, Math.min(1, input[i]));
-        // 16-bit PCM scale
+        const s = Math.max(-1, Math.min(1, input[i]));
         view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
     }
 }
 
-
-
-// Boot
 init();
