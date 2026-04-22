@@ -91,6 +91,12 @@
             <div class="dashboard-grid">
                 
                 <!-- Main Score -->
+                <div id="locked-section" style="position:relative;">
+<div id="lock-overlay" style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;">
+<p style="color:white;font-size:18px;font-weight:600;margin-bottom:8px;">🔒 Unlock Your Full Mic Analysis</p>
+<p style="color:#aaa;font-size:14px;margin-bottom:16px;">Complete one free offer to see your Quality Score & Diagnostics</p>
+<button onclick="document.getElementById('lock-overlay').style.display='none'" style="background:#6c63ff;color:white;border:none;padding:12px 28px;border-radius:8px;font-size:15px;cursor:pointer;">Unlock Free Report →</button>
+</div>
                 <div class="card score-card">
                     <h3>Quality Score</h3>
                     <div class="score-circle">
@@ -147,6 +153,7 @@
                     </div>
                 </div>
             </div>
+                </div>
         </section>
 
 
