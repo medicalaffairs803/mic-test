@@ -282,7 +282,7 @@ audio { height: 38px; border-radius: 8px; }
 .color-avg { color: var(--warning) !important; }
 .color-poor { color: var(--danger) !important; }
 
-.ai-card { grid-column: 1 / -1; min-height: 280px; }
+.ai-card { grid-column: 1 / -1; min-height: 220px; overflow: visible; }
 .ai-content { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 1.1rem 1.25rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 1rem; color: var(--text); font-weight: 500; }
 .ai-content p { margin-bottom: 0.5rem; }
 .ai-content p:last-child { margin-bottom: 0; }
@@ -291,9 +291,9 @@ audio { height: 38px; border-radius: 8px; }
 .locked-card { overflow: hidden; }
 .blurred { filter: blur(5px); pointer-events: none; user-select: none; }
 
-.lock-overlay { position: absolute; inset: 0; background: rgba(240,239,235,0.95); display: flex; align-items: center; justify-content: center; z-index: 10; border-radius: var(--radius); padding: 1rem; overflow-y: auto; }
+.lock-overlay { position: absolute; inset: 0; background: rgba(240,239,235,0.95); display: flex; align-items: center; justify-content: center; z-index: 10; border-radius: var(--radius); }
 
-.lock-box { text-align: center; padding: 1rem 1.5rem; max-width: 320px; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+.lock-box { text-align: center; padding: 0.75rem 1.25rem; max-width: 100%; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); display: flex; flex-direction: column; align-items: center; gap: 0.3rem; width: 260px; }
 
 .lock-icon { width: 52px; height: 52px; background: var(--primary); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin: 0 auto 1rem; }
 
