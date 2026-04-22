@@ -316,6 +316,7 @@ audio { height: 38px; border-radius: 8px; }
 
 .info-section { padding: 0.5rem 0; }
 .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.info-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-color: var(--primary); }
 .info-card { background: var(--bg-card); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.75rem 1.5rem; text-align: center; box-shadow: var(--shadow); }
 .info-card i { font-size: 1.75rem; color: var(--primary); margin-bottom: 1rem; display: block; }
 .info-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.6rem; color: var(--text); }
