@@ -146,17 +146,14 @@
                         <p class="placeholder">Complete a test to generate personalized AI improvement strategies.</p>
                     </div>
                     <!-- Lock Overlay -->
-                    <div class="lock-overlay" id="aiLock">
-                        <div class="lock-box">
-                            <div class="lock-icon"><i class="fa-solid fa-robot"></i></div>
-                            <h3>AI Mic Improvement Tips</h3>
-                            <p>Personalized suggestions based on your mic data</p>
-                            <button class="unlock-btn" onclick="unlockSection('aiLock', 'aiCard')">
-                                <i class="fa-solid fa-unlock"></i> Unlock AI Report
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                  <div class="lock-overlay" id="aiLock" style="position:absolute;inset:0;background:rgba(240,239,235,0.95);display:flex;align-items:center;justify-content:center;z-index:10;border-radius:16px;">
+<div style="text-align:center;padding:1rem;display:flex;flex-direction:column;align-items:center;gap:0.4rem;">
+<div class="lock-icon"><i class="fa-solid fa-robot"></i></div>
+<h3 style="font-size:0.95rem;font-weight:800;color:#111;">AI Mic Improvement Tips</h3>
+<p style="font-size:0.78rem;color:#333;margin:0;">Personalized suggestions based on your mic data</p>
+<button class="unlock-btn" onclick="unlockSection('aiLock', 'aiCard')" style="margin-top:0.4rem;padding:0.5rem 1.2rem;font-size:0.82rem;"><i class="fa-solid fa-unlock"></i> Unlock AI Report</button>
+</div>
+</div>
 
             </div>
         </section>
