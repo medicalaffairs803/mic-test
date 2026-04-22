@@ -253,7 +253,7 @@ audio { height: 38px; border-radius: 8px; }
     overflow: hidden;
 }
 
-.blurred { filter: blur(6px); pointer-events: none; user-select: none; opacity: 0; }
+.blurred { filter: blur(6px); pointer-events: none; user-select: none; }
 
 .score-card { text-align: center; }
 .score-ring-wrap { margin: 0 auto 1rem; width: 120px; }
