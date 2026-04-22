@@ -4,177 +4,245 @@
     <meta name="google-site-verification" content="e1M61GxucSEzcZG6jb28C_7j1dWP_etgjM3ta77z3_M" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microphone Test Pro - Advanced Audio Analytics & Diagnostics</title>
-    <meta name="description" content="Test your microphone quality instantly. Professional-grade real-time audio analysis, latency checks, and waveform visualization. Free, fast, and private.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
+    <title>Mic Test Pro — Free Online Microphone Tester & Audio Diagnostics</title>
+    <meta name="description" content="Test your microphone instantly in your browser. Free mic test with real-time waveform, quality score, noise analysis, and AI suggestions. No download required.">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Top Navigation -->
+
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
-            <i class="fa-solid fa-microphone-lines"></i>
-            <span>MicTest <strong>PRO</strong></span>
+            <div class="logo-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+            <span>Mic<strong>Test</strong> <em>PRO</em></span>
         </div>
-        <div class="nav-actions">
-        </div>
+        <div class="nav-pill">Free Tool</div>
     </nav>
 
-    <!-- Main App Container -->
-    <main class="app-container">
-        
-        <!-- Tool Header & Selection -->
-        <header class="tool-header">
-            <div class="input-group">
-                <label for="micSelect">Select Microphone</label>
-                <div class="select-wrapper">
-                    <select id="micSelect">
-                        <option value="">Loading devices...</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="input-group">
-                <label for="modeSelect">Optimization Mode</label>
-                <div class="select-wrapper mode-select">
-                    <select id="modeSelect">
-                        <option value="balanced">🎙️ Balanced (Default)</option>
-                        <option value="gaming">🎮 Gaming (Low Latency)</option>
-                        <option value="meeting">💼 Meeting (Voice Clarity)</option>
-                        <option value="podcast">📻 Podcast (Studio Quality)</option>
-                    </select>
-                </div>
-                <div id="modeDescription" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Select a mode based on your use case</div>
-            </div>
-        </header>
+    <main class="app">
 
-        <!-- Dynamic Visualization Area -->
-        <section class="visualizer-section">
-            <div class="canvas-container">
-                <canvas id="waveformCanvas"></canvas>
-                <div id="recordingPulse" class="record-pulse hidden">REC</div>
+        <!-- Hero -->
+        <section class="hero">
+            <h1>Test Your Microphone <span class="highlight">Instantly</span></h1>
+            <p class="hero-sub">Real-time waveform · Quality score · AI diagnostics · No download needed</p>
+        </section>
+
+        <!-- Tool Card -->
+        <div class="tool-card">
+
+            <!-- Selects -->
+            <div class="selects-row">
+                <div class="field">
+                    <label>Microphone</label>
+                    <div class="select-wrap">
+                        <select id="micSelect"><option>Loading devices...</option></select>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Mode</label>
+                    <div class="select-wrap">
+                        <select id="modeSelect">
+                            <option value="balanced">🎙️ Balanced</option>
+                            <option value="gaming">🎮 Gaming</option>
+                            <option value="meeting">💼 Meeting</option>
+                            <option value="podcast">📻 Podcast</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <p id="modeDescription" class="field-hint">Select a mode based on your use case</p>
+                </div>
             </div>
-            
-            <div class="volume-meter-container">
-                <div class="volume-label">Input Level</div>
-                <div class="meter-bar">
+
+            <!-- Visualizer -->
+            <div class="visualizer">
+                <canvas id="waveformCanvas"></canvas>
+                <div id="recordingPulse" class="rec-badge hidden">● REC</div>
+                <div class="vis-placeholder" id="visPlaceholder">
+                    <i class="fa-solid fa-microphone"></i>
+                    <span>Click Start Test to begin</span>
+                </div>
+            </div>
+
+            <!-- Volume Meter -->
+            <div class="meter-row">
+                <span class="meter-label">Input Level</span>
+                <div class="meter-track">
                     <div id="volumeFill" class="meter-fill"></div>
-                    <div class="meter-marks">
-                        <span>-40</span>
-                        <span>-24</span>
-                        <span>-12</span>
-                        <span>0dB</span>
+                    <div class="meter-ticks">
+                        <span>-40</span><span>-24</span><span>-12</span><span>0dB</span>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Main Controls -->
-        <section class="controls-section">
-            <button id="btnStartStop" class="btn-massive btn-start">
-                <i class="fa-solid fa-microphone"></i>
-                <span id="startStopText">Start Test</span>
-            </button>
-            <div class="playback-controls hidden" id="playbackControls">
+            <!-- Controls -->
+            <div class="controls">
+                <button id="btnStartStop" class="btn-main btn-start">
+                    <i class="fa-solid fa-microphone"></i>
+                    <span id="startStopText">Start Test</span>
+                </button>
+                <div class="timer-wrap">
+                    <span id="recordingTimer" class="timer">00:00</span>
+                </div>
+            </div>
+
+            <!-- Playback -->
+            <div class="playback hidden" id="playbackControls">
                 <audio id="audioPlayback" controls></audio>
-                <button id="btnDownload" class="btn-secondary">
+                <button id="btnDownload" class="btn-outline">
                     <i class="fa-solid fa-download"></i> Download WAV
                 </button>
             </div>
-            <div id="recordingTimer" class="timer">00:00</div>
-        </section>
 
-        <!-- Results Dashboard (Hidden until tested) -->
-        <section class="results-dashboard" id="resultsSection">
-            <div class="dashboard-grid">
-                
-                <!-- Main Score -->
-               style="position:relative;width:100%;display:flex;gap:24px;align-items:stretch;"
-<div id="lock-overlay" style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;">
-<p style="color:white;font-size:18px;font-weight:600;margin-bottom:8px;">🔒 Unlock Your Full Mic Analysis</p>
-<p style="color:#aaa;font-size:14px;margin-bottom:16px;">Complete one free offer to see your Quality Score & Diagnostics</p>
-<button onclick="document.getElementById('lock-overlay').style.display='none'" style="background:#6c63ff;color:white;border:none;padding:12px 28px;border-radius:8px;font-size:15px;cursor:pointer;">Unlock Free Report →</button>
-</div>
+        </div>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection">
+
+            <!-- Free: Score Card -->
+            <div class="results-grid">
+
                 <div class="card score-card">
-                    <h3>Quality Score</h3>
-                    <div class="score-circle">
-                        <svg viewBox="0 0 36 36" class="circular-chart">
-                            <path class="circle-bg"
-                            d="M18 2.0845
-                                a 15.9155 15.9155 0 0 1 0 31.831
-                                a 15.9155 15.9155 0 0 1 0 -31.831"
-                            />
-                            <path class="circle" id="scorePath"
-                            stroke-dasharray="0, 100"
-                            d="M18 2.0845
-                                a 15.9155 15.9155 0 0 1 0 31.831
-                                a 15.9155 15.9155 0 0 1 0 -31.831"
-                            />
-                            <text x="18" y="20.35" class="percentage" id="scoreText">--</text>
+                    <div class="card-label">Quality Score</div>
+                    <div class="score-ring-wrap">
+                        <svg viewBox="0 0 36 36" class="score-ring">
+                            <path class="ring-bg" d="M18 2.0845 a15.9155 15.9155 0 0 1 0 31.831 a15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path class="ring-fill" id="scorePath" stroke-dasharray="0,100" d="M18 2.0845 a15.9155 15.9155 0 0 1 0 31.831 a15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <text x="18" y="20.35" class="ring-text" id="scoreText">--</text>
                         </svg>
                     </div>
-                    <div class="score-label" id="scoreLabel">Testing required</div>
+                    <div class="score-status" id="scoreLabel">Run a test first</div>
                 </div>
 
-                <!-- Detailed Metrics -->
-                <div class="card metrics-card">
-                    <h3>Advanced Diagnostics</h3>
-                    <ul class="metrics-list">
-                        <li>
-                            <span class="metric-name"><i class="fa-solid fa-wave-square"></i> Background Noise</span>
-                            <span class="metric-value indicator-yellow" id="metricNoise">--</span>
-                        </li>
-                        <li>
-                            <span class="metric-name"><i class="fa-solid fa-stopwatch"></i> System Latency</span>
-                            <span class="metric-value" id="metricLatency">--</span>
-                        </li>
-                        <li>
-                            <span class="metric-name"><i class="fa-solid fa-tower-broadcast"></i> Gain / Sensitivity</span>
-                            <span class="metric-value" id="metricGain">--</span>
-                        </li>
-                        <li>
-                            <span class="metric-name"><i class="fa-solid fa-microchip"></i> Sample Rate</span>
-                            <span class="metric-value" id="metricSampleRate">--</span>
-                        </li>
-                        <li>
-                            <span class="metric-name"><i class="fa-solid fa-shield-halved"></i> Echo Cancellation</span>
-                            <span class="metric-value" id="metricEcho">--</span>
-                        </li>
+                <!-- LOCKED: Advanced Diagnostics -->
+                <div class="card locked-card" id="diagnosticsCard">
+                    <div class="card-label">Advanced Diagnostics</div>
+                    <ul class="metrics-list blurred">
+                        <li><span><i class="fa-solid fa-wave-square"></i> Background Noise</span><span id="metricNoise">--</span></li>
+                        <li><span><i class="fa-solid fa-stopwatch"></i> System Latency</span><span id="metricLatency">--</span></li>
+                        <li><span><i class="fa-solid fa-tower-broadcast"></i> Gain / Sensitivity</span><span id="metricGain">--</span></li>
+                        <li><span><i class="fa-solid fa-microchip"></i> Sample Rate</span><span id="metricSampleRate">--</span></li>
+                        <li><span><i class="fa-solid fa-shield-halved"></i> Echo Cancellation</span><span id="metricEcho">--</span></li>
                     </ul>
-                </div>
-
-                <!-- AI Feedback -->
-                <div class="card ai-card">
-                    <h3><i class="fa-solid fa-robot"></i> AI Suggestions</h3>
-                    <div class="ai-feedback-content" id="aiFeedback">
-                        <p class="placeholder-text">Run a full test to generate personalized AI improvement strategies.</p>
+                    <!-- Lock Overlay -->
+                    <div class="lock-overlay" id="diagLock">
+                        <div class="lock-box">
+                            <div class="lock-icon"><i class="fa-solid fa-lock"></i></div>
+                            <h3>Full Diagnostics Report</h3>
+                            <p>Noise level · Latency · Gain · Echo data</p>
+                            <button class="unlock-btn" onclick="unlockSection('diagLock', 'diagnosticsCard')">
+                                <i class="fa-solid fa-unlock"></i> Unlock Free Report
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- LOCKED: AI Suggestions -->
+                <div class="card ai-card locked-card" id="aiCard">
+                    <div class="card-label"><i class="fa-solid fa-robot"></i> AI Suggestions</div>
+                    <div class="ai-content blurred" id="aiFeedback">
+                        <p class="placeholder">Complete a test to generate personalized AI improvement strategies.</p>
+                    </div>
+                    <!-- Lock Overlay -->
+                    <div class="lock-overlay" id="aiLock">
+                        <div class="lock-box">
+                            <div class="lock-icon"><i class="fa-solid fa-robot"></i></div>
+                            <h3>AI Mic Improvement Tips</h3>
+                            <p>Personalized suggestions based on your mic data</p>
+                            <button class="unlock-btn" onclick="unlockSection('aiLock', 'aiCard')">
+                                <i class="fa-solid fa-unlock"></i> Unlock AI Report
+                            </button>
+                        </div>
+                    </div>
                 </div>
+
+            </div>
         </section>
 
+        <!-- Mic Recommendations (Free - Affiliate) -->
+        <section class="rec-section" id="recSection" style="display:none;">
+            <div class="rec-header">
+                <h2>Upgrade Your Setup 🚀</h2>
+                <p>Based on your test results, these mics will improve your audio quality</p>
+            </div>
+            <div class="rec-grid">
+                <div class="rec-card">
+                    <div class="rec-icon">🎙️</div>
+                    <div class="rec-name">Shure SM7B</div>
+                    <div class="rec-desc">Industry standard for podcasting & broadcasting. Exceptional voice clarity.</div>
+                    <a href="https://amzn.to/3ShureSM7B" target="_blank" class="rec-btn">Check Price →</a>
+                </div>
+                <div class="rec-card featured">
+                    <div class="rec-badge-top">Most Popular</div>
+                    <div class="rec-icon">🎧</div>
+                    <div class="rec-name">HyperX QuadCast</div>
+                    <div class="rec-desc">Best USB mic for gaming & streaming. Plug-and-play with tap-to-mute.</div>
+                    <a href="https://amzn.to/3HyperXQ" target="_blank" class="rec-btn">Check Price →</a>
+                </div>
+                <div class="rec-card">
+                    <div class="rec-icon">🔵</div>
+                    <div class="rec-name">Blue Yeti USB</div>
+                    <div class="rec-desc">Versatile USB mic for streaming, podcasting & remote work.</div>
+                    <a href="https://amzn.to/3BlueYeti" target="_blank" class="rec-btn">Check Price →</a>
+                </div>
+            </div>
+        </section>
 
+        <!-- Info Section (SEO) -->
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Instant Results</h3>
+                    <p>No sign-up, no download. Test your mic directly in Chrome, Firefox, or Edge in seconds.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-shield"></i>
+                    <h3>100% Private</h3>
+                    <p>All audio processing happens in your browser. Nothing is recorded or sent to any server.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Professional Grade</h3>
+                    <p>Real-time waveform analysis, latency measurement, noise floor detection and more.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ (SEO) -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How do I test my microphone online?</summary>
+                    <p>Click "Start Test", allow microphone access when your browser asks, then speak into your mic. The waveform will move if your mic is working. You'll get a quality score after stopping the test.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Why is my mic not working?</summary>
+                    <p>Check browser permissions — look for a mic icon in your address bar and make sure it's allowed. Also check that your mic isn't muted in Windows or Mac system settings.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Is this mic test free?</summary>
+                    <p>Yes, the basic mic test is completely free. Advanced diagnostics and AI suggestions require completing a free offer to unlock.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Which browsers work with this mic tester?</summary>
+                    <p>Chrome and Edge work best. Firefox also works well. Safari has limited support. Internet Explorer is not supported.</p>
+                </details>
+            </div>
+        </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 MicTest PRO. All rights reserved.</p>
-            <div class="faq-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact</a>
-            </div>
-        </div>
+    <!-- CPA Locker Script -->
+    <!-- PASTE YOUR CPAGRIP CODE HERE -->
+
+    <footer class="footer">
+        <p>© 2026 MicTest PRO · <a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Contact</a></p>
     </footer>
 
-
-
     <script src="script.js"></script>
-</body> 
+</body>
 </html>
-   
