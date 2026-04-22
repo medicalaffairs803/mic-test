@@ -3,7 +3,7 @@
     --bg-card: #ffffff;
     --bg-card2: #e8e7e3;
     --text: #111111;
-    --text-muted: #333344;
+   #1a1a2e
     --text-light: #555566;
     --primary: #1d4ed8;
     --primary-light: #dbeafe;
@@ -308,7 +308,7 @@ audio { height: 38px; border-radius: 8px; }
 .lock-icon { width: 52px; height: 52px; background: var(--primary); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin: 0 auto 1rem; }
 
 .lock-box h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text); }
-.lock-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.6; font-weight: 600; }
+.lock-box p { font-size: 0.9rem; color: #111111; margin-bottom: 1.25rem; line-height: 1.6; font-weight: 600; }
 
 .unlock-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 50px; font-family: inherit; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
 .unlock-btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
