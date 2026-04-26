@@ -367,3 +367,11 @@ function floatTo16BitPCM(view, offset, input) {
 }
 
 init();
+function showLocker() {
+    document.getElementById('diagLock').style.display = 'none';
+    document.getElementById('aiLock').style.display = 'none';
+    var d = document.querySelector('#diagnosticsCard .blurred');
+    var a = document.querySelector('#aiCard .blurred');
+    if(d) d.classList.remove('blurred');
+    if(a) a.classList.remove('blurred');
+}
