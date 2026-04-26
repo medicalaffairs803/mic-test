@@ -369,10 +369,12 @@ function floatTo16BitPCM(view, offset, input) {
 init();
 function showLocker(section) {
     if(section === 'diag') {
-        document.getElementById('diagLock').style.display = 'none';
-        var d = document.querySelector('#diagnosticsCard .blurred');
-        if(d) d.classList.remove('blurred');
+        document.getElementById('diagLockerDiv').style.display = 'block';
     }
+    if(section === 'ai') {
+        document.getElementById('aiLockerDiv').style.display = 'block';
+    }
+}
     if(section === 'ai') {
         document.getElementById('aiLock').style.display = 'none';
         var a = document.querySelector('#aiCard .blurred');
