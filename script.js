@@ -367,11 +367,15 @@ function floatTo16BitPCM(view, offset, input) {
 }
 
 init();
-function showLocker() {
-    document.getElementById('diagLock').style.display = 'none';
-    document.getElementById('aiLock').style.display = 'none';
-    var d = document.querySelector('#diagnosticsCard .blurred');
-    var a = document.querySelector('#aiCard .blurred');
-    if(d) d.classList.remove('blurred');
-    if(a) a.classList.remove('blurred');
+function showLocker(section) {
+    if(section === 'diag') {
+        document.getElementById('diagLock').style.display = 'none';
+        var d = document.querySelector('#diagnosticsCard .blurred');
+        if(d) d.classList.remove('blurred');
+    }
+    if(section === 'ai') {
+        document.getElementById('aiLock').style.display = 'none';
+        var a = document.querySelector('#aiCard .blurred');
+        if(a) a.classList.remove('blurred');
+    }
 }
