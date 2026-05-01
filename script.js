@@ -84,7 +84,7 @@ function setupCanvas() {
 // Get Microphones
 async function getMicrophones() {
     try {
-        await navigator.mediaDevices.getUserMedia({ audio: true });
+       try { await navigator.mediaDevices.getUserMedia({ audio: true }); } catch(e) { console.log('mic:', e); }
         const devices = await navigator.mediaDevices.enumerateDevices();
         const mics = devices.filter(d => d.kind === 'audioinput');
         micSelect.innerHTML = '';
