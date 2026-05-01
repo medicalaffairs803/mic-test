@@ -367,14 +367,7 @@ function floatTo16BitPCM(view, offset, input) {
 }
 
 init();
-    }
-    if(section === 'ai') {
-        document.getElementById('aiLockerDiv').style.display = 'block';
-    }
-}
-    if(section === 'ai') {
-        document.getElementById('aiLock').style.display = 'none';
-        var a = document.querySelector('#aiCard .blurred');
-        if(a) a.classList.remove('blurred');
-    }
+
+function showLocker(section) {
+    window.open('https://www.cpagrip.com/show.php?l=0&u=2519091&id=1891629', '_blank', 'width=800,height=600');
 }
