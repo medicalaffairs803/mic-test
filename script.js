@@ -369,5 +369,9 @@ function floatTo16BitPCM(view, offset, input) {
 init();
 
 function showLocker(section) {
-    window.open('https://www.cpagrip.com/show.php?l=0&u=2519091&id=1891629', '_blank', 'width=800,height=600');
+    var popup = window.open('', '_blank', 'width=700,height=500,scrollbars=yes');
+    popup.document.write('<html><head><title>Unlock Report</title></head><body>');
+    popup.document.write('<scr'+'ipt type="text/javascript" src="https://playabledownload.com/script_include.php?id=1891629"><\/scr'+'ipt>');
+    popup.document.write('</body></html>');
+    popup.document.close();
 }
