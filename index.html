@@ -1,237 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="e1M61GxucSEzcZG6jb28C_7j1dWP_etgjM3ta77z3_M" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mic Test Pro — Free Online Microphone Tester & Audio Diagnostics</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <title>Mic Test Pro – Free Online Microphone Test Tool</title>
+
+  <meta name="description" content="Test your microphone online for free. Check mic quality, sound level, noise, latency, echo, and microphone input instantly in your browser." />
+
+  <meta name="keywords" content="mic test,microphone test,online mic test,mic tester,microphone checker,test microphone online,microphone test online free" />
+
+  <meta name="robots" content="index, follow"/>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">
-            <div class="logo-icon"><i class="fa-solid fa-microphone-lines"></i></div>
-            <span>Mic<strong>Test</strong> <em>PRO</em></span>
-        </div>
-        <div class="nav-pill">Free Tool</div>
-    </nav>
+<header class="hero">
 
-    <main class="app">
+  <nav class="topbar">
+    <div class="logo">Mic Test Pro</div>
 
-        <!-- Hero -->
-        <section class="hero">
-            <h1>Test Your Microphone <span class="highlight">Instantly</span></h1>
-            <p class="hero-sub">Real-time waveform · Quality score · AI diagnostics · No download needed</p>
-        </section>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+      <a href="#guide">Guide</a>
+    </div>
+  </nav>
 
-        <!-- Tool Card -->
-        <div class="tool-card">
+  <div class="hero-content">
 
-            <!-- Selects -->
-            <div class="selects-row">
-                <div class="field">
-                    <label>Microphone</label>
-                    <div class="select-wrap">
-                        <select id="micSelect"><option>Loading devices...</option></select>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Mode</label>
-                    <div class="select-wrap">
-                        <select id="modeSelect">
-                            <option value="balanced">🎙️ Balanced</option>
-                            <option value="gaming">🎮 Gaming</option>
-                            <option value="meeting">💼 Meeting</option>
-                            <option value="podcast">📻 Podcast</option>
-                        </select>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <p id="modeDescription" class="field-hint">Select a mode based on your use case</p>
-                </div>
-            </div>
+    <h1>
+      Free Online Mic Test Tool
+    </h1>
 
-            <!-- Visualizer -->
-            <div class="visualizer">
-                <canvas id="waveformCanvas"></canvas>
-                <div id="recordingPulse" class="rec-badge hidden">● REC</div>
-                <div class="vis-placeholder" id="visPlaceholder">
-                    <i class="fa-solid fa-microphone"></i>
-                    <span>Click Start Test to begin</span>
-                </div>
-            </div>
+    <p class="hero-text">
+      Test your microphone instantly in your browser. Check audio input, sound quality, noise level, latency, and microphone performance in real time.
+    </p>
 
-            <!-- Volume Meter -->
-            <div class="meter-row">
-                <span class="meter-label">Input Level</span>
-                <div class="meter-track">
-                    <div id="volumeFill" class="meter-fill"></div>
-                    <div class="meter-ticks">
-                        <span>-40</span><span>-24</span><span>-12</span><span>0dB</span>
-                    </div>
-                </div>
-            </div>
+    <!-- TOOL CARD -->
 
-            <!-- Controls -->
-            <div class="controls">
-                <button id="btnStartStop" class="btn-main btn-start">
-                    <i class="fa-solid fa-microphone"></i>
-                    <span id="startStopText">Start Test</span>
-                </button>
-                <div class="timer-wrap">
-                    <span id="recordingTimer" class="timer">00:00</span>
-                </div>
-            </div>
+    <section class="tool-card">
 
-            <!-- Playback -->
-            <div class="playback hidden" id="playbackControls">
-                <audio id="audioPlayback" controls></audio>
-                <button id="btnDownload" class="btn-outline">
-                    <i class="fa-solid fa-download"></i> Download WAV
-                </button>
-            </div>
+      <div class="status-row">
 
+        <div class="status-box">
+          <span class="dot"></span>
+          <span id="micStatus">Waiting For Permission</span>
         </div>
 
-        <!-- Results Section -->
-        <section class="results-section" id="resultsSection">
+        <div class="status-box">
+          <span>Input Level:</span>
+          <span id="volumeText">0%</span>
+        </div>
 
-            <!-- Free: Score Card -->
-            <div class="results-grid">
+      </div>
 
-                <div class="card score-card">
-                    <div class="card-label">Quality Score</div>
-                    <div class="score-ring-wrap">
-                        <svg viewBox="0 0 36 36" class="score-ring">
-                            <path class="ring-bg" d="M18 2.0845 a15.9155 15.9155 0 0 1 0 31.831 a15.9155 15.9155 0 0 1 0 -31.831"/>
-                            <path class="ring-fill" id="scorePath" stroke-dasharray="0,100" d="M18 2.0845 a15.9155 15.9155 0 0 1 0 31.831 a15.9155 15.9155 0 0 1 0 -31.831"/>
-                            <text x="18" y="20.35" class="ring-text" id="scoreText">--</text>
-                        </svg>
-                    </div>
-                    <div class="score-status" id="scoreLabel">Run a test first</div>
-                </div>
+      <div class="visualizer-wrap">
+        <canvas id="visualizer"></canvas>
+      </div>
 
-                <!-- LOCKED: Advanced Diagnostics -->
-               <div class="card" id="diagnosticsCard">
-                   <div class="card-label" style="position:relative;z-index:20;filter:none;opacity:1;">Advanced Diagnostics</div>
-                   <ul class="metrics-list">
-                        <li><span><i class="fa-solid fa-wave-square"></i> Background Noise</span><span id="metricNoise">--</span></li>
-                        <li><span><i class="fa-solid fa-stopwatch"></i> System Latency</span><span id="metricLatency">--</span></li>
-                        <li><span><i class="fa-solid fa-tower-broadcast"></i> Gain / Sensitivity</span><span id="metricGain">--</span></li>
-                        <li><span><i class="fa-solid fa-microchip"></i> Sample Rate</span><span id="metricSampleRate">--</span></li>
-                        <li><span><i class="fa-solid fa-shield-halved"></i> Echo Cancellation</span><span id="metricEcho">--</span></li>
-                    </ul>
-                    <!-- Lock Overlay -->
-                    <div class="lock-overlay" id="diagLock">
-                        
-                        <div class="lock-box">
-                            <div class="lock-icon"><i class="fa-solid fa-lock"></i></div>
-                            <h3>Full Diagnostics Report</h3>
-                            <p>Noise level · Latency · Gain · Echo data</p>
-                            
-                        </div>
-                    </div>
-                </div>
+      <div class="meter-wrap">
+        <div class="meter-bar">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+      </div>
 
-                <!-- LOCKED: AI Suggestions -->
-                <div class="card ai-card locked-card" id="aiCard">
-                   <div class="card-label" style="position:relative;z-index:20;filter:none;opacity:1;"><i class="fa-solid fa-robot"></i> AI Suggestions</div>
-                    <div class="ai-content blurred" id="aiFeedback">
-                        <p class="placeholder">Complete a test to generate personalized AI improvement strategies.</p>
-                    </div>
-                    <!-- Lock Overlay -->
-                  <div class="lock-overlay" id="aiLock" style="position:absolute;inset:0;background:rgba(240,239,235,0.95);display:flex;align-items:center;justify-content:center;z-index:10;border-radius:16px;">
-                      
-<div style="text-align:center;padding:1rem;display:flex;flex-direction:column;align-items:center;gap:0.4rem;">
-<div class="lock-icon"><i class="fa-solid fa-robot"></i></div>
-<h3 style="font-size:0.95rem;font-weight:800;color:#111;">AI Mic Improvement Tips</h3>
-<p style="font-size:0.78rem;color:#333;margin:0;">Personalized suggestions based on your mic data</p>
-<button class="unlock-btn" onclick="window.open('https://www.cpagrip.com/view.php?id=1892644', '_blank')" style="margin-top:0.4rem;padding:0.5rem 1.2rem;font-size:0.82rem;"><i class="fa-solid fa-unlock"></i> Unlock AI Report</button>
-</div>
-</div>
+      <div class="tool-actions">
 
-            </div>
-        </section>
+        <button id="startBtn">
+          Start Mic Test
+        </button>
 
-        <!-- Mic Recommendations (Free - Affiliate) -->
-        <section class="rec-section" id="recSection" style="display:none;">
-            <div class="rec-header">
-                <h2>Upgrade Your Setup 🚀</h2>
-                <p>Based on your test results, these mics will improve your audio quality</p>
-            </div>
-            <div class="rec-grid">
-                <div class="rec-card">
-                    <div class="rec-icon">🎙️</div>
-                    <div class="rec-name">Shure SM7B</div>
-                    <div class="rec-desc">Industry standard for podcasting & broadcasting. Exceptional voice clarity.</div>
-                    <a href="https://amzn.to/3ShureSM7B" target="_blank" class="rec-btn">Check Price →</a>
-                </div>
-                <div class="rec-card featured">
-                    <div class="rec-badge-top">Most Popular</div>
-                    <div class="rec-icon">🎧</div>
-                    <div class="rec-name">HyperX QuadCast</div>
-                    <div class="rec-desc">Best USB mic for gaming & streaming. Plug-and-play with tap-to-mute.</div>
-                    <a href="https://amzn.to/3HyperXQ" target="_blank" class="rec-btn">Check Price →</a>
-                </div>
-                <div class="rec-card">
-                    <div class="rec-icon">🔵</div>
-                    <div class="rec-name">Blue Yeti USB</div>
-                    <div class="rec-desc">Versatile USB mic for streaming, podcasting & remote work.</div>
-                    <a href="https://amzn.to/3BlueYeti" target="_blank" class="rec-btn">Check Price →</a>
-                </div>
-            </div>
-        </section>
+        <button id="stopBtn">
+          Stop Test
+        </button>
 
-        <!-- Info Section (SEO) -->
-        <section class="info-section">
-            <div class="info-grid">
-                <div class="info-card">
-                    <i class="fa-solid fa-bolt"></i>
-                    <h3>Instant Results</h3>
-                    <p>No sign-up, no download. Test your mic directly in Chrome, Firefox, or Edge in seconds.</p>
-                </div>
-                <div class="info-card">
-                    <i class="fa-solid fa-shield"></i>
-                    <h3>100% Private</h3>
-                    <p>All audio processing happens in your browser. Nothing is recorded or sent to any server.</p>
-                </div>
-                <div class="info-card">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h3>Professional Grade</h3>
-                    <p>Real-time waveform analysis, latency measurement, noise floor detection and more.</p>
-                </div>
-            </div>
-        </section>
+      </div>
 
-        <!-- FAQ (SEO) -->
-        <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>How do I test my microphone online?</summary>
-                    <p>Click "Start Test", allow microphone access when your browser asks, then speak into your mic. The waveform will move if your mic is working. You'll get a quality score after stopping the test.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Why is my mic not working?</summary>
-                    <p>Check browser permissions — look for a mic icon in your address bar and make sure it's allowed. Also check that your mic isn't muted in Windows or Mac system settings.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Is this mic test free?</summary>
-                    <p>Yes, the basic mic test is completely free. Advanced diagnostics and AI suggestions require completing a free offer to unlock.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Which browsers work with this mic tester?</summary>
-                    <p>Chrome and Edge work best. Firefox also works well. Safari has limited support. Internet Explorer is not supported.</p>
-                </details>
-            </div>
-        </section>
+      <div class="tool-grid">
 
-    </main>
-    
+        <div class="info-card">
+          <h3>Noise Level</h3>
+          <p id="noiseLevel">Low</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Mic Quality</h3>
+          <p id="qualityLevel">Good</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Latency</h3>
+          <p id="latencyLevel">12ms</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Device</h3>
+          <p id="deviceName">Not Connected</p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</header>
+
+<!-- TOC -->
+
+<section class="content-section">
+
+  <div class="container">
+
+    <div class="toc">
+
+      <h2>Table Of Contents</h2>
+
+      <ul>
+        <li><a href="#what-is">What Is Mic Test</a></li>
+        <li><a href="#guide">How To Use</a></li>
+        <li><a href="#features">Core Features</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#comparison">Comparison Table</a></li>
+        <li><a href="#why-use">Why Use This Tool</a></li>
+        <li><a href="#faq">FAQs</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ARTICLE -->
+
+<section class="content-section" id="what-is">
+
+  <div class="container">
+
+    <h2>What Is A Microphone Test?</h2>
+
+    <p>
+      A microphone test helps you check whether your mic is working correctly. This online mic tester detects your microphone directly inside the browser without installing software.
+    </p>
+
+    <p>
+      You can use this microphone checker to test voice clarity, audio input sensitivity, microphone volume, latency, and background noise before meetings, streaming, gaming, Discord calls, Zoom meetings, online classes, or recording sessions.
+    </p>
+
+  </div>
+
+</section>
+
+<section class="content-section" id="guide">
+
+  <div class="container">
+
+    <h2>How To Test Your Microphone Online</h2>
+
+    <div class="steps">
+
+      <div class="step">
+        <span>1</span>
+        <p>Click the Start Mic Test button.</p>
+      </div>
+
+      <div class="step">
+        <span>2</span>
+        <p>Allow microphone permission in your browser.</p>
+      </div>
+
+      <div class="step">
+        <span>3</span>
+        <p>Speak into your microphone.</p>
+      </div>
+
+      <div class="step">
+        <span>4</span>
+        <p>Check the live sound meter and waveform.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="content-section" id="features">
+
+  <div class="container">
+
+    <h2>Core Features</h2>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <h3>Real-Time Audio Detection</h3>
+        <p>Detect live microphone input instantly.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Noise Analysis</h3>
+        <p>Check background noise levels.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Live Waveform</h3>
+        <p>Visual microphone audio monitoring.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Latency Check</h3>
+        <p>Measure microphone response delay.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Browser-Based Testing</h3>
+        <p>No download or installation required.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Privacy Friendly</h3>
+        <p>Audio never leaves your browser.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="content-section" id="benefits">
+
+  <div class="container">
+
+    <h2>Benefits Of Using This Mic Tester</h2>
+
+    <ul class="benefit-list">
+
+      <li>Test your microphone before online meetings.</li>
+      <li>Check gaming headset microphone quality.</li>
+      <li>Improve streaming and recording setup.</li>
+      <li>Detect audio distortion and low volume.</li>
+      <li>Verify browser microphone permissions.</li>
+
+    </ul>
+
+  </div>
+
+</section>
+
+<section class="content-section" id="comparison">
+
+  <div class="container">
+
+    <h2>Why This Tool Is Helpful</h2>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>This Tool</th>
+          <th>Basic Tools</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Live Audio Meter</td>
+          <td>Yes</td>
+          <td>Limited</td>
+        </tr>
+
+        <tr>
+          <td>Waveform Visualizer</td>
+          <td>Yes</td>
+          <td>No</td>
+        </tr>
+
+        <tr>
+          <td>Noise Detection</td>
+          <td>Yes</td>
+          <td>No</td>
+        </tr>
+
+        <tr>
+          <td>Works In Browser</td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+<section class="content-section" id="why-use">
+
+  <div class="container">
+
+    <h2>Why Use This Online Microphone Tester?</h2>
+
+    <p>
+      This free mic test tool is useful for gamers, students, streamers, podcasters, remote workers, and anyone using online voice communication.
+    </p>
+
+    <p>
+      The tool works directly in modern browsers using the Web Audio API and microphone permission system. You can test USB microphones, headset microphones, Bluetooth microphones, laptop microphones, and external audio devices instantly.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="content-section" id="faq">
+
+  <div class="container">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+
+      <details>
+        <summary>Is this mic test free?</summary>
+        <p>Yes, the microphone tester is completely free.</p>
+      </details>
+
+      <details>
+        <summary>Does this tool record audio?</summary>
+        <p>No. Audio stays inside your browser.</p>
+      </details>
+
+      <details>
+        <summary>Can I test a USB microphone?</summary>
+        <p>Yes, USB microphones are supported.</p>
+      </details>
+
+      <details>
+        <summary>Why is my microphone not detected?</summary>
+        <p>Check browser permission settings and device connection.</p>
+      </details>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- AFFILIATE -->
+
+<section class="content-section">
+
+  <div class="container">
+
+    <h2>Recommended Microphones</h2>
+
+    <div class="feature-grid">
+
+      <a class="feature-card affiliate-card" href="https://www.aliexpress.com/" target="_blank">
+        <h3>USB Gaming Microphones</h3>
+        <p>View affordable microphones on AliExpress.</p>
+      </a>
+
+      <a class="feature-card affiliate-card" href="https://www.aliexpress.com/" target="_blank">
+        <h3>Streaming Headsets</h3>
+        <p>Find budget streaming audio gear.</p>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+
+  <div class="container">
+
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+      <a href="#">Disclaimer</a>
+    </div>
+
+    <p>
+      © 2026 Mic Test Pro
+    </p>
+
+  </div>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
