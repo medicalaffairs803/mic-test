@@ -661,6 +661,15 @@ padding: 5px 20px;
   rgba(59,130,246,.4);
 
 }
+.step-card:hover{
+
+transform:
+translateY(-4px);
+
+border-color:
+rgba(59,130,246,.4);
+
+}
 
 .feature-card h3{
 
