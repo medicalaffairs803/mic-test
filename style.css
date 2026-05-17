@@ -661,6 +661,11 @@ padding: 5px 20px;
   rgba(59,130,246,.4);
 
 }
+.step-card{
+
+transition: .3s;
+
+}
 .step-card:hover{
 
 transform:
