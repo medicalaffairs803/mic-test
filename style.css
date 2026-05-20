@@ -67,7 +67,7 @@ body{
 
 .hero{
 
-  min-height:100vh;
+ min-height: auto;
 
   background:
   radial-gradient(
