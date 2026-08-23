@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Mic Test For Discord – Check Your Mic Before A Voice Channel</title>
+
+  <meta name="description" content="Free mic test for Discord. Check your microphone input, noise level, and quality before joining a Discord voice channel, no download needed." />
+  <meta name="keywords" content="mic test for discord, discord microphone test, discord mic not working" />
+  <meta name="robots" content="index, follow"/>
+
+  <link rel="canonical" href="https://medicalaffairs803.github.io/mic-test/mic-test-for-discord.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Mic Test For Discord – Check Your Mic Before A Voice Channel"/>
+  <meta property="og:description" content="Check your microphone works before jumping into a Discord voice channel. Free and instant."/>
+  <meta property="og:url" content="https://medicalaffairs803.github.io/mic-test/mic-test-for-discord.html"/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Mic Test For Discord",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any (Web Browser)",
+    "url": "https://medicalaffairs803.github.io/mic-test/mic-test-for-discord.html",
+    "description": "Free browser tool to test your microphone before joining a Discord voice channel.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why is my mic not working on Discord but works elsewhere?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Discord has its own input device and input sensitivity settings, separate from your operating system. Confirm the mic works here first, then check Discord's Voice & Video settings." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is push-to-talk and should I use it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Push-to-talk only transmits audio while you hold a key, which helps if Discord picks up background noise. It's a good option if this mic test shows a high noise level in a quiet room." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my voice sound quiet in Discord voice chat?",
+        "acceptedAnswer": { "@type": "Answer", "text": "This is often caused by low input volume or input sensitivity set too high. Check your input level on this test, then adjust the mic volume slider in Discord to match." }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="hero">
+
+  <nav class="topbar">
+    <div class="logo">Mic Test Pro</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="mic-test-for-zoom.html">Zoom</a>
+      <a href="bluetooth-mic-test.html">Bluetooth</a>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+
+    <p class="breadcrumb"><a href="index.html">Home</a> / Mic Test For Discord</p>
+
+    <h1>Test Your Microphone For Discord</h1>
+
+    <p class="hero-text">
+      Confirm your microphone is picking up your voice clearly before you jump into a Discord voice channel with friends or teammates.
+    </p>
+
+    <section class="tool-card">
+
+      <div class="status-row">
+        <div class="status-box">
+          <span class="dot"></span>
+          <span id="micStatus">Waiting For Permission</span>
+        </div>
+        <div class="status-box">
+          <span>Input Level:</span>
+          <span id="volumeText">0%</span>
+        </div>
+      </div>
+
+      <div class="visualizer-wrap">
+        <canvas id="visualizer" role="img" aria-label="Live microphone waveform visualizer"></canvas>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="meter-bar">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="startBtn" aria-label="Start microphone test">Start Mic Test</button>
+        <button id="stopBtn" aria-label="Stop microphone test">Stop Test</button>
+      </div>
+
+      <div class="tool-grid">
+        <div class="info-card"><h3>Noise Level</h3><p id="noiseLevel">Low</p></div>
+        <div class="info-card"><h3>Mic Quality</h3><p id="qualityLevel">Good</p></div>
+        <div class="info-card"><h3>Latency</h3><p id="latencyLevel">--</p></div>
+        <div class="info-card"><h3>Device</h3><p id="deviceName">Not Connected</p></div>
+      </div>
+
+    </section>
+
+  </div>
+
+</header>
+
+<section class="content-section" id="what-is">
+  <div class="container">
+    <h2>Why Check Your Mic Before A Discord Call?</h2>
+    <p>
+      Discord's own mic test lives inside Voice & Video settings and requires you to already be signed in. This page gives you a quick, no-login check of your input device before you even open the app — handy when you've just switched headsets or PCs.
+    </p>
+    <p>
+      It's also useful for spotting background noise problems, like a fan or keyboard clatter, before your teammates or friends point it out mid-call.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="guide">
+  <div class="container">
+    <h2>How To Test Your Mic Before Discord</h2>
+    <div class="steps">
+      <div class="step"><span>1</span><p>Click "Start Mic Test" and allow microphone access in your browser.</p></div>
+      <div class="step"><span>2</span><p>Talk normally and check that the input level and waveform respond.</p></div>
+      <div class="step"><span>3</span><p>Check the noise level reading in a quiet room — high noise means Discord may need push-to-talk.</p></div>
+      <div class="step"><span>4</span><p>Open Discord and match the working input device under User Settings &gt; Voice & Video.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="features">
+  <div class="container">
+    <h2>Common Discord Microphone Issues</h2>
+    <div class="feature-grid">
+      <div class="feature-card"><h3>Input Sensitivity Too Low</h3><p>Discord may cut off your voice if the sensitivity threshold is set too high.</p></div>
+      <div class="feature-card"><h3>Wrong Device Selected</h3><p>Discord can default to the wrong microphone after plugging in a new headset.</p></div>
+      <div class="feature-card"><h3>Server-Muted</h3><p>Some Discord servers mute new members by default — a working mic won't help until you're unmuted.</p></div>
+      <div class="feature-card"><h3>Background Noise Pickup</h3><p>Sensitive condenser mics can pick up fans and typing without noise suppression enabled.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="faq">
+  <div class="container">
+    <h2>Discord Mic Test FAQs</h2>
+    <div class="faq">
+      <details>
+        <summary>Why is my mic not working on Discord but works elsewhere?</summary>
+        <p>Discord has its own input device and sensitivity settings, separate from your OS. Confirm the mic works here first, then check Discord's Voice & Video settings.</p>
+      </details>
+      <details>
+        <summary>What is push-to-talk and should I use it?</summary>
+        <p>Push-to-talk only sends audio while a key is held, which helps if Discord picks up background noise. Useful if this test shows a high noise reading in a quiet room.</p>
+      </details>
+      <details>
+        <summary>Why does my voice sound quiet in Discord voice chat?</summary>
+        <p>Usually caused by low input volume or sensitivity set too high. Check your input level here, then adjust the mic volume slider in Discord to match.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2>More Mic Tests</h2>
+    <div class="related-grid">
+      <a class="related-card" href="index.html"><h3>General Mic Test</h3><p>The full-featured free microphone tester.</p></a>
+      <a class="related-card" href="gaming-mic-test.html"><h3>Gaming Mic Test</h3><p>Check your headset mic before a gaming session.</p></a>
+      <a class="related-card" href="bluetooth-mic-test.html"><h3>Bluetooth Mic Test</h3><p>Test a wireless headset or earbud microphone.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="faq">
+      <details>
+        <summary>Privacy Policy</summary>
+        <p>This tool does not upload, store, or share your audio. All processing happens locally in your browser.</p>
+      </details>
+      <details>
+        <summary>Contact</summary>
+        <p>medicalaffairs803@gmail.com</p>
+      </details>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mic Test Pro</div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

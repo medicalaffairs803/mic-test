@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Bluetooth Mic Test – Check Your Wireless Headset Microphone</title>
+
+  <meta name="description" content="Free Bluetooth mic test. Check your wireless earbud or headset microphone's input level and quality, right in your browser, no app needed." />
+  <meta name="keywords" content="bluetooth mic test, wireless headset microphone test, bluetooth earbuds mic not working" />
+  <meta name="robots" content="index, follow"/>
+
+  <link rel="canonical" href="https://medicalaffairs803.github.io/mic-test/bluetooth-mic-test.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Bluetooth Mic Test – Check Your Wireless Headset Microphone"/>
+  <meta property="og:description" content="Check a Bluetooth earbud or headset microphone before your next call. Free and instant."/>
+  <meta property="og:url" content="https://medicalaffairs803.github.io/mic-test/bluetooth-mic-test.html"/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Bluetooth Mic Test",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any (Web Browser)",
+    "url": "https://medicalaffairs803.github.io/mic-test/bluetooth-mic-test.html",
+    "description": "Free browser tool to test a Bluetooth wireless headset or earbud microphone.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why does my Bluetooth mic sound muffled compared to my headphones?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most Bluetooth headsets switch to a lower-quality call profile (HFP) when the microphone is active, which reduces audio fidelity compared to music playback profiles like A2DP." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is there a delay when I speak into my Bluetooth mic?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Bluetooth audio naturally introduces some processing delay. This test reports your browser's measured audio latency so you can see how significant it is for your specific device." }
+      },
+      {
+        "@type": "Question",
+        "name": "My Bluetooth device is connected but the mic test shows no input, why?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Check that your browser and operating system have selected the Bluetooth device as the default microphone, not just the default speaker — these are often set separately." }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="hero">
+
+  <nav class="topbar">
+    <div class="logo">Mic Test Pro</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="mic-test-for-discord.html">Discord</a>
+      <a href="gaming-mic-test.html">Gaming</a>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+
+    <p class="breadcrumb"><a href="index.html">Home</a> / Bluetooth Mic Test</p>
+
+    <h1>Test Your Bluetooth Microphone</h1>
+
+    <p class="hero-text">
+      Check a wireless Bluetooth headset or earbud microphone before your next call — see the real input level and latency, not just a "connected" icon.
+    </p>
+
+    <section class="tool-card">
+
+      <div class="status-row">
+        <div class="status-box">
+          <span class="dot"></span>
+          <span id="micStatus">Waiting For Permission</span>
+        </div>
+        <div class="status-box">
+          <span>Input Level:</span>
+          <span id="volumeText">0%</span>
+        </div>
+      </div>
+
+      <div class="visualizer-wrap">
+        <canvas id="visualizer" role="img" aria-label="Live microphone waveform visualizer"></canvas>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="meter-bar">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="startBtn" aria-label="Start microphone test">Start Mic Test</button>
+        <button id="stopBtn" aria-label="Stop microphone test">Stop Test</button>
+      </div>
+
+      <div class="tool-grid">
+        <div class="info-card"><h3>Noise Level</h3><p id="noiseLevel">Low</p></div>
+        <div class="info-card"><h3>Mic Quality</h3><p id="qualityLevel">Good</p></div>
+        <div class="info-card"><h3>Latency</h3><p id="latencyLevel">--</p></div>
+        <div class="info-card"><h3>Device</h3><p id="deviceName">Not Connected</p></div>
+      </div>
+
+    </section>
+
+  </div>
+
+</header>
+
+<section class="content-section" id="what-is">
+  <div class="container">
+    <h2>Why Bluetooth Mics Need A Separate Check</h2>
+    <p>
+      A Bluetooth device showing as "connected" doesn't guarantee its microphone is selected or working — pairing controls the audio output far more reliably than the microphone input. This test confirms whether your system is actually capturing sound from the Bluetooth mic itself.
+    </p>
+    <p>
+      It also surfaces the real latency your Bluetooth connection introduces, which is normally invisible until you're already mid-call.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="guide">
+  <div class="container">
+    <h2>How To Test A Bluetooth Microphone</h2>
+    <div class="steps">
+      <div class="step"><span>1</span><p>Pair and connect your Bluetooth headset or earbuds as usual.</p></div>
+      <div class="step"><span>2</span><p>In your browser or OS sound settings, confirm the Bluetooth device is set as the input, not just the output.</p></div>
+      <div class="step"><span>3</span><p>Click "Start Mic Test" here and speak normally.</p></div>
+      <div class="step"><span>4</span><p>Check the latency reading — if it's high, expect a similar delay in calls using this device.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="features">
+  <div class="container">
+    <h2>Bluetooth Mic Quirks To Know</h2>
+    <div class="feature-grid">
+      <div class="feature-card"><h3>HFP Profile Drop</h3><p>Using the mic often forces a lower-quality call audio profile on both ends.</p></div>
+      <div class="feature-card"><h3>Separate Input Selection</h3><p>Many OSes list Bluetooth output and input as two different devices to choose from.</p></div>
+      <div class="feature-card"><h3>Battery-Related Cutout</h3><p>Low battery on true wireless earbuds can cause intermittent mic dropouts.</p></div>
+      <div class="feature-card"><h3>Range And Interference</h3><p>Distance from your device or Wi-Fi interference can add noise to the input signal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="faq">
+  <div class="container">
+    <h2>Bluetooth Mic Test FAQs</h2>
+    <div class="faq">
+      <details>
+        <summary>Why does my Bluetooth mic sound muffled compared to my headphones?</summary>
+        <p>Most Bluetooth headsets switch to a lower-quality call profile (HFP) when the mic is active, reducing fidelity compared to music playback profiles.</p>
+      </details>
+      <details>
+        <summary>Why is there a delay when I speak into my Bluetooth mic?</summary>
+        <p>Bluetooth audio naturally adds processing delay. This test reports your browser's measured latency so you can see how significant it is for your device.</p>
+      </details>
+      <details>
+        <summary>My Bluetooth device is connected but the mic test shows no input, why?</summary>
+        <p>Check that your browser and OS have the Bluetooth device selected as the default microphone, not just the default speaker — these are set separately.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2>More Mic Tests</h2>
+    <div class="related-grid">
+      <a class="related-card" href="index.html"><h3>General Mic Test</h3><p>The full-featured free microphone tester.</p></a>
+      <a class="related-card" href="usb-microphone-test.html"><h3>USB Microphone Test</h3><p>Check a wired USB mic instead.</p></a>
+      <a class="related-card" href="mic-test-for-zoom.html"><h3>Mic Test For Zoom</h3><p>Check your mic before a Zoom call.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="faq">
+      <details>
+        <summary>Privacy Policy</summary>
+        <p>This tool does not upload, store, or share your audio. All processing happens locally in your browser.</p>
+      </details>
+      <details>
+        <summary>Contact</summary>
+        <p>medicalaffairs803@gmail.com</p>
+      </details>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mic Test Pro</div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

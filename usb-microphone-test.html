@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>USB Microphone Test – Check Your USB Mic Online Free</title>
+
+  <meta name="description" content="Free USB microphone test. Check your USB condenser or dynamic mic's input level, noise, and quality online before recording or streaming." />
+  <meta name="keywords" content="usb microphone test, usb mic test online, test usb condenser mic" />
+  <meta name="robots" content="index, follow"/>
+
+  <link rel="canonical" href="https://medicalaffairs803.github.io/mic-test/usb-microphone-test.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="USB Microphone Test – Check Your USB Mic Online Free"/>
+  <meta property="og:description" content="Check your USB microphone before recording or streaming. Free, instant, browser-based."/>
+  <meta property="og:url" content="https://medicalaffairs803.github.io/mic-test/usb-microphone-test.html"/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "USB Microphone Test",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any (Web Browser)",
+    "url": "https://medicalaffairs803.github.io/mic-test/usb-microphone-test.html",
+    "description": "Free browser tool to test a USB microphone before recording or streaming.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why isn't my USB microphone detected at all?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Try a different USB port, preferably directly on the computer rather than through a hub, and confirm the mic's status light is on. Then re-run this test." }
+      },
+      {
+        "@type": "Question",
+        "name": "My USB mic input level is very low, what should I check?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Check the gain knob on the microphone itself if it has one, and confirm the input volume is turned up in your operating system's sound settings, not just in your recording software." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this test before streaming or recording a podcast?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. This is a good pre-check for input level and background noise before opening OBS, a DAW, or any recording software, since it isolates the microphone itself from your recording app's settings." }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="hero">
+
+  <nav class="topbar">
+    <div class="logo">Mic Test Pro</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gaming-mic-test.html">Gaming</a>
+      <a href="mic-test-for-discord.html">Discord</a>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+
+    <p class="breadcrumb"><a href="index.html">Home</a> / USB Microphone Test</p>
+
+    <h1>Test Your USB Microphone</h1>
+
+    <p class="hero-text">
+      Check your USB condenser or dynamic microphone's input level and quality before you start recording, streaming, or podcasting.
+    </p>
+
+    <section class="tool-card">
+
+      <div class="status-row">
+        <div class="status-box">
+          <span class="dot"></span>
+          <span id="micStatus">Waiting For Permission</span>
+        </div>
+        <div class="status-box">
+          <span>Input Level:</span>
+          <span id="volumeText">0%</span>
+        </div>
+      </div>
+
+      <div class="visualizer-wrap">
+        <canvas id="visualizer" role="img" aria-label="Live microphone waveform visualizer"></canvas>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="meter-bar">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="startBtn" aria-label="Start microphone test">Start Mic Test</button>
+        <button id="stopBtn" aria-label="Stop microphone test">Stop Test</button>
+      </div>
+
+      <div class="tool-grid">
+        <div class="info-card"><h3>Noise Level</h3><p id="noiseLevel">Low</p></div>
+        <div class="info-card"><h3>Mic Quality</h3><p id="qualityLevel">Good</p></div>
+        <div class="info-card"><h3>Latency</h3><p id="latencyLevel">--</p></div>
+        <div class="info-card"><h3>Device</h3><p id="deviceName">Not Connected</p></div>
+      </div>
+
+    </section>
+
+  </div>
+
+</header>
+
+<section class="content-section" id="what-is">
+  <div class="container">
+    <h2>Why Test A USB Microphone Separately?</h2>
+    <p>
+      USB microphones plug in with their own audio interface built in, so problems can come from the mic itself, the USB port, or the cable — not your computer's sound card. This test isolates the microphone so you can confirm it's working before blaming your recording software.
+    </p>
+    <p>
+      It's a useful first step before opening a DAW, streaming software, or a podcast recording app, so you know any remaining issue is in the software's settings, not the hardware.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="guide">
+  <div class="container">
+    <h2>How To Test A USB Microphone</h2>
+    <div class="steps">
+      <div class="step"><span>1</span><p>Plug the USB microphone directly into your computer, avoiding hubs if possible.</p></div>
+      <div class="step"><span>2</span><p>Click "Start Mic Test" and select the USB device if prompted by your browser.</p></div>
+      <div class="step"><span>3</span><p>Speak or sing at your normal recording distance and volume.</p></div>
+      <div class="step"><span>4</span><p>If the input level is too low, check the mic's physical gain knob before adjusting software settings.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="features">
+  <div class="container">
+    <h2>USB Mic Checks This Tool Covers</h2>
+    <div class="feature-grid">
+      <div class="feature-card"><h3>Input Level</h3><p>Confirms the mic is capturing sound at a usable volume.</p></div>
+      <div class="feature-card"><h3>Noise Floor</h3><p>Flags high background noise before you start a recording session.</p></div>
+      <div class="feature-card"><h3>Device Recognition</h3><p>Shows whether your browser correctly identifies the USB mic by name.</p></div>
+      <div class="feature-card"><h3>Real Latency Reading</h3><p>Reports actual measured audio latency from your system's audio engine.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="faq">
+  <div class="container">
+    <h2>USB Microphone Test FAQs</h2>
+    <div class="faq">
+      <details>
+        <summary>Why isn't my USB microphone detected at all?</summary>
+        <p>Try a different USB port, ideally directly on the computer rather than a hub, and confirm the mic's status light is on. Then re-run this test.</p>
+      </details>
+      <details>
+        <summary>My USB mic input level is very low, what should I check?</summary>
+        <p>Check the gain knob on the mic if it has one, and confirm input volume is turned up in your OS sound settings, not just in your recording software.</p>
+      </details>
+      <details>
+        <summary>Can I use this test before streaming or recording a podcast?</summary>
+        <p>Yes. It's a good pre-check for input level and background noise before opening OBS, a DAW, or recording software, isolating the mic from your app's own settings.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2>More Mic Tests</h2>
+    <div class="related-grid">
+      <a class="related-card" href="index.html"><h3>General Mic Test</h3><p>The full-featured free microphone tester.</p></a>
+      <a class="related-card" href="bluetooth-mic-test.html"><h3>Bluetooth Mic Test</h3><p>Test a wireless headset or earbud mic instead.</p></a>
+      <a class="related-card" href="gaming-mic-test.html"><h3>Gaming Mic Test</h3><p>Check a USB gaming headset before you play.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="faq">
+      <details>
+        <summary>Privacy Policy</summary>
+        <p>This tool does not upload, store, or share your audio. All processing happens locally in your browser.</p>
+      </details>
+      <details>
+        <summary>Contact</summary>
+        <p>medicalaffairs803@gmail.com</p>
+      </details>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mic Test Pro</div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

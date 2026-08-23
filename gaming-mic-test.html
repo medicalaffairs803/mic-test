@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Gaming Mic Test – Check Your Headset Microphone Before You Play</title>
+
+  <meta name="description" content="Free gaming mic test. Check your headset microphone's input level, noise, and latency before jumping into a match, right in your browser." />
+  <meta name="keywords" content="gaming mic test, headset microphone test, mic test for gaming headset" />
+  <meta name="robots" content="index, follow"/>
+
+  <link rel="canonical" href="https://medicalaffairs803.github.io/mic-test/gaming-mic-test.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Gaming Mic Test – Check Your Headset Microphone Before You Play"/>
+  <meta property="og:description" content="Check your gaming headset mic before your next match. Free, instant, browser-based."/>
+  <meta property="og:url" content="https://medicalaffairs803.github.io/mic-test/gaming-mic-test.html"/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Gaming Mic Test",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any (Web Browser)",
+    "url": "https://medicalaffairs803.github.io/mic-test/gaming-mic-test.html",
+    "description": "Free browser tool to test a gaming headset microphone before playing online.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why does my teammates say my gaming mic sounds bad?",
+        "acceptedAnswer": { "@type": "Answer", "text": "This is often boom-arm positioning, background game audio bleeding into the mic, or a cheap headset mic with a narrow frequency range. Check your input level and noise reading here first." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does latency matter for a gaming headset mic?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, for real-time team communication. High latency causes a noticeable delay between speaking and teammates hearing you, which this test measures directly from your browser's audio engine." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should the mic boom be close to my mouth?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most gaming headset mics are designed to sit about one to two finger-widths from the corner of your mouth to reduce breathing and plosive sounds while still capturing clear speech." }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="hero">
+
+  <nav class="topbar">
+    <div class="logo">Mic Test Pro</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="usb-microphone-test.html">USB Mic</a>
+      <a href="bluetooth-mic-test.html">Bluetooth</a>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+
+    <p class="breadcrumb"><a href="index.html">Home</a> / Gaming Mic Test</p>
+
+    <h1>Gaming Mic Test For Your Headset</h1>
+
+    <p class="hero-text">
+      Check your gaming headset microphone before you queue up — confirm your team can hear you clearly and without lag.
+    </p>
+
+    <section class="tool-card">
+
+      <div class="status-row">
+        <div class="status-box">
+          <span class="dot"></span>
+          <span id="micStatus">Waiting For Permission</span>
+        </div>
+        <div class="status-box">
+          <span>Input Level:</span>
+          <span id="volumeText">0%</span>
+        </div>
+      </div>
+
+      <div class="visualizer-wrap">
+        <canvas id="visualizer" role="img" aria-label="Live microphone waveform visualizer"></canvas>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="meter-bar">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="startBtn" aria-label="Start microphone test">Start Mic Test</button>
+        <button id="stopBtn" aria-label="Stop microphone test">Stop Test</button>
+      </div>
+
+      <div class="tool-grid">
+        <div class="info-card"><h3>Noise Level</h3><p id="noiseLevel">Low</p></div>
+        <div class="info-card"><h3>Mic Quality</h3><p id="qualityLevel">Good</p></div>
+        <div class="info-card"><h3>Latency</h3><p id="latencyLevel">--</p></div>
+        <div class="info-card"><h3>Device</h3><p id="deviceName">Not Connected</p></div>
+      </div>
+
+    </section>
+
+  </div>
+
+</header>
+
+<section class="content-section" id="what-is">
+  <div class="container">
+    <h2>Why Test A Gaming Headset Mic?</h2>
+    <p>
+      In competitive games, unclear callouts cost rounds. This test lets you confirm your headset mic is capturing your voice at a solid input level, without excessive noise from a fan, keyboard, or game audio bleed, before you launch your game client.
+    </p>
+    <p>
+      It also gives a real latency reading pulled from your browser's audio engine, which matters more for live voice comms than for casual chat apps.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="guide">
+  <div class="container">
+    <h2>How To Test Your Gaming Headset Mic</h2>
+    <div class="steps">
+      <div class="step"><span>1</span><p>Put your headset on the way you normally would while playing.</p></div>
+      <div class="step"><span>2</span><p>Click "Start Mic Test" and allow microphone access.</p></div>
+      <div class="step"><span>3</span><p>Call out a few practice lines and watch the waveform and input level.</p></div>
+      <div class="step"><span>4</span><p>If the noise level reads high, adjust the boom mic position or enable noise suppression in your game or headset software.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="features">
+  <div class="container">
+    <h2>What Affects Gaming Mic Quality</h2>
+    <div class="feature-grid">
+      <div class="feature-card"><h3>Boom Position</h3><p>Too far from your mouth lowers input level; too close causes popping sounds.</p></div>
+      <div class="feature-card"><h3>Game Audio Bleed</h3><p>Loud in-game sound from open-back headphones can leak into the mic.</p></div>
+      <div class="feature-card"><h3>USB vs 3.5mm</h3><p>USB headsets typically have their own sound card, often giving cleaner input than a shared 3.5mm jack.</p></div>
+      <div class="feature-card"><h3>Chat App Overlap</h3><p>Running Discord and an in-game voice chat together can cause echo or double audio.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="faq">
+  <div class="container">
+    <h2>Gaming Mic Test FAQs</h2>
+    <div class="faq">
+      <details>
+        <summary>Why does my teammates say my gaming mic sounds bad?</summary>
+        <p>Often it's boom-arm positioning, game audio bleeding into the mic, or a headset mic with a narrow frequency range. Check your input level and noise reading here first.</p>
+      </details>
+      <details>
+        <summary>Does latency matter for a gaming headset mic?</summary>
+        <p>Yes, for real-time team communication. High latency delays teammates hearing you — this test measures it directly from your browser's audio engine.</p>
+      </details>
+      <details>
+        <summary>Should the mic boom be close to my mouth?</summary>
+        <p>Most gaming mics work best about one to two finger-widths from the corner of your mouth, reducing breathing and pop sounds while keeping speech clear.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2>More Mic Tests</h2>
+    <div class="related-grid">
+      <a class="related-card" href="index.html"><h3>General Mic Test</h3><p>The full-featured free microphone tester.</p></a>
+      <a class="related-card" href="mic-test-for-discord.html"><h3>Mic Test For Discord</h3><p>Check your mic before a Discord voice channel.</p></a>
+      <a class="related-card" href="usb-microphone-test.html"><h3>USB Microphone Test</h3><p>Verify a USB gaming mic before you play.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="faq">
+      <details>
+        <summary>Privacy Policy</summary>
+        <p>This tool does not upload, store, or share your audio. All processing happens locally in your browser.</p>
+      </details>
+      <details>
+        <summary>Contact</summary>
+        <p>medicalaffairs803@gmail.com</p>
+      </details>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mic Test Pro</div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

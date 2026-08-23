@@ -12,12 +12,69 @@
 
   <meta name="robots" content="index, follow"/>
 
+  <link rel="canonical" href="https://medicalaffairs803.github.io/mic-test/"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Mic Test Pro – Free Online Microphone Test Tool"/>
+  <meta property="og:description" content="Test your microphone online for free. Check mic quality, sound level, noise, latency, echo, and microphone input instantly in your browser."/>
+  <meta property="og:url" content="https://medicalaffairs803.github.io/mic-test/"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Mic Test Pro – Free Online Microphone Test Tool"/>
+  <meta name="twitter:description" content="Test your microphone online for free in your browser. No download required."/>
+
   <link rel="stylesheet" href="style.css"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Mic Test Pro",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any (Web Browser)",
+    "url": "https://medicalaffairs803.github.io/mic-test/",
+    "description": "Free browser-based tool to test your microphone: check audio input, waveform, noise level, and latency instantly.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this mic test free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, the microphone tester is completely free." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this tool record audio?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Audio stays inside your browser and is never uploaded." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I test a USB microphone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, USB microphones are fully supported." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my microphone not detected?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Check your browser's microphone permission settings and confirm the device is properly connected." }
+      }
+    ]
+  }
+  </script>
 
 </head>
 
@@ -32,6 +89,8 @@
       <a href="#features">Features</a>
       <a href="#faq">FAQ</a>
       <a href="#guide">Guide</a>
+      <a href="mic-test-for-zoom.html">Zoom</a>
+      <a href="gaming-mic-test.html">Gaming</a>
     </div>
   </nav>
 
@@ -64,7 +123,7 @@
       </div>
 
       <div class="visualizer-wrap">
-        <canvas id="visualizer"></canvas>
+        <canvas id="visualizer" role="img" aria-label="Live microphone waveform visualizer"></canvas>
       </div>
 
       <div class="meter-wrap">
@@ -75,11 +134,11 @@
 
       <div class="tool-actions">
 
-        <button id="startBtn">
+        <button id="startBtn" aria-label="Start microphone test">
           Start Mic Test
         </button>
 
-        <button id="stopBtn">
+        <button id="stopBtn" aria-label="Stop microphone test">
           Stop Test
         </button>
 
@@ -373,14 +432,14 @@
 
     <div class="feature-grid">
 
-      <a class="feature-card affiliate-card" href="https://www.aliexpress.com/" target="_blank">
+      <a class="feature-card affiliate-card" href="https://www.aliexpress.com/wholesale?SearchText=usb+gaming+microphone" target="_blank" rel="noopener sponsored">
         <h3>USB Gaming Microphones</h3>
-        <p>View affordable microphones on AliExpress.</p>
+        <p>View affordable USB gaming microphones on AliExpress.</p>
       </a>
 
-      <a class="feature-card affiliate-card" href="https://www.aliexpress.com/" target="_blank">
+      <a class="feature-card affiliate-card" href="https://www.aliexpress.com/wholesale?SearchText=streaming+headset+microphone" target="_blank" rel="noopener sponsored">
         <h3>Streaming Headsets</h3>
-        <p>Find budget streaming audio gear.</p>
+        <p>Find budget streaming headsets with mics on AliExpress.</p>
       </a>
 
     </div>
@@ -389,17 +448,47 @@
 
 </section>
 
-<footer class="footer footer-bottom">
+<!-- RELATED / INTERNAL LINKING -->
+
+<section class="content-section">
 
   <div class="container">
-  
-    <p>
-  
-    </p>
+
+    <h2>More Mic Tests</h2>
+
+    <div class="related-grid">
+
+      <a class="related-card" href="mic-test-for-zoom.html">
+        <h3>Mic Test For Zoom</h3>
+        <p>Check your microphone before joining a Zoom call.</p>
+      </a>
+
+      <a class="related-card" href="mic-test-for-discord.html">
+        <h3>Mic Test For Discord</h3>
+        <p>Make sure your voice comes through clearly on Discord.</p>
+      </a>
+
+      <a class="related-card" href="gaming-mic-test.html">
+        <h3>Gaming Mic Test</h3>
+        <p>Test your headset mic before your next gaming session.</p>
+      </a>
+
+      <a class="related-card" href="bluetooth-mic-test.html">
+        <h3>Bluetooth Mic Test</h3>
+        <p>Check wireless earbud and headset microphones.</p>
+      </a>
+
+      <a class="related-card" href="usb-microphone-test.html">
+        <h3>USB Microphone Test</h3>
+        <p>Verify your USB mic before recording or streaming.</p>
+      </a>
+
+    </div>
 
   </div>
 
-</footer>
+</section>
+
 <!-- LEGAL ACCORDION -->
 
 <section class="content-section">

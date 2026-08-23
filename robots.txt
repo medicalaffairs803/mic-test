@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://medicalaffairs803.github.io/mic-test/sitemap.xml

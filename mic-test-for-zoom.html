@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Mic Test For Zoom – Check Your Microphone Before A Call</title>
+
+  <meta name="description" content="Free mic test for Zoom. Check your microphone before joining a Zoom meeting, right in your browser, with no download or Zoom account needed." />
+  <meta name="keywords" content="mic test for zoom, zoom microphone test, test mic before zoom call" />
+  <meta name="robots" content="index, follow"/>
+
+  <link rel="canonical" href="https://medicalaffairs803.github.io/mic-test/mic-test-for-zoom.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Mic Test For Zoom – Check Your Microphone Before A Call"/>
+  <meta property="og:description" content="Check your microphone works before joining a Zoom meeting. Free, instant, browser-based."/>
+  <meta property="og:url" content="https://medicalaffairs803.github.io/mic-test/mic-test-for-zoom.html"/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Mic Test For Zoom",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any (Web Browser)",
+    "url": "https://medicalaffairs803.github.io/mic-test/mic-test-for-zoom.html",
+    "description": "Free browser tool to test your microphone before joining a Zoom call.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why can't Zoom find my microphone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "This usually happens when Zoom is set to the wrong input device, or the browser or operating system is blocking microphone access. Test your mic here first to rule out a hardware or browser permission issue." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a Zoom account to use this mic test?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. This tool runs independently in your browser and does not require Zoom, a login, or any software installation." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I fix a muted microphone icon in Zoom?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Click the microphone icon in the Zoom toolbar to unmute, then confirm the correct input device is selected in Zoom's audio settings." }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="hero">
+
+  <nav class="topbar">
+    <div class="logo">Mic Test Pro</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="mic-test-for-discord.html">Discord</a>
+      <a href="gaming-mic-test.html">Gaming</a>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+
+    <p class="breadcrumb"><a href="index.html">Home</a> / Mic Test For Zoom</p>
+
+    <h1>Test Your Microphone For Zoom</h1>
+
+    <p class="hero-text">
+      Before you join your next Zoom meeting, make sure your microphone is actually working. This free browser test checks your input level, waveform, and noise before you open Zoom at all.
+    </p>
+
+    <section class="tool-card">
+
+      <div class="status-row">
+        <div class="status-box">
+          <span class="dot"></span>
+          <span id="micStatus">Waiting For Permission</span>
+        </div>
+        <div class="status-box">
+          <span>Input Level:</span>
+          <span id="volumeText">0%</span>
+        </div>
+      </div>
+
+      <div class="visualizer-wrap">
+        <canvas id="visualizer" role="img" aria-label="Live microphone waveform visualizer"></canvas>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="meter-bar">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="startBtn" aria-label="Start microphone test">Start Mic Test</button>
+        <button id="stopBtn" aria-label="Stop microphone test">Stop Test</button>
+      </div>
+
+      <div class="tool-grid">
+        <div class="info-card"><h3>Noise Level</h3><p id="noiseLevel">Low</p></div>
+        <div class="info-card"><h3>Mic Quality</h3><p id="qualityLevel">Good</p></div>
+        <div class="info-card"><h3>Latency</h3><p id="latencyLevel">--</p></div>
+        <div class="info-card"><h3>Device</h3><p id="deviceName">Not Connected</p></div>
+      </div>
+
+    </section>
+
+  </div>
+
+</header>
+
+<section class="content-section" id="what-is">
+  <div class="container">
+    <h2>Why Test Your Mic Before A Zoom Call?</h2>
+    <p>
+      Zoom has its own built-in audio test, but it sits a few menus deep and only appears once you're already in a call or opening settings. This page gives you a faster check: open it in a browser tab, speak, and see your mic respond in real time before you even launch Zoom.
+    </p>
+    <p>
+      It's especially useful when switching between a laptop mic, a USB headset, and a conference speakerphone — you can confirm which device is actually picking up your voice before a client call or interview starts.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="guide">
+  <div class="container">
+    <h2>How To Check Your Mic Before Joining Zoom</h2>
+    <div class="steps">
+      <div class="step"><span>1</span><p>Click "Start Mic Test" above and allow browser microphone access.</p></div>
+      <div class="step"><span>2</span><p>Speak normally and watch the waveform and input level move.</p></div>
+      <div class="step"><span>3</span><p>If the level stays flat, switch your system's default input device and try again.</p></div>
+      <div class="step"><span>4</span><p>Once confirmed working, open Zoom and select the same input device in Settings &gt; Audio.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="features">
+  <div class="container">
+    <h2>Common Zoom Microphone Problems</h2>
+    <div class="feature-grid">
+      <div class="feature-card"><h3>Wrong Input Selected</h3><p>Zoom may default to your laptop mic instead of a connected headset.</p></div>
+      <div class="feature-card"><h3>Muted On Join</h3><p>Zoom sometimes joins calls muted by default depending on host settings.</p></div>
+      <div class="feature-card"><h3>OS-Level Permission Blocked</h3><p>Windows or macOS can block microphone access at the system level, separate from Zoom itself.</p></div>
+      <div class="feature-card"><h3>Bluetooth Headset Delay</h3><p>Wireless headsets can introduce a short lag between speaking and Zoom picking up audio.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="faq">
+  <div class="container">
+    <h2>Zoom Mic Test FAQs</h2>
+    <div class="faq">
+      <details>
+        <summary>Why can't Zoom find my microphone?</summary>
+        <p>This usually happens when Zoom is set to the wrong input device, or the browser/OS is blocking microphone access. Test here first to rule out a hardware issue.</p>
+      </details>
+      <details>
+        <summary>Do I need a Zoom account to use this mic test?</summary>
+        <p>No. This tool runs independently in your browser and does not need Zoom, a login, or any installation.</p>
+      </details>
+      <details>
+        <summary>How do I fix a muted microphone icon in Zoom?</summary>
+        <p>Click the microphone icon in the Zoom toolbar to unmute, then confirm the correct input device is selected in Zoom's audio settings.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2>More Mic Tests</h2>
+    <div class="related-grid">
+      <a class="related-card" href="index.html"><h3>General Mic Test</h3><p>The full-featured free microphone tester.</p></a>
+      <a class="related-card" href="mic-test-for-discord.html"><h3>Mic Test For Discord</h3><p>Check your mic before joining a Discord voice channel.</p></a>
+      <a class="related-card" href="usb-microphone-test.html"><h3>USB Microphone Test</h3><p>Verify a USB mic before your call.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <div class="faq">
+      <details>
+        <summary>Privacy Policy</summary>
+        <p>This tool does not upload, store, or share your audio. All processing happens locally in your browser.</p>
+      </details>
+      <details>
+        <summary>Contact</summary>
+        <p>medicalaffairs803@gmail.com</p>
+      </details>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mic Test Pro</div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

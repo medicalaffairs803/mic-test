@@ -69,6 +69,22 @@ resizeCanvas
 
 async function startMicTest(){
 
+  if(
+    !navigator.mediaDevices ||
+    !navigator.mediaDevices.getUserMedia
+  ){
+
+    micStatus.textContent =
+    "Browser Not Supported";
+
+    document.querySelector(".dot")
+    .style.background =
+    "#ef4444";
+
+    return;
+
+  }
+
   try{
 
     stream =
@@ -290,16 +306,30 @@ function visualize(){
   }
 
   /* =====================
-     LATENCY
+     LATENCY (real value from
+     the browser's AudioContext,
+     not simulated)
   ===================== */
 
-  const latency =
-  Math.floor(
-    Math.random() * 15
-  ) + 8;
+  if(audioContext){
 
-  latencyLevel.textContent =
-  latency + "ms";
+    const baseLatency =
+    audioContext.baseLatency || 0;
+
+    const outputLatency =
+    audioContext.outputLatency || 0;
+
+    const totalLatencyMs =
+    Math.round(
+      (baseLatency + outputLatency) * 1000
+    );
+
+    latencyLevel.textContent =
+    totalLatencyMs > 0 ?
+    totalLatencyMs + "ms" :
+    "N/A";
+
+  }
 
   animationId =
   requestAnimationFrame(
