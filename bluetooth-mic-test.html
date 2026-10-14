@@ -47,18 +47,75 @@
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "How do I test my AirPods microphone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Connect your AirPods, then open this page in your browser and set the AirPods as the input device if your system asks — on iPhone the browser uses the active audio route automatically. Click Start Mic Test and speak. To prove the AirPods mic, not your phone or laptop mic, is the one being recorded, use the tap test: gently tap an AirPod while speaking quietly, then tap near the laptop or phone. The tap that spikes the input level belongs to the live microphone."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Why does my Bluetooth mic sound muffled compared to my headphones?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Most Bluetooth headsets switch to a lower-quality call profile (HFP) when the mic is active, reducing fidelity compared to music playback profiles." }
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most Bluetooth headsets switch to a lower-quality call profile (HFP) when the mic is active, reducing fidelity compared to music playback profiles. Your music travels on a profile built for stereo sound; your voice call travels on a profile built in the era of phone calls, with a much narrower frequency range. The muffled quality is the profile working as designed, not a broken mic — which is why the same headset can sound great for music and poor for calls."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does the audio quality drop as soon as I use the microphone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because one Bluetooth connection cannot run the music profile and the microphone at the same time. The moment any app activates your mic, the headset leaves its high-quality stereo mode and switches both directions to the call profile: mono, narrow, and lower rate. On Windows you can watch it happen — the device appears twice, once as Stereo headphones for playback and once as a Hands-Free headset, and using the Hands-Free side for output gives you call quality in both ears. For listening while a mic is live, that drop is unavoidable on standard Bluetooth; a wired mic or a headset with its own USB dongle avoids it."
+        }
       },
       {
         "@type": "Question",
         "name": "Why is there a delay when I speak into my Bluetooth mic?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Bluetooth audio naturally adds processing delay. This test reports your browser's measured latency so you can see how significant it is for your device." }
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bluetooth audio naturally adds processing delay: the signal is encoded, sent, and decoded at both ends, and the call profile adds its own buffering. This test reports your browser's measured latency so you can see how significant it is for your device. It matters most for gaming and live monitoring; for ordinary calls most people adapt to it. A wired connection removes nearly all of it."
+        }
       },
       {
         "@type": "Question",
         "name": "My Bluetooth device is connected but the mic test shows no input, why?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Check that your browser and OS have the Bluetooth device selected as the default microphone, not just the default speaker — these are set separately." }
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Check that your browser and OS have the Bluetooth device selected as the default microphone, not just the default speaker — these are set separately. Connected only proves the pairing exists; it says nothing about which microphone your system is actually recording from, and the built-in laptop mic is often still the chosen input."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my Bluetooth microphone not showing in the Sound input settings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually because the device connected for audio output only, or the hands-free part of the connection never came up. Disconnect and reconnect the headset, making sure it finishes pairing rather than sitting at 'paired'. On Windows, check Settings > System > Sound > Input for a Hands-Free entry for the device; on a Mac, check System Settings > Sound > Input. If the entry is still missing, remove (forget) the device and pair it again from scratch, and keep it close to the computer while pairing — a weak first connection often registers output only."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "My Bluetooth sound works but the microphone doesn't — what is wrong?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Playback and microphone are separate halves of the connection, and the playback half is far more reliable. The usual causes: your system or app is still using a different input (the laptop mic), the app lacks microphone permission, the headset is connected to two devices at once and its mic is claimed by the other one (multipoint connections do this often), or the battery is low enough that the mic drops first. This test settles which half is broken — if the level moves when you tap an earbud, the mic works and the fault is an app setting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my AirPods microphone only work on one side?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Each AirPod has its own microphone, and a setting decides which one is used. On iPhone or iPad: Settings > Bluetooth, tap the info button next to your AirPods, then Microphone — if it is set to Always Left or Always Right, that side is the microphone even when it is sitting in the case, which feels exactly like a dead mic on the other side. Set it to Automatically Switch AirPods so whichever bud you wear does the job. If one side still never works on Automatic, that bud's mic may be blocked by debris or faulty — test each side alone with the tap test on this page."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I test a Bluetooth microphone on my phone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open this page in your phone's browser with the headset connected, tap Start Mic Test, and allow microphone access. Speak, and watch the input level; then use the tap test — tap an earbud, then tap your phone — to confirm the Bluetooth mic is the live one, because phones silently fall back to their built-in mic when a headset's mic is not selected. Everything runs in the browser, so there is no app to install on Android or iPhone."
+        }
       }
     ]
   }
@@ -85,7 +142,7 @@
     <h1>Test Your Bluetooth Microphone</h1>
 
     <p class="hero-text">
-      Check a wireless Bluetooth headset or earbud microphone before your next call — see the real input level and latency, not just a "connected" icon.
+      Test your Bluetooth headset or earbud microphone properly: not just whether it connects, but whether your device is actually recording from it, how much delay it adds, and how it sounds. This free browser test shows your input level, waveform, noise and latency in seconds. Bluetooth mics fail in ways wired mics never do — connected but not selected, music that turns to mush the moment the mic wakes up, one earbud doing all the work — and this page explains each one.
     </p>
 
     <section class="tool-card">
@@ -133,10 +190,16 @@
   <div class="container">
     <h2>Why Bluetooth Mics Need A Separate Check</h2>
     <p>
-      A Bluetooth device showing as "connected" doesn't guarantee its microphone is selected or working — pairing controls the audio output far more reliably than the microphone input. This test confirms whether your system is actually capturing sound from the Bluetooth mic itself.
+      Short answer: because "connected" is a lie Bluetooth tells comfortably. It means a pairing exists — nothing more.
     </p>
     <p>
-      It also surfaces the real latency your Bluetooth connection introduces, which is normally invisible until you're already mid-call.
+      A Bluetooth device showing as "connected" doesn't guarantee its microphone is selected or working — pairing controls the audio output far more reliably than the microphone input. Your laptop can happily play music through your earbuds while recording your voice from its own built-in mic across the room, and nothing on screen will warn you. This test confirms whether your system is actually capturing sound from the Bluetooth mic itself.
+    </p>
+    <p>
+      It also surfaces the real latency your Bluetooth connection introduces, which is normally invisible until you're already mid-call, answering questions half a beat late.
+    </p>
+    <p>
+      The surest check on this page is the tap test. Start the test, then gently tap one earbud, then tap your laptop or phone. Whichever tap makes the input level jump is the microphone that is live right now. Ten seconds of tapping replaces twenty minutes of guessing in settings menus.
     </p>
   </div>
 </section>
@@ -145,10 +208,11 @@
   <div class="container">
     <h2>How To Test A Bluetooth Microphone</h2>
     <div class="steps">
-      <div class="step"><span>1</span><p>Pair and connect your Bluetooth headset or earbuds as usual.</p></div>
-      <div class="step"><span>2</span><p>In your browser or OS sound settings, confirm the Bluetooth device is set as the input, not just the output.</p></div>
-      <div class="step"><span>3</span><p>Click "Start Mic Test" here and speak normally.</p></div>
-      <div class="step"><span>4</span><p>Check the latency reading — if it's high, expect a similar delay in calls using this device.</p></div>
+      <div class="step"><span>1</span><p>Pair and connect your Bluetooth headset or earbuds as usual, and wear them the way you would on a call.</p></div>
+      <div class="step"><span>2</span><p>In your system sound settings, confirm the Bluetooth device is set as the input, not just the output — Windows: Settings &gt; System &gt; Sound &gt; Input; Mac: System Settings &gt; Sound &gt; Input. On a phone, connecting the headset usually routes both ways, but check the tap test below to be sure.</p></div>
+      <div class="step"><span>3</span><p>Click "Start Mic Test" here, allow microphone access, and speak normally. Watch the waveform and input level respond.</p></div>
+      <div class="step"><span>4</span><p>Do the tap test: tap an earbud gently, then tap near your computer or phone. The tap that spikes the level is the live mic. If the laptop tap wins, your system is still recording from the built-in mic — go back to step 2.</p></div>
+      <div class="step"><span>5</span><p>Check the latency reading — if it's high, expect a similar delay in calls using this device. Then stay silent for a few seconds and note the noise level: Bluetooth call audio is narrow enough without adding a noisy room to it.</p></div>
     </div>
   </div>
 </section>
@@ -157,11 +221,65 @@
   <div class="container">
     <h2>Bluetooth Mic Quirks To Know</h2>
     <div class="feature-grid">
-      <div class="feature-card"><h3>HFP Profile Drop</h3><p>Using the mic often forces a lower-quality call audio profile on both ends.</p></div>
-      <div class="feature-card"><h3>Separate Input Selection</h3><p>Many OSes list Bluetooth output and input as two different devices to choose from.</p></div>
-      <div class="feature-card"><h3>Battery-Related Cutout</h3><p>Low battery on true wireless earbuds can cause intermittent mic dropouts.</p></div>
-      <div class="feature-card"><h3>Range And Interference</h3><p>Distance from your device or Wi-Fi interference can add noise to the input signal.</p></div>
+      <div class="feature-card"><h3>HFP Profile Drop</h3><p>Using the mic often forces a lower-quality call audio profile on both ends. Bluetooth plays music through a stereo profile and runs calls through an older, narrow, mono profile — and it can only do one at a time. The moment your mic wakes up, everything switches to call quality. It is the most misunderstood behaviour in Bluetooth audio, and the HFP section below explains it fully.</p></div>
+      <div class="feature-card"><h3>Separate Input Selection</h3><p>Many OSes list Bluetooth output and input as two different devices to choose from, and choosing one never chooses the other. Windows even lists the same headset twice — a Stereo entry and a Hands-Free entry — with different quality. Most 'my mic doesn't work' cases are simply the input pointing somewhere else.</p></div>
+      <div class="feature-card"><h3>Battery-Related Cutout</h3><p>Low battery on true wireless earbuds can cause intermittent mic dropouts before the music stops, and one bud usually drains faster than the other because it has been doing the microphone work. If your mic dies twenty minutes into every long call, charge both buds fully and watch which side the tap test says is the mic.</p></div>
+      <div class="feature-card"><h3>Range And Interference</h3><p>Distance from your device or Wi-Fi interference can add noise to the input signal, and Bluetooth shares its radio band with Wi-Fi and every other wireless gadget in the room. Crackle that appears when you walk to the next room, or when a microwave runs, is range and interference, not a dying headset — the fix is distance and line of sight, not settings.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="content-section" id="troubleshooting">
+  <div class="container">
+    <h2>Bluetooth Mic Problems: Problem, Cause, Fix</h2>
+    <table>
+      <thead>
+        <tr><th>Problem</th><th>Most likely cause</th><th>Fix</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sound works, mic doesn't</td><td>Output connected; the input is still the built-in mic, or another device has claimed the mic</td><td>Select the headset under Sound input settings, then prove it with the tap test on this page. If the headset is connected to a phone and a laptop at once, disconnect it from one.</td></tr>
+        <tr><td>Quality drops the moment the mic turns on</td><td>The headset switched from the stereo music profile to the mono call profile</td><td>Expected behaviour on standard Bluetooth — see the HFP section below. Use a wired mic or a USB-dongle headset if you need music quality while speaking.</td></tr>
+        <tr><td>Mic not listed in Sound input at all</td><td>The hands-free half of the connection never registered</td><td>Forget the device and pair again, close to the computer. On Windows look for the Hands-Free entry under Settings &gt; System &gt; Sound &gt; Input.</td></tr>
+        <tr><td>AirPods mic works on one side only</td><td>The Microphone setting is fixed to Always Left or Always Right</td><td>iPhone or iPad: Settings &gt; Bluetooth &gt; info button next to your AirPods &gt; Microphone &gt; Automatically Switch AirPods.</td></tr>
+        <tr><td>Crackling or dropouts when you move</td><td>Range or interference in the shared 2.4 GHz band</td><td>Move closer, keep line of sight to the device, and move away from routers and microwaves. Test again in the room where calls actually happen.</td></tr>
+        <tr><td>People say you sound far away</td><td>The app is recording the laptop mic while you hear through the earbuds</td><td>The tap test proves it in seconds. Set the input to the headset in the system settings and inside the app itself — apps keep their own device choice.</td></tr>
+        <tr><td>Mic cuts out on long calls</td><td>One earbud's battery is draining first because it carries the mic</td><td>Charge both buds. For AirPods, the Automatically Switch microphone setting shares the work between sides.</td></tr>
+        <tr><td>Delay makes conversation awkward</td><td>Bluetooth encoding and call-profile buffering</td><td>Normal within limits. This test's latency reading shows your number; a wired headset or your device's built-in mic removes most of it.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="content-section" id="hfp">
+  <div class="container">
+    <h2>Why Quality Drops When The Mic Turns On (The HFP Problem)</h2>
+    <p>
+      Short answer: Bluetooth uses different profiles for listening and for talking, and a standard headset can only run one at a time.
+    </p>
+    <p>
+      Music and video sound use a profile designed purely for one-way, high-quality stereo playback. Phone calls use a different, older profile designed for two-way speech: it carries your voice to the other side and their voice back, in mono, across a much narrower slice of sound. A human voice squeezed into that slice stays understandable, but it loses its top and bottom — which is exactly the muffled, underwater quality people describe.
+    </p>
+    <p>
+      The switch is triggered by the microphone, not by the call. Any app that opens your mic — a meeting, a game, a voice recorder, this test — flips the headset into call mode, and everything you hear drops in quality with it. That is why your game audio or music can turn dreadful the second you join a voice channel, even before you say a word.
+    </p>
+    <p>
+      On Windows the two modes appear as two devices: your headset as Stereo headphones, and again as a Hands-Free headset. Choosing the Hands-Free entry as your output gives you call quality on purpose; choosing Stereo for output and the headset as input is the normal call setup, with the drop applying while the mic is live. No setting removes the drop entirely on a standard Bluetooth connection. The real escapes are a wired microphone alongside Bluetooth listening, a headset with its own USB wireless dongle (which is not Bluetooth and does not use these profiles), or your device's built-in mic for calls.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="airpods">
+  <div class="container">
+    <h2>Testing AirPods And Earbuds: The One-Sided Mic Problem</h2>
+    <p>
+      Short answer: every true-wireless earbud carries a microphone in each bud, and software decides which one works. When that decision is pinned to one side, the other side looks broken.
+    </p>
+    <p>
+      AirPods make the setting visible. With the AirPods connected, open Settings on iPhone or iPad, go to Bluetooth, tap the info button beside your AirPods, and open Microphone. You will find three choices: let the AirPods switch automatically, always use the left, or always use the right. On a fixed side, that bud stays the microphone even if you take it out or put it back in its case — leave that bud in the case and join a call with the other one, and nobody hears you, though nothing is faulty. Automatic switching is the right choice for almost everyone, and it also shares battery drain between the buds.
+    </p>
+    <p>
+      Whatever your brand, test each side on its own at least once: wear one bud at a time, run this test, and use the tap test to confirm that side's mic answers. It takes a minute, and it tells you whether a 'dead mic' is a setting, a blocked mic hole (earbud mic ports clog easily — check for debris before assuming damage), or a bud that genuinely needs repair.
+    </p>
   </div>
 </section>
 
@@ -170,16 +288,40 @@
     <h2>Bluetooth Mic Test FAQs</h2>
     <div class="faq">
       <details>
+        <summary>How do I test my AirPods microphone?</summary>
+        <p>Connect your AirPods, then open this page in your browser and set the AirPods as the input device if your system asks — on iPhone the browser uses the active audio route automatically. Click Start Mic Test and speak. To prove the AirPods mic, not your phone or laptop mic, is the one being recorded, use the tap test: gently tap an AirPod while speaking quietly, then tap near the laptop or phone. The tap that spikes the input level belongs to the live microphone.</p>
+      </details>
+      <details>
         <summary>Why does my Bluetooth mic sound muffled compared to my headphones?</summary>
-        <p>Most Bluetooth headsets switch to a lower-quality call profile (HFP) when the mic is active, reducing fidelity compared to music playback profiles.</p>
+        <p>Most Bluetooth headsets switch to a lower-quality call profile (HFP) when the mic is active, reducing fidelity compared to music playback profiles. Your music travels on a profile built for stereo sound; your voice call travels on a profile built in the era of phone calls, with a much narrower frequency range. The muffled quality is the profile working as designed, not a broken mic — which is why the same headset can sound great for music and poor for calls.</p>
+      </details>
+      <details>
+        <summary>Why does the audio quality drop as soon as I use the microphone?</summary>
+        <p>Because one Bluetooth connection cannot run the music profile and the microphone at the same time. The moment any app activates your mic, the headset leaves its high-quality stereo mode and switches both directions to the call profile: mono, narrow, and lower rate. On Windows you can watch it happen — the device appears twice, once as Stereo headphones for playback and once as a Hands-Free headset, and using the Hands-Free side for output gives you call quality in both ears. For listening while a mic is live, that drop is unavoidable on standard Bluetooth; a wired mic or a headset with its own USB dongle avoids it.</p>
       </details>
       <details>
         <summary>Why is there a delay when I speak into my Bluetooth mic?</summary>
-        <p>Bluetooth audio naturally adds processing delay. This test reports your browser's measured latency so you can see how significant it is for your device.</p>
+        <p>Bluetooth audio naturally adds processing delay: the signal is encoded, sent, and decoded at both ends, and the call profile adds its own buffering. This test reports your browser's measured latency so you can see how significant it is for your device. It matters most for gaming and live monitoring; for ordinary calls most people adapt to it. A wired connection removes nearly all of it.</p>
       </details>
       <details>
         <summary>My Bluetooth device is connected but the mic test shows no input, why?</summary>
-        <p>Check that your browser and OS have the Bluetooth device selected as the default microphone, not just the default speaker — these are set separately.</p>
+        <p>Check that your browser and OS have the Bluetooth device selected as the default microphone, not just the default speaker — these are set separately. Connected only proves the pairing exists; it says nothing about which microphone your system is actually recording from, and the built-in laptop mic is often still the chosen input.</p>
+      </details>
+      <details>
+        <summary>Why is my Bluetooth microphone not showing in the Sound input settings?</summary>
+        <p>Usually because the device connected for audio output only, or the hands-free part of the connection never came up. Disconnect and reconnect the headset, making sure it finishes pairing rather than sitting at 'paired'. On Windows, check Settings &gt; System &gt; Sound &gt; Input for a Hands-Free entry for the device; on a Mac, check System Settings &gt; Sound &gt; Input. If the entry is still missing, remove (forget) the device and pair it again from scratch, and keep it close to the computer while pairing — a weak first connection often registers output only.</p>
+      </details>
+      <details>
+        <summary>My Bluetooth sound works but the microphone doesn't — what is wrong?</summary>
+        <p>Playback and microphone are separate halves of the connection, and the playback half is far more reliable. The usual causes: your system or app is still using a different input (the laptop mic), the app lacks microphone permission, the headset is connected to two devices at once and its mic is claimed by the other one (multipoint connections do this often), or the battery is low enough that the mic drops first. This test settles which half is broken — if the level moves when you tap an earbud, the mic works and the fault is an app setting.</p>
+      </details>
+      <details>
+        <summary>Why does my AirPods microphone only work on one side?</summary>
+        <p>Each AirPod has its own microphone, and a setting decides which one is used. On iPhone or iPad: Settings &gt; Bluetooth, tap the info button next to your AirPods, then Microphone — if it is set to Always Left or Always Right, that side is the microphone even when it is sitting in the case, which feels exactly like a dead mic on the other side. Set it to Automatically Switch AirPods so whichever bud you wear does the job. If one side still never works on Automatic, that bud's mic may be blocked by debris or faulty — test each side alone with the tap test on this page.</p>
+      </details>
+      <details>
+        <summary>How do I test a Bluetooth microphone on my phone?</summary>
+        <p>Open this page in your phone's browser with the headset connected, tap Start Mic Test, and allow microphone access. Speak, and watch the input level; then use the tap test — tap an earbud, then tap your phone — to confirm the Bluetooth mic is the live one, because phones silently fall back to their built-in mic when a headset's mic is not selected. Everything runs in the browser, so there is no app to install on Android or iPhone.</p>
       </details>
     </div>
   </div>
