@@ -175,6 +175,18 @@ function stopMicTest(){
   volumeText.textContent =
   "0%";
 
+  noiseLevel.textContent =
+  "--";
+
+  qualityLevel.textContent =
+  "--";
+
+  latencyLevel.textContent =
+  "--";
+
+  deviceName.textContent =
+  "Not Connected";
+
   micStatus.textContent =
   "Mic Test Stopped";
 
