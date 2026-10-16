@@ -535,6 +535,14 @@ padding: 5px 20px;
 
 }
 
+.toc summary h2{
+
+  display:inline;
+
+  font-size:1.5rem;
+
+}
+
 .toc ul{
 
   margin-top:20px;
@@ -589,6 +597,18 @@ padding: 5px 20px;
 
   padding:
   25px;
+
+  transition:.3s;
+
+}
+
+.step:hover{
+
+  transform:
+  translateY(-4px);
+
+  border-color:
+  rgba(59,130,246,.4);
 
 }
 
@@ -772,6 +792,18 @@ details{
 
   padding:
   20px;
+
+  transition:.3s;
+
+}
+
+details:hover{
+
+  transform:
+  translateY(-4px);
+
+  border-color:
+  rgba(59,130,246,.4);
 
 }
 
