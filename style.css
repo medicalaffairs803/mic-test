@@ -807,6 +807,37 @@ details:hover{
 
 }
 
+.page-img{
+
+  width:100%;
+
+  height:auto;
+
+  display:block;
+
+  border:
+  1px solid var(--border);
+
+  border-radius:
+  16px;
+
+  margin:
+  10px 0 25px;
+
+}
+
+.h2-icon{
+
+  width:24px;
+
+  height:24px;
+
+  vertical-align:-4px;
+
+  margin-right:10px;
+
+}
+
 summary{
 
   cursor:pointer;
