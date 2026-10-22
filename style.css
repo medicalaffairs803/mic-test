@@ -1091,3 +1091,13 @@ details p{
   white-space:nowrap;
   border:0;
 }
+
+/* In-content text links (added 2026-10-22): bare paragraph/list/table links had no colour rule
+   and rendered in the browser-default blue #0000ee (2.09:1 on the dark background).
+   :where() keeps this weaker than the nav, TOC, breadcrumb and footer link rules. */
+:where(.content-section) p a,
+:where(.content-section) li a,
+:where(.content-section) td a{
+  color:var(--cyan);
+  text-decoration:underline;
+}
