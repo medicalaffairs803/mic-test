@@ -6,8 +6,8 @@
 
   <title>Mic Test For Zoom – Check Your Microphone Before A Call</title>
 
-  <meta name="description" content="Free mic test for Zoom. Check your microphone, input level and background noise before joining a Zoom meeting, right in your browser, no account needed." />
-  <meta name="keywords" content="mic test for zoom, zoom microphone test, test mic before zoom call" />
+  <meta name="description" content="Free mic test for Zoom. Check your microphone, input level and background noise before a Zoom meeting — no account, no download, no need to open zoom.test." />
+  <meta name="keywords" content="mic test for zoom, zoom microphone test, test mic before zoom call, zoom.test" />
   <meta name="robots" content="index, follow"/>
 
   <link rel="canonical" href="https://testmics.com/mic-test-for-zoom.html"/>
@@ -15,12 +15,13 @@
 
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Mic Test For Zoom – Check Your Microphone Before A Call"/>
-  <meta property="og:description" content="Free mic test for Zoom. Check your microphone, input level and background noise before joining a Zoom meeting, right in your browser, no account needed."/>
+  <meta property="og:description" content="Free mic test for Zoom. Check your microphone, input level and background noise before a Zoom meeting — no account, no download, no need to open zoom.test."/>
   <meta property="og:url" content="https://testmics.com/mic-test-for-zoom.html"/>
+  <meta property="og:image" content="https://testmics.com/images/zoom-1-meeting.webp"/>
 
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="Mic Test For Zoom – Check Your Microphone Before A Call"/>
-  <meta name="twitter:description" content="Free mic test for Zoom. Check your microphone, input level and background noise before joining a Zoom meeting, right in your browser, no account needed."/>
+  <meta name="twitter:description" content="Free mic test for Zoom. Check your microphone, input level and background noise before a Zoom meeting — no account, no download, no need to open zoom.test."/>
 
   <style>
 /* style.css inlined 2026-10-22 for PageSpeed (master copy: style.css in repo) */
@@ -1219,6 +1220,14 @@ details p{
       },
       {
         "@type": "Question",
+        "name": "Why can't I hear anything on Zoom?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you cannot hear anything on Zoom, the problem is usually the speaker side, not the mic. In the desktop app, open Settings > Audio > Speaker, pick the right speaker and click Test speaker — you should hear a test tone. Also check that you joined the computer audio: on mobile, tap Join Audio and choose Call Over Internet. If the test tone plays but meeting audio does not, reselect the speaker; if nothing plays anywhere, check your system volume and output device first."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "How can I test my camera and microphone together before Zoom?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -1274,7 +1283,7 @@ details p{
     <h1>Test Your Microphone For Zoom</h1>
 
     <p class="hero-text">
-      Before you join your next Zoom meeting, make sure your microphone is actually working. This free browser test checks your input level, waveform and noise level before you open Zoom at all. If the mic fails here, the problem is your device, your browser permission, or your system settings — not Zoom. If it works here but fails in Zoom, the problem sits inside Zoom's own audio settings, and the fixes further down this page cover those one by one.
+      Before you join your next Zoom meeting, make sure your microphone is actually working. This free browser test checks your input level, waveform and noise level before you open Zoom at all. If the mic fails here, the problem is your device, your browser permission, or your system settings — not Zoom. If it works here but fails in Zoom, the problem sits inside Zoom's own audio settings, and the fixes further down this page cover those one by one. It also catches the common zoom audio issues — no audio, echo, or a mic that is too quiet — before they cost you the first minutes of a meeting.
     </p>
 
     <section class="tool-card">
@@ -1380,17 +1389,18 @@ details p{
     <h2>Zoom Mic Problems: Problem, Cause, Fix</h2>
     <table>
       <thead>
-        <tr><th>Problem</th><th>Most likely cause</th><th>Fix</th></tr>
+        <tr><th>Problem</th><th>Most likely cause</th><th>Fix</th><th>Check on this page</th></tr>
       </thead>
       <tbody>
-        <tr><td>People in the meeting cannot hear you at all</td><td>Wrong input device selected in Zoom, or you are muted</td><td>Settings &gt; Audio &gt; Microphone: pick the device that passed this test. Then check the mic icon in the meeting toolbar is not red.</td></tr>
-        <tr><td>This test hears you, Zoom does not</td><td>Browser or system permission is fine, but Zoom's permission is blocked, or Zoom is set to a different device</td><td>Check the system privacy setting for Zoom (Windows: Privacy &amp; Security &gt; Microphone; Mac: Privacy &amp; Security &gt; Microphone). Then match the device in Settings &gt; Audio.</td></tr>
-        <tr><td>Your voice fades in and out</td><td>"Automatically adjust microphone volume" keeps changing your level (Zoom itself suggests turning it off when audio fades in and out)</td><td>Settings &gt; Audio &gt; Microphone: turn off Automatically adjust microphone volume, then set the Input volume slider by hand and re-test.</td></tr>
-        <tr><td>You sound too quiet</td><td>Input volume too low, mic too far away, or the wrong (built-in) mic is active</td><td>Move the mic closer first. Then raise Input volume in Settings &gt; Audio. Confirm the device named there is the one you are speaking into.</td></tr>
-        <tr><td>People hear an echo of themselves</td><td>Your speakers are feeding your mic, or two audio devices are live in the same room</td><td>Use headphones. If two people or two devices are in one room, one of them must leave computer audio or disconnect it — muting alone does not stop the speaker half of the echo.</td></tr>
-        <tr><td>Background noise is louder than you</td><td>Noise suppression set too low for your room, or a mic placed next to the noise source</td><td>Settings &gt; Audio &gt; Microphone modes &gt; Noise removal, then Background noise suppression: try Medium for fans and typing, High for voices around you. High uses more CPU, so drop back if your machine struggles.</td></tr>
-        <tr><td>Mic worked yesterday, dead today</td><td>An update, a new default device (webcam mics are common culprits), or a Bluetooth device that reconnected as speakers only</td><td>Test here. If this page is also flat, fix the system input device first. If this page works, reselect the device inside Zoom.</td></tr>
-        <tr><td>Camera works, mic does not, in the browser version of Zoom</td><td>The browser was never given microphone permission for the Zoom web app</td><td>Click Allow on the microphone prompt when joining, or allow the microphone in the browser's site settings for Zoom, then rejoin.</td></tr>
+        <tr><td>People in the meeting cannot hear you at all</td><td>Wrong input device selected in Zoom, or you are muted</td><td>Settings &gt; Audio &gt; Microphone: pick the device that passed this test. Then check the mic icon in the meeting toolbar is not red.</td><td>Input Level stays flat when you speak</td></tr>
+        <tr><td>This test hears you, Zoom does not</td><td>Browser or system permission is fine, but Zoom's permission is blocked, or Zoom is set to a different device</td><td>Check the system privacy setting for Zoom (Windows: Privacy &amp; Security &gt; Microphone; Mac: Privacy &amp; Security &gt; Microphone). Then match the device in Settings &gt; Audio.</td><td>This page hears you — the fault is in Zoom</td></tr>
+        <tr><td>Your voice fades in and out</td><td>"Automatically adjust microphone volume" keeps changing your level (Zoom itself suggests turning it off when audio fades in and out)</td><td>Settings &gt; Audio &gt; Microphone: turn off Automatically adjust microphone volume, then set the Input volume slider by hand and re-test.</td><td>Input Level rises and falls on its own</td></tr>
+        <tr><td>You sound too quiet</td><td>Input volume too low, mic too far away, or the wrong (built-in) mic is active</td><td>Move the mic closer first. Then raise Input volume in Settings &gt; Audio. Confirm the device named there is the one you are speaking into.</td><td>Input Level barely moves at normal distance</td></tr>
+        <tr><td>People hear an echo of themselves</td><td>Your speakers are feeding your mic, or two audio devices are live in the same room</td><td>Use headphones. If two people or two devices are in one room, one of them must leave computer audio or disconnect it — muting alone does not stop the speaker half of the echo.</td><td>Noise Level jumps when your speakers play</td></tr>
+        <tr><td>Background noise is louder than you</td><td>Wrong microphone mode for your room, or a mic placed next to the noise source</td><td>Settings &gt; Audio &gt; Microphone modes: Noise removal (the default), Personalized audio isolation, or Original sound for musicians (noise suppression off). Pick the mode for your room, then re-test.</td><td>Noise Level stays high while you are silent</td></tr>
+        <tr><td>Mic worked yesterday, dead today</td><td>An update, a new default device (webcam mics are common culprits), or a Bluetooth device that reconnected as speakers only</td><td>Test here. If this page is also flat, fix the system input device first. If this page works, reselect the device inside Zoom.</td><td>Input Level flat — re-check the Device name</td></tr>
+        <tr><td>Camera works, mic does not, in the browser version of Zoom</td><td>The browser was never given microphone permission for the Zoom web app</td><td>Click Allow on the microphone prompt when joining, or allow the microphone in the browser's site settings for Zoom, then rejoin.</td><td>Device name shows the wrong mic, or nothing</td></tr>
+        <tr><td>Audio not working on Zoom — you hear nothing and nobody hears you</td><td>Wrong speaker and microphone selected, or computer audio never joined</td><td>Settings &gt; Audio: pick the right speaker and mic, click Test speaker and Test microphone; on mobile, Join Audio &gt; Call Over Internet.</td><td>Zoom no audio: Test speaker tone plays and Input Level moves</td></tr>
       </tbody>
     </table>
   </div>
@@ -1400,16 +1410,16 @@ details p{
   <div class="container">
     <h2>How To Test Your Mic And Speakers Together</h2>
     <p>
-      Short answer: test the mic here first, then use Zoom's own panel to test both in one place.
+      Short answer: test the mic here first, then run Zoom's own speaker test and mic test together in one panel.
     </p>
     <p>
-      In Zoom's desktop app, open Settings &gt; Audio. In the Speaker section, click Test speaker — you should hear a test tone; if you hear nothing, pick a different speaker from the drop-down or raise the Volume. In the Microphone section below it, click Test microphone, speak, and listen to the recording play back.
+      In Zoom's desktop app, open Settings &gt; Audio. In the Speaker section, click Test speaker — you should hear a test tone; if you hear nothing, pick a different speaker from the drop-down or raise the Volume. In the Microphone section below it, click Test microphone — Zoom records your voice, the Input volume bar moves while it records, then plays the audio back.
     </p>
     <p>
       There is a second chance to test when you join a meeting. If "Automatically connect to computer audio" is off, Zoom offers "Test speaker and microphone" before you enter. It plays a ringtone and asks if you heard it, then records your voice and plays it back. It takes about twenty seconds and it is the same check the host wishes everyone would run.
     </p>
     <p>
-      You can also use Zoom's test meeting at zoom.us/test. Click Join, launch Zoom (or choose "Join from your browser" if you cannot install the app), and follow the prompts to test your video, audio and microphone. You end up in a practice meeting where nobody can hear your mistakes — a sensible five minutes before an interview or a client call.
+      You can also use Zoom's test meeting — search "zoom.test" or open zoom.us/test directly. Click Join, launch Zoom (or choose "Join from your browser" if you cannot install the app), and follow the prompts to test your video, audio and microphone. You end up in a practice meeting where nobody can hear your mistakes — a sensible five minutes before an interview or a client call.
     </p>
   </div>
 </section>
@@ -1461,6 +1471,10 @@ details p{
       <details>
         <summary>How do I test audio on Zoom before a meeting?</summary>
         <p>Open this page and click "Start Mic Test" to check your microphone, then separately confirm your speakers by playing any audio. Zoom also has its own audio test inside Settings, but checking here first is faster since it needs no login.</p>
+      </details>
+      <details>
+        <summary>Why can't I hear anything on Zoom?</summary>
+        <p>If you cannot hear anything on Zoom, the problem is usually the speaker side, not the mic. In the desktop app, open Settings &gt; Audio &gt; Speaker, pick the right speaker and click Test speaker — you should hear a test tone. Also check that you joined the computer audio: on mobile, tap Join Audio and choose Call Over Internet. If the test tone plays but meeting audio does not, reselect the speaker; if nothing plays anywhere, check your system volume and output device first.</p>
       </details>
       <details>
         <summary>How can I test my camera and microphone together before Zoom?</summary>

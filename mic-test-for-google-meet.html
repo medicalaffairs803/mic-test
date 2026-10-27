@@ -17,6 +17,7 @@
   <meta property="og:title" content="Mic Test For Google Meet – Check Your Microphone Before Joining"/>
   <meta property="og:description" content="Free mic test for Google Meet. Check your microphone, input level and background noise before joining a Meet call, right in your browser. No install needed."/>
   <meta property="og:url" content="https://testmics.com/mic-test-for-google-meet.html"/>
+  <meta property="og:image" content="https://testmics.com/images/meet-1-green-room.webp"/>
 
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="Mic Test For Google Meet – Check Your Microphone Before Joining"/>
@@ -1230,7 +1231,7 @@ details p{
         "name": "Does Google Meet have noise cancellation?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Meet offers noise cancellation, although availability depends on your account, device and meeting setup. Where it is available, you turn it on from More options > Settings > Audio, either before joining or during the meeting. Use the Noise Level reading on this page first: if your room is quiet when you are silent, you may not need it, and if it is not, moving the microphone closer to you and farther from the noise still helps more than any single setting."
+          "text": "Yes, Meet offers noise cancellation, although availability depends on your account, device and meeting setup. Where it is available, you turn it on from More options > Settings > Audio, either before joining or during the meeting. It cancels non-speech noises only — typing, a door closing, room echo, construction sound. Voices from a TV or people talking will not be canceled, and turn it off if you need music in the meeting. Use the Noise Level reading on this page first: if your room is quiet when you are silent, you may not need it, and if it is not, moving the microphone closer to you and farther from the noise still helps more than any single setting."
         }
       },
       {
@@ -1399,17 +1400,17 @@ details p{
     <h2>Google Meet Mic Problems: Problem, Cause, Fix</h2>
     <table>
       <thead>
-        <tr><th>Problem</th><th>Most Likely Cause</th><th>Fix</th></tr>
+        <tr><th>Problem</th><th>Most Likely Cause</th><th>Fix</th><th>Check on this page</th></tr>
       </thead>
       <tbody>
-        <tr><td>Meet says it cannot use your microphone</td><td>The browser blocked microphone access for the Meet site</td><td>In Chrome, open the site settings from the icon beside the address bar on the Meet page, set Microphone to Allow, and reload. If the setting is locked, your administrator controls it.</td></tr>
-        <tr><td>This test hears you, Meet does not</td><td>Meet is set to a different microphone than the one you tested</td><td>In the green room, or with the arrow beside the mic icon during a call, open the microphone dropdown and select the device named on this page.</td></tr>
-        <tr><td>People say you sound distant</td><td>Meet is using the built-in laptop microphone instead of your headset</td><td>Select the headset as the microphone in Meet's device list. Google specifically warns that headsets may fall back to the built-in mic.</td></tr>
-        <tr><td>There is an echo of the meeting</td><td>Your speakers and microphone are mismatched devices in the same room</td><td>Use headphones, lower the speaker volume, and mute when not speaking. Meet's Troubleshooting &amp; help also offers echo guidance when it detects it.</td></tr>
-        <tr><td>Your voice is too quiet</td><td>Microphone too far away, low system input volume, or the wrong device</td><td>Move closer first. Then check the input volume in your system sound settings and confirm the device in Meet matches the one that passed here.</td></tr>
-        <tr><td>Background noise is taking over</td><td>A sensitive mic placed near the noise, in a reflective room</td><td>Measure it with the Noise Level reading while silent. Move the mic closer to you and away from the noise, then turn on noise cancellation under More options &gt; Settings &gt; Audio where available.</td></tr>
-        <tr><td>Your Bluetooth headset mic will not appear</td><td>The headset is connected to another device, out of date, or poorly suited to Meet</td><td>Disconnect it from other devices, reconnect, and update its firmware. If it repeatedly fails with Meet, use a wired connection or its USB receiver for calls that matter.</td></tr>
-        <tr><td>The call breaks up although the mic test passed</td><td>Network, browser load or computer performance rather than the microphone</td><td>Update the browser, close spare tabs and apps, and open More options &gt; Troubleshooting &amp; help in Meet for suggestions matched to the problem it detects.</td></tr>
+        <tr><td>Meet says it cannot use your microphone</td><td>The browser blocked microphone access for the Meet site</td><td>In Chrome, open the site settings from the icon beside the address bar on the Meet page, set Microphone to Allow, and reload. If the setting is locked, your administrator controls it.</td><td>Input Level flat — browser permission blocked</td></tr>
+        <tr><td>This test hears you, Meet does not</td><td>Meet is set to a different microphone than the one you tested</td><td>In the green room, or with the arrow beside the mic icon during a call, open the microphone dropdown and select the device named on this page.</td><td>This page hears you — the fault is in Meet</td></tr>
+        <tr><td>People say you sound distant</td><td>Meet is using the built-in laptop microphone instead of your headset</td><td>Select the headset as the microphone in Meet's device list. Google specifically warns that headsets may fall back to the built-in mic.</td><td>Tap test: the laptop mic answers, not the headset</td></tr>
+        <tr><td>There is an echo of the meeting</td><td>Your speakers and microphone are mismatched devices in the same room</td><td>Use headphones, lower the speaker volume, and mute when not speaking. Meet's Troubleshooting &amp; help also offers echo guidance when it detects it.</td><td>Noise Level jumps when others speak</td></tr>
+        <tr><td>Your voice is too quiet</td><td>Microphone too far away, low system input volume, or the wrong device</td><td>Move closer first. Then check the input volume in your system sound settings and confirm the device in Meet matches the one that passed here.</td><td>Input Level barely moves at normal distance</td></tr>
+        <tr><td>Background noise is taking over</td><td>A sensitive mic placed near the noise, in a reflective room</td><td>Measure it with the Noise Level reading while silent. Move the mic closer to you and away from the noise, then turn on noise cancellation under More options &gt; Settings &gt; Audio where available.</td><td>Noise Level high while you are silent</td></tr>
+        <tr><td>Your Bluetooth headset mic will not appear</td><td>The headset is connected to another device, out of date, or poorly suited to Meet</td><td>Disconnect it from other devices, reconnect, and update its firmware. If it repeatedly fails with Meet, use a wired connection or its USB receiver for calls that matter.</td><td>Device name missing from the input list</td></tr>
+        <tr><td>The call breaks up although the mic test passed</td><td>Network, browser load or computer performance rather than the microphone</td><td>Update the browser, close spare tabs and apps, and open More options &gt; Troubleshooting &amp; help in Meet for suggestions matched to the problem it detects.</td><td>Input Level and Latency normal here — not a mic problem</td></tr>
       </tbody>
     </table>
   </div>
@@ -1425,7 +1426,7 @@ details p{
       Its weakness is that it trusts its own selection. If Meet has chosen the built-in microphone, the green room will happily confirm that the built-in microphone works — while the headset you intended to use sits idle. That is why the device-name comparison matters so much. This page tells you which device your browser reports and how that device performs; the green room tells you which device Meet plans to use. When those two answers agree, you can join with confidence.
     </p>
     <p>
-      During the meeting, Meet gives you a second chance to correct course. The arrow beside the microphone icon opens your audio devices, and Google's rule of thumb is reassuringly simple: if the mic bar in that panel moves when you speak, your microphone works. Meet also watches for trouble — a red dot on the More options button signals that Troubleshooting &amp; help has suggestions for a network or device problem it has noticed.
+      During the meeting, Meet gives you a second chance to correct course. The arrow beside the microphone icon opens your audio devices, and Google's rule of thumb is reassuringly simple: if the mic bar in that panel moves when you speak, your microphone works. To test your speaker, click Speaker, then Test Speakers — if you hear a test sound, your speaker works. Meet also watches for trouble — a red dot on the More options button signals that Troubleshooting &amp; help has suggestions for a network or device problem it has noticed.
     </p>
     <p>
       Put together, a calm pre-meeting routine looks like this. Test here and note the device name and noise level. Open the meeting and match the device in the green room. Run Meet's own check. Join. Total time, well under a minute — considerably less than the five minutes a failed start costs a room full of people.
@@ -1487,7 +1488,7 @@ details p{
       </details>
       <details>
         <summary>Does Google Meet have noise cancellation?</summary>
-        <p>Yes, Meet offers noise cancellation, although availability depends on your account, device and meeting setup. Where it is available, you turn it on from More options &gt; Settings &gt; Audio, either before joining or during the meeting. Use the Noise Level reading on this page first: if your room is quiet when you are silent, you may not need it, and if it is not, moving the microphone closer to you and farther from the noise still helps more than any single setting.</p>
+        <p>Yes, Meet offers noise cancellation, although availability depends on your account, device and meeting setup. Where it is available, you turn it on from More options &gt; Settings &gt; Audio, either before joining or during the meeting. It cancels non-speech noises only — typing, a door closing, room echo, construction sound. Voices from a TV or people talking will not be canceled, and turn it off if you need music in the meeting. Use the Noise Level reading on this page first: if your room is quiet when you are silent, you may not need it, and if it is not, moving the microphone closer to you and farther from the noise still helps more than any single setting.</p>
       </details>
       <details>
         <summary>Can I test my microphone for Google Meet on my phone?</summary>
