@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Microphone Not Working – Test Your Mic & Fix It Free Online</title>
+
+  <meta name="description" content="Microphone not working? Run a free mic test, then follow the fixes in order — permissions, default device, drivers — for Windows, Mac and browser." />
+  <meta name="keywords" content="microphone not working, why isn't my microphone working, mic not working on pc, laptop microphone not working, computer microphone not working, how to fix mic not working" />
+  <meta name="robots" content="index, follow"/>
+
+  <link rel="canonical" href="https://testmics.com/microphone-not-working.html"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Microphone Not Working – Test Your Mic & Fix It Free Online"/>
+  <meta property="og:description" content="Microphone not working? Run a free mic test, then follow the fixes in order — permissions, default device, drivers — for Windows, Mac and browser."/>
+  <meta property="og:url" content="https://testmics.com/microphone-not-working.html"/>
+  <meta property="og:image" content="https://testmics.com/images/notworking-1-test-first.webp"/>
+
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Microphone Not Working – Test Your Mic & Fix It Free Online"/>
+  <meta name="twitter:description" content="Microphone not working? Run a free mic test, then follow the fixes in order — permissions, default device, drivers — for Windows, Mac and browser."/>
+
+  <style>
+/* style.css inlined 2026-10-22 for PageSpeed (master copy: style.css in repo) */
+/* Self-hosted Inter variable font (added 2026-10-22; replaces Google Fonts - no third-party request, no layout shift) */
+@font-face{
+  font-family:'Inter';
+  src:url('fonts/inter-var.woff2') format('woff2');
+  font-weight:400 900;
+  font-style:normal;
+  font-display:optional;
+}
+
+/* ===================================
+   MIC TEST PRO — STYLE.CSS
+=================================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+
+  --bg:#070b14;
+  --card:#101826;
+  --card2:#131d2d;
+  --border:rgba(255,255,255,.08);
+
+  --text:#ffffff;
+  --text2:#b8c4d9;
+
+  --blue:#3b82f6;
+  --cyan:#06b6d4;
+  --green:#22c55e;
+  --red:#ef4444;
+  --yellow:#facc15;
+
+  --gradient:
+  linear-gradient(
+  135deg,
+  #0f172a 0%,
+  #07111f 100%
+  );
+
+  --radius:18px;
+
+  --shadow:
+  0 10px 40px rgba(0,0,0,.35);
+
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  font-family:
+  'Inter',
+  sans-serif;
+
+  background:
+  var(--bg);
+
+  color:
+  var(--text);
+
+  line-height:
+  1.7;
+
+  overflow-x:hidden;
+
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+ min-height: auto;
+
+  background:
+  radial-gradient(
+  circle at top,
+  rgba(59,130,246,.12),
+  transparent 30%
+  ),
+  var(--gradient);
+
+  padding:
+  30px 20px 80px;
+
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.topbar{
+
+  max-width:1200px;
+
+  margin:auto;
+
+  display:flex;
+
+  justify-content:
+  space-between;
+
+  align-items:center;
+
+  margin-bottom:20px;
+
+}
+
+.logo{
+
+  font-size:1.5rem;
+
+  font-weight:800;
+
+  color:white;
+
+}
+
+.nav-links{
+
+  display:flex;
+
+  gap:30px;
+
+}
+
+.nav-links a{
+
+  color:var(--text2);
+
+  text-decoration:none;
+
+  transition:.3s;
+
+  font-weight:600;
+
+}
+
+.nav-links a:hover{
+
+  color:white;
+
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content{
+
+  max-width:1000px;
+
+  margin:auto;
+
+  text-align:center;
+
+}
+
+.hero-content h1{
+
+  font-size:4rem;
+
+  line-height:1.1;
+
+  margin-bottom:25px;
+
+  font-weight:900;
+
+}
+
+.hero-text{
+
+  max-width:800px;
+
+  margin:auto;
+
+  color:var(--text2);
+
+  font-size:1.15rem;
+
+  margin-bottom:50px;
+
+}
+
+/* =========================
+   TOOL CARD
+========================= */
+
+.tool-card{
+
+  background:
+  rgba(16,24,38,.9);
+
+  border:
+  1px solid var(--border);
+
+  border-radius:
+  var(--radius);
+
+  padding:
+  35px;
+
+  box-shadow:
+  var(--shadow);
+
+  backdrop-filter:
+  blur(10px);
+
+}
+
+.status-row{
+
+  display:flex;
+
+  justify-content:
+  space-between;
+
+  gap:20px;
+
+  flex-wrap:wrap;
+
+margin-bottom:25px;
+
+}
+
+.status-box{
+
+  background:
+  var(--card2);
+
+  border:
+  1px solid var(--border);
+
+  padding:
+  14px 18px;
+
+  border-radius:
+  12px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  color:white;
+
+  font-weight:600;
+
+}
+
+.dot{
+
+  width:12px;
+
+  height:12px;
+
+  border-radius:50%;
+
+  background:var(--yellow);
+
+  animation:pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+  0%{
+    transform:scale(1);
+    opacity:1;
+  }
+
+  50%{
+    transform:scale(1.3);
+    opacity:.7;
+  }
+
+  100%{
+    transform:scale(1);
+    opacity:1;
+  }
+
+}
+
+/* =========================
+   VISUALIZER
+========================= */
+
+.visualizer-wrap{
+
+  background:
+  #050b15;
+
+  border-radius:
+  16px;
+
+  border:
+  1px solid var(--border);
+
+  padding:
+  20px;
+
+  margin-bottom:80px;
+
+}
+
+#visualizer{
+
+  width:100%;
+
+  height:140px;
+
+  display:block;
+
+}
+
+/* =========================
+   AUDIO METER
+========================= */
+
+.meter-wrap{
+
+  margin-bottom:30px;
+
+}
+
+.meter-bar{
+
+  width:100%;
+
+  height:20px;
+
+  background:
+  #09111c;
+
+  border-radius:
+  100px;
+
+  overflow:hidden;
+
+  border:
+  1px solid var(--border);
+
+}
+
+.meter-fill{
+
+  width:0%;
+
+  height:100%;
+
+  background:
+  linear-gradient(
+  90deg,
+  var(--green),
+  var(--cyan),
+  var(--blue)
+  );
+
+  transition:
+  width .1s linear;
+
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.tool-actions{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:20px;
+
+  margin-bottom:35px;
+
+  flex-wrap:wrap;
+
+}
+
+.tool-actions button{
+
+  border:none;
+
+  padding:
+  15px 28px;
+
+  border-radius:
+  14px;
+
+  cursor:pointer;
+
+  font-size:1rem;
+
+  font-weight:700;
+
+  transition:.3s;
+
+}
+
+#startBtn{
+
+  background:
+  linear-gradient(
+  135deg,
+  var(--blue),
+  var(--cyan)
+  );
+
+  color:white;
+
+}
+
+#startBtn:hover{
+
+  transform:
+  translateY(-2px);
+
+}
+
+#stopBtn{
+
+  background:
+  rgba(255,255,255,.06);
+
+  color:white;
+
+  border:
+  1px solid var(--border);
+
+}
+
+/* =========================
+   INFO GRID
+========================= */
+
+.tool-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(4,1fr);
+
+  gap:20px;
+
+}
+
+.info-card{
+
+  background:
+  var(--card2);
+
+  border:
+  1px solid var(--border);
+
+  padding:
+  22px;
+
+  border-radius:
+  16px;
+
+}
+
+.info-card h3{
+
+  margin-bottom:10px;
+
+  font-size:1rem;
+
+  color:var(--text2);
+
+}
+
+.info-card p{
+
+  font-size:1.2rem;
+
+  font-weight:800;
+
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content-section{
+
+padding: 5px 20px;
+}
+
+.container{
+
+  max-width:1100px;
+
+  margin:auto;
+
+}
+
+.content-section h2{
+
+  font-size:2.3rem;
+
+  margin-bottom:25px;
+
+  line-height:1.2;
+
+}
+
+.content-section p{
+
+  color:var(--text2);
+
+  margin-bottom:20px;
+
+  font-size:1.05rem;
+
+}
+
+/* =========================
+   TOC
+========================= */
+
+.toc{
+
+  background:
+  var(--card);
+
+  border:
+  1px solid var(--border);
+
+  border-radius:
+  var(--radius);
+
+  padding:
+  30px;
+
+}
+
+.toc summary h2{
+
+  display:inline;
+
+  font-size:1.5rem;
+
+}
+
+.toc ul{
+
+  margin-top:20px;
+
+  display:grid;
+
+  gap:15px;
+
+}
+
+.toc a{
+
+  color:#8db8ff;
+
+  text-decoration:none;
+
+  transition:.3s;
+
+}
+
+.toc a:hover{
+
+  color:white;
+
+}
+
+/* =========================
+   STEPS
+========================= */
+
+.steps{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:20px;
+
+}
+
+.step{
+
+  background:
+  var(--card);
+
+  border:
+  1px solid var(--border);
+
+  border-radius:
+  16px;
+
+  padding:
+  25px;
+
+  transition:.3s;
+
+}
+
+.step:hover{
+
+  transform:
+  translateY(-4px);
+
+  border-color:
+  rgba(59,130,246,.4);
+
+}
+
+.step span{
+
+  width:40px;
+
+  height:40px;
+
+  border-radius:50%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin-bottom:15px;
+
+  background:
+  linear-gradient(
+  135deg,
+  var(--blue),
+  var(--cyan)
+  );
+
+  font-weight:800;
+
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.feature-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(3,1fr);
+
+  gap:22px;
+
+}
+
+.feature-card{
+
+  background:
+  var(--card);
+
+  border:
+  1px solid var(--border);
+
+  border-radius:
+  16px;
+
+  padding:
+  28px;
+
+  transition:.3s;
+
+}
+
+.feature-card:hover{
+
+  transform:
+  translateY(-4px);
+
+  border-color:
+  rgba(59,130,246,.4);
+
+}
+.step-card{
+
+transition: .3s;
+
+}
+.step-card:hover{
+
+transform:
+translateY(-4px);
+
+border-color:
+rgba(59,130,246,.4);
+
+}
+
+.feature-card h3{
+
+  margin-bottom:15px;
+
+}
+
+/* =========================
+   BENEFITS
+========================= */
+
+.benefit-list{
+
+  display:grid;
+
+  gap:18px;
+
+  padding-left:20px;
+
+}
+
+.benefit-list li{
+
+  color:var(--text2);
+
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table{
+
+  width:100%;
+
+  border-collapse:
+  collapse;
+
+  overflow:hidden;
+
+  border-radius:
+  16px;
+
+}
+
+table th,
+table td{
+
+  padding:
+  18px;
+
+  border:
+  1px solid var(--border);
+
+}
+
+table th{
+
+  background:
+  var(--card2);
+
+}
+
+table td{
+
+  background:
+  var(--card);
+
+  color:var(--text2);
+
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+
+  display:grid;
+
+  gap:18px;
+
+}
+
+details{
+
+  background:
+  var(--card);
+
+  border:
+  1px solid var(--border);
+
+  border-radius:
+  14px;
+
+  padding:
+  20px;
+
+  transition:.3s;
+
+}
+
+details:hover{
+
+  transform:
+  translateY(-4px);
+
+  border-color:
+  rgba(59,130,246,.4);
+
+}
+
+.page-img{
+
+  width:100%;
+
+  height:auto;
+
+  display:block;
+
+  border:
+  1px solid var(--border);
+
+  border-radius:
+  16px;
+
+  margin:
+  10px 0 25px;
+
+}
+
+.h2-icon{
+
+  width:24px;
+
+  height:24px;
+
+  vertical-align:-4px;
+
+  margin-right:10px;
+
+}
+
+summary{
+
+  cursor:pointer;
+
+  font-weight:700;
+
+}
+
+details p{
+
+  margin-top:15px;
+
+}
+
+/* =========================
+   AFFILIATE
+========================= */
+
+.affiliate-card{
+
+  text-decoration:none;
+
+  color:white;
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+  padding:
+  20px 20px;
+  border-top:
+  1px solid var(--border);
+
+  text-align:center;
+
+}
+
+.footer-links{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:25px;
+
+  flex-wrap:wrap;
+
+  margin-bottom:20px;
+
+}
+
+.footer-links a{
+
+  color:var(--text2);
+
+  text-decoration:none;
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .hero-content h1{
+
+    font-size:2.7rem;
+
+  }
+
+  .tool-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+  }
+
+  .feature-grid{
+
+    grid-template-columns:
+    1fr;
+
+  }
+
+}
+
+@media(max-width:700px){
+
+  .topbar{
+
+    flex-direction:column;
+
+    gap:20px;
+
+  }
+
+  .nav-links{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:16px;
+
+  }
+
+  .hero-content h1{
+
+    font-size:2.2rem;
+
+  }
+
+  .steps{
+
+    grid-template-columns:
+    1fr;
+
+  }
+
+  .tool-grid{
+
+    grid-template-columns:
+    1fr;
+
+  }
+
+  .tool-card{
+
+    padding:22px;
+
+  }
+
+  .content-section h2{
+
+    font-size:1.8rem;
+
+  }
+
+}
+
+.footer-bottom{
+
+  text-align:center;
+
+  width:100%;
+   margin-top: 30px;
+
+}
+
+/* =========================
+   RELATED / INTERNAL LINKS
+========================= */
+
+.related-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(3,1fr);
+
+  gap:22px;
+
+}
+
+.related-card{
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:16px;
+
+  padding:24px;
+
+  text-decoration:none;
+
+  color:white;
+
+  display:block;
+
+  transition:.3s;
+
+}
+
+.related-card:hover{
+
+  transform:translateY(-4px);
+
+  border-color:rgba(59,130,246,.4);
+
+}
+
+.related-card h3{
+
+  margin-bottom:10px;
+
+  color:var(--cyan);
+
+  font-size:1.05rem;
+
+}
+
+.related-card p{
+
+  color:var(--text2);
+
+  font-size:.95rem;
+
+  margin-bottom:0;
+
+}
+
+.breadcrumb{
+
+  color:var(--text2);
+
+  font-size:.9rem;
+
+  margin-bottom:20px;
+
+}
+
+.breadcrumb a{
+
+  color:var(--text2);
+
+}
+
+@media(max-width:900px){
+
+  .related-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+}
+
+/* Accessibility utility: visually hidden heading text (added 2026-10-22 for heading-order fix) */
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+/* In-content text links (added 2026-10-22): bare paragraph/list/table links had no colour rule
+   and rendered in the browser-default blue #0000ee (2.09:1 on the dark background).
+   :where() keeps this weaker than the nav, TOC, breadcrumb and footer link rules. */
+:where(.content-section) p a,
+:where(.content-section) li a,
+:where(.content-section) td a{
+  color:var(--cyan);
+  text-decoration:underline;
+}
+</style>
+
+
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-var.woff2" crossorigin>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Microphone Not Working – Mic Test & Fix Guide",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any (Web Browser)",
+    "url": "https://testmics.com/microphone-not-working.html",
+    "description": "Free browser tool and fix guide for a microphone not working — test your mic, then work through the fixes in order: permissions, default device and drivers, for Windows, Mac and browser.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why isn't my microphone working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost always one of six causes: a mute or loose connection, the browser's permission blocked, the system's privacy permission off, the wrong default device or a level at zero, one app's own settings, or a driver fault. Run the test at the top of this page first — if the meter moves, the mic works and the cause is an app or a setting; if it stays flat, work through the fix ladder in order. The microphone itself is rarely the broken part."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I fix a mic that is not working on my PC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In order: clear every mute and reseat the plug; allow the browser and system permissions (Settings > Privacy & security > Microphone — access, apps and desktop apps all on); select the right microphone under Settings > System > Sound > Input and raise its volume; then work down the driver ladder — update, roll back, uninstall and restart. Retest after each step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my laptop microphone not working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually one of three reasons: the privacy switches are off, the laptop's mic-mute function key is engaged, or the system is listening to a different input. Check the permissions (Step 3), select the built-in mic as the input (Step 4), and look for a microphone icon on your function keys. Still nothing? Plug in any headset or phone mic and test it — if that works, the built-in mic or its driver is the fault. Anyone hunting a mic not working on laptop fix should run those three checks first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I allow microphone access on Windows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open Settings > Privacy & security > Microphone. Turn on Microphone access, Let apps access your microphone, and Let desktop apps access your microphone — the third switch is the one browsers and desktop call apps answer to, so all three must be on. Then reload the page or reopen the app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I make my microphone the default device?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On Windows, open Settings > System > Sound > Input and select your microphone — choosing it there makes it the device your apps use. On a Mac, System Settings > Sound > Input, and select it there. Then pick the same device inside your app and in the test at the top of this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my microphone not showing up in settings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Work from the outside in: the plug or USB connection first, then another port. On Windows, a disabled mic hides from the normal list — open Settings > System > Sound > Advanced > More sound settings > Recording, open its Properties and set Device usage to Use this device (enable). Absent there too? Reinstall the driver from Device Manager. Missing on two computers means it has failed — a hardware verdict, not a setting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My headset microphone doesn't work but the headphones do — why?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three usual causes. The plug is not fully in — the mic contact is the last ring, so a half-in plug gives sound without voice; push it until it clicks. The headset has one combined plug but the socket is split, or the reverse — that pairing needs a splitter adapter. Or it is a Bluetooth headset, whose mic only works on its hands-free profile — pick the Hands-Free device as the input."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my mic work in the test but not in Zoom or Discord?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The test listens through your browser; the app listens through its own device choice. The app has selected a different input — often the built-in mic or a webcam — or its own mute is on. Open the app's audio settings, select the same microphone that passed this test, and undo the mute. Each app keeps these settings elsewhere, so this site has a page per app: Zoom, Teams, Discord and Google Meet are linked from the symptom cards above."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my microphone so quiet that nobody can hear me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The input level is too low, or you are too far from the mic. On Windows, Settings > System > Sound > Input: select the mic, raise the Input volume, then use the Start test to check it. On a Mac, System Settings > Sound > Input has the Input volume slider and a live Input level meter. Raise the level before you raise your voice — and move closer instead of maxing the level out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I update my drivers if my microphone stops working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — after the permission and device checks. In Device Manager, under Sound, video and game controllers, choose Update driver and let Windows search automatically. If the mic stopped right after a Windows update, do the opposite: Properties > Driver tab > Roll Back Driver. If neither works, Uninstall the device and restart — Windows reinstalls the driver itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I tell if my microphone is broken or it's just a setting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cross-test both ways. Put your microphone on another computer or phone: if it fails there too, the mic or its cable has failed. Put a different microphone on this computer: if that one also fails, this computer's settings or driver are at fault. If your mic works elsewhere and another mic works here, the fault is the pairing — go back to the device and driver steps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my microphone sound distorted, echoey or full of hiss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three problems, three fixes. Distorted: the input level is too high — lower the Input volume until your loudest words stay clean. Echoey: your speakers are feeding back into the mic — use headphones, or turn the speakers down and move them away. Hissy: the level is pushed up to catch a quiet voice — move closer so the level can come down. Set the level once, in Step 4, and all three improve."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+<header class="hero">
+
+  <nav class="topbar">
+    <div class="logo">Mic Test Pro</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="bluetooth-mic-test.html">Bluetooth</a>
+      <a href="usb-microphone-test.html">USB</a>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+
+    <p class="breadcrumb"><a href="index.html">Home</a> / Microphone Not Working</p>
+
+    <h1>Microphone Not Working? Test It First, Then Fix It</h1>
+
+    <p class="hero-text">
+      Microphone not working? Do not start by changing settings at random. Run the free mic test below first — in 30 seconds it splits the problem in two. If the meter moves when you speak, your microphone works and the fault is a setting or one app. If it stays flat, the fix ladder under the test walks you through the causes in order: mute, permissions, default device, drivers. When my mic is not working, it is almost never broken hardware — it is a blocked permission, the wrong input, or a mute.
+    </p>
+
+    <section class="tool-card">
+
+      <h2 class="sr-only">Microphone Test Results</h2>
+<div class="status-row">
+        <div class="status-box">
+          <span class="dot"></span>
+          <span id="micStatus">Waiting For Permission</span>
+        </div>
+        <div class="status-box">
+          <span>Input Level:</span>
+          <span id="volumeText">0%</span>
+        </div>
+      </div>
+
+      <div class="visualizer-wrap">
+        <canvas id="visualizer" role="img" aria-label="Live microphone waveform visualizer"></canvas>
+      </div>
+
+      <div class="meter-wrap">
+        <div class="meter-bar">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="startBtn" aria-label="Start microphone test">Start Mic Test</button>
+        <button id="stopBtn" aria-label="Stop microphone test">Stop Test</button>
+      </div>
+
+      <div class="tool-grid">
+        <div class="info-card"><h3>Noise Level</h3><p id="noiseLevel">--</p></div>
+        <div class="info-card"><h3>Mic Quality</h3><p id="qualityLevel">--</p></div>
+        <div class="info-card"><h3>Latency</h3><p id="latencyLevel">--</p></div>
+        <div class="info-card"><h3>Device</h3><p id="deviceName">Not Connected</p></div>
+      </div>
+
+    </section>
+
+  </div>
+
+</header>
+<main>
+
+<section class="content-section" id="what-is">
+  <div class="container">
+    <h2><svg class="h2-icon" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0"/><line x1="12" y1="18" x2="12" y2="21"/></svg>Read Your Test Result</h2>
+    <img class="page-img" src="images/notworking-1-test-first.webp" srcset="images/notworking-1-test-first-480.webp 480w, images/notworking-1-test-first-768.webp 768w, images/notworking-1-test-first.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 1000px" alt="Microphone not working test result — a flat meter means a settings problem, a moving meter means the mic works" width="1200" height="675" loading="lazy">
+    <p>
+      The test above listens the same way a call does — through your browser, with the microphone you pick. That makes its result a diagnosis, not just a check. Three results are possible, and each points at a different fix.
+    </p>
+    <p>
+      <strong>The meter moves when you speak.</strong> Your microphone, its connection and the browser permission all work. The fault lives downstream — in the app that cannot hear you, or in the device it selected. Go straight to Step 5 of the ladder.
+    </p>
+    <p>
+      <strong>The meter stays flat.</strong> The microphone itself is not reaching the browser — the case this page is built for: a mute, a blocked permission, the wrong default device, a level at zero, or a driver fault. Work through the fix ladder in order; the troubleshooting table below maps your exact symptom to its step.
+    </p>
+    <p>
+      <strong>No microphone is listed, or the browser says the mic is busy.</strong> If no device appears at all, the computer is not detecting the microphone — check the connection, then the ladder's last steps. If the browser reports the mic is already in use, another app may be holding it: close other audio apps and test again.
+    </p>
+    <p>
+      One habit matters: test with the setup you will actually use. Plug the headset in and test that microphone — a pass on the laptop's built-in mic proves nothing about the headset you are about to wear on the call.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="causes">
+  <div class="container">
+    <h2>Why Isn't My Microphone Working? The 6 Causes</h2>
+    <p>
+      Almost every case of a computer microphone not working comes down to one of six causes. Asking why isn't my mic working? It is one of these six — listed in the order the fix ladder checks them, quick physical causes first, so you stop at the first one that is yours.
+    </p>
+    <div class="steps">
+      <div class="step"><span>1</span><p><strong>A mute or a loose connection.</strong> The mic's own mute switch, an inline cable mute, a laptop mic-mute key, or a plug that is not fully in. The cheapest cause — and the one people check last.</p></div>
+      <div class="step"><span>2</span><p><strong>The browser blocked the microphone.</strong> You clicked Block once, or the site was never allowed. Websites stay silent while apps still work — or the reverse.</p></div>
+      <div class="step"><span>3</span><p><strong>The system permission is off.</strong> Windows and Mac gate the microphone behind a privacy switch. If it is off, no app and no browser gets the mic, however right the other settings look.</p></div>
+      <div class="step"><span>4</span><p><strong>The wrong default device, or the level is at zero.</strong> Computers collect microphones — built-in, webcam, headset — and cheerfully listen to the wrong one. Or the right one, with its input volume at nothing.</p></div>
+      <div class="step"><span>5</span><p><strong>One app's own settings.</strong> Every calling app picks its own input and keeps its own mute — it can listen to a webcam mic while the system listens to your headset.</p></div>
+      <div class="step"><span>6</span><p><strong>A driver fault, or dead hardware.</strong> The software layer the system uses to talk to the mic can break, often right after an update. And sometimes — rarely — the mic itself has failed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="guide">
+  <div class="container">
+    <h2>How To Fix Mic Not Working — In Order</h2>
+    <p>
+      Seven steps, in the order that wastes the least time. Retest after each one and stop when the meter moves — the early steps are quick physical checks, and they fix most microphones.
+    </p>
+    <div class="steps">
+      <div class="step"><span>1</span><p><strong>Check the mute and the connection.</strong> Clear every mute: the mic's switch, the inline cable mute, the laptop's mic-mute key. Push the plug in until it clicks — on a headset the mic contact is the last ring, so a half-in plug gives sound but no voice. On USB, try another port.</p></div>
+      <div class="step"><span>2</span><p><strong>Allow the browser.</strong> When the test asks for the microphone, choose Allow. Already blocked it? In Chrome: Settings &gt; Privacy and security &gt; Site settings &gt; Microphone — remove this site from the blocked list and reload. The browser section below has the full path.</p></div>
+      <div class="step"><span>3</span><p><strong>Allow the system.</strong> On Windows, Settings &gt; Privacy &amp; security &gt; Microphone: turn on Microphone access, Let apps access your microphone, and Let desktop apps access your microphone — the desktop switch is the one browsers and call apps answer to. On Mac, System Settings &gt; Privacy &amp; Security &gt; Microphone: switch your browser on, then quit and reopen it.</p></div>
+      <div class="step"><span>4</span><p><strong>Pick the right default device and raise the level.</strong> Windows: Settings &gt; System &gt; Sound &gt; Input — select the mic you actually use and check the Input volume is up. Mac: System Settings &gt; Sound &gt; Input. Then test again and watch the meter.</p></div>
+      <div class="step"><span>5</span><p><strong>Set the device inside the app.</strong> If the test hears you but a call does not, open the app's own audio settings, select the same microphone and undo its mute. Close other apps that may be holding the mic while you test.</p></div>
+      <div class="step"><span>6</span><p><strong>Run the troubleshooter, then the driver ladder.</strong> Windows can check itself: the Get Help app runs an automated audio troubleshooter. If that fails, open Device Manager and work down the rungs in the Windows section below — update, roll back, reinstall.</p></div>
+      <div class="step"><span>7</span><p><strong>Cross-test for the hardware verdict.</strong> Plug the microphone into another device, and a different microphone into this one. The result tells you whether you are fixing a setting or replacing a mic — the FAQ's last questions walk through it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="features">
+  <div class="container">
+    <h2>Find Your Symptom</h2>
+    <div class="feature-grid">
+      <div class="feature-card"><h3>Not Detected At All</h3><p>No microphone appears in the test or in settings. Start with the connection — plug, port, cable — then <a href="#guide">Step 6</a>: a mic missing from every list is usually a disabled device or a driver fault.</p></div>
+      <div class="feature-card"><h3>Works In The Test, Not In Calls</h3><p>The meter moves here, but your call hears nothing: the app picked a different input, or its own mute is on. Fix it in <a href="#guide">Step 5</a> — or go straight to your app's page: <a href="mic-test-for-zoom.html">Zoom</a>, <a href="mic-test-for-teams.html">Teams</a>, <a href="mic-test-for-discord.html">Discord</a>, <a href="mic-test-for-google-meet.html">Meet</a>.</p></div>
+      <div class="feature-card"><h3>Far Too Quiet</h3><p>People hear you, but faintly: the input level is too low, or you sit too far from the mic. <a href="#guide">Step 4</a> sets the level — raise it there before you raise your voice.</p></div>
+      <div class="feature-card"><h3>Headset Speakers Work, Mic Doesn't</h3><p>Sound arrives, voice does not: the plug is half-in (the mic contact is the last ring), a single-plug headset sits in a split socket without a splitter, or a Bluetooth headset is on its stereo profile instead of hands-free. The <a href="bluetooth-mic-test.html">Bluetooth mic test</a> covers the wireless half.</p></div>
+      <div class="feature-card"><h3>Stopped Working After An Update</h3><p>It worked yesterday; an update landed; now it is dead. That timing points at the driver, not the hardware — the driver ladder in the <a href="#windows">Windows section</a> is built for this case.</p></div>
+      <div class="feature-card"><h3>Laptop Microphone Not Working</h3><p>Most cases of a microphone not working on laptop come down to three things: the privacy switches, the mic-mute function key, or the wrong input selected — Steps 3 and 4 cover all three. If a plug-in mic works in the same laptop, the built-in one or its driver has failed.</p></div>
+      <div class="feature-card"><h3>Sounds Distorted, Echoey Or Hissy</h3><p>People hear you, but badly. Distortion: the input level is too high — lower it. Echo: your speakers feed back into the mic — use headphones. Hiss: the level is pushed up to catch a quiet voice — move closer instead. All three are set in <a href="#guide">Step 4</a>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="troubleshooting">
+  <div class="container">
+    <h2>Microphone Troubleshooting Table</h2>
+    <p>
+      The computer microphone troubleshooting map for the whole page: find your problem, read its likely cause, apply the fix, and use the last column to confirm it on the test above.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Problem</th><th>Likely Cause</th><th>Fix</th><th>Check On This Page</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>No sound at all — the meter is flat everywhere</td><td>Mute or connection</td><td>Clear every mute — mic switch, inline cable mute, laptop mic-mute key. Reseat the plug: pink mic jack on a desktop, or push until it clicks on a combined jack. USB: another port.</td><td>Meter flat in the test above</td></tr>
+        <tr><td>This site (or any site) cannot see the mic</td><td>Browser permission</td><td>Choose Allow on the prompt. In Chrome: Settings &gt; Privacy and security &gt; Site settings &gt; Microphone — remove the site from the blocked list, pick the right mic.</td><td>Device box empty, or the wrong name</td></tr>
+        <tr><td>Microphone is not working in any app (Windows)</td><td>System privacy (Windows)</td><td>Settings &gt; Privacy &amp; security &gt; Microphone — Microphone access ON, Let apps access ON, Let desktop apps access ON. The desktop switch governs browsers and call apps.</td><td>Meter flat in every tab and app</td></tr>
+        <tr><td>Mic dead in every app on Mac</td><td>System privacy (Mac)</td><td>System Settings &gt; Privacy &amp; Security &gt; Microphone — switch the app or browser on, then quit and reopen it.</td><td>Meter flat until the app reopens</td></tr>
+        <tr><td>The wrong microphone is being used</td><td>Default device</td><td>Settings &gt; System &gt; Sound &gt; Input (Windows) or System Settings &gt; Sound &gt; Input (Mac) — select the real mic, then the same device in the test and your app.</td><td>A different name in the Device box</td></tr>
+        <tr><td>The mic works, but nobody hears anything</td><td>Input level at zero</td><td>Raise the Input volume (Windows Sound &gt; Input; Mac Sound &gt; Input slider) and confirm with the built-in Start test or Input level meter.</td><td>Meter barely moves at normal volume</td></tr>
+        <tr><td>Headset speakers work, the microphone doesn't</td><td>Plug or Bluetooth profile</td><td>Push the plug fully in — the mic contact is the last ring. A single-plug headset in a split socket needs a splitter. On Bluetooth, the mic works only on the hands-free profile.</td><td>Speakers fine, meter flat</td></tr>
+        <tr><td>Works in the test, silent in Zoom, Teams or Discord</td><td>The app's own settings</td><td>Set the same microphone inside the app, undo its mute, and close other apps that may be holding the mic. App-by-app fixes: the Zoom, Teams, Discord and Meet pages.</td><td>This page hears you — the app does not</td></tr>
+        <tr><td>Stopped working after a Windows update</td><td>Driver</td><td>Device Manager: Update driver. Broke after an update? Roll Back Driver (Properties &gt; Driver). Otherwise Uninstall the device and restart. Or run the Get Help troubleshooter.</td><td>Meter flat since the update</td></tr>
+        <tr><td>Mic missing from every device list</td><td>Hardware verdict</td><td>Cross-test: this mic on another device, another mic on this one. Dead everywhere means hardware; working elsewhere means this machine's driver — the row above.</td><td>No device listed anywhere</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="content-section" id="windows">
+  <div class="container">
+    <h2>Mic Not Working On PC — Windows Fixes</h2>
+    <img class="page-img" src="images/notworking-3-default-device.webp" srcset="images/notworking-3-default-device-480.webp 480w, images/notworking-3-default-device-768.webp 768w, images/notworking-3-default-device.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 1000px" alt="Mic not working on PC — pick the right microphone under Windows Sound Input and watch the input level" width="1200" height="675" loading="lazy">
+    <p>
+      If you are fixing a mic not working on PC, Windows spreads its microphone settings across privacy, sound and the device manager. The order below wastes the least time: permissions first, the device second, drivers last.
+    </p>
+    <p>
+      Start with privacy — it silently overrides everything else. Open Settings &gt; Privacy &amp; security &gt; Microphone and turn on three switches: Microphone access, Let apps access your microphone, and Let desktop apps access your microphone. Desktop apps — browsers, Zoom, Teams, Discord — answer to that third switch, so this page can be blocked even when the first two are on.
+    </p>
+    <p>
+      Next, the device. Settings &gt; System &gt; Sound &gt; Input: select your microphone, speak, and use the built-in Start test to watch the level respond. If the mic is missing here, open Advanced &gt; More sound settings &gt; Recording — a disabled device hides there; open its Properties and set Device usage to Use this device (enable). While in Sound, turn Audio enhancements Off for the device under its advanced settings: misbehaving enhancements can mute an input.
+    </p>
+    <img class="page-img" src="images/notworking-4-driver.webp" srcset="images/notworking-4-driver-480.webp 480w, images/notworking-4-driver-768.webp 768w, images/notworking-4-driver.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 1000px" alt="Microphone driver ladder in Device Manager — update the driver, roll it back, or uninstall the device and restart" width="1200" height="675" loading="lazy">
+    <p>
+      Windows can also check itself: the Get Help app runs an automated audio troubleshooter, and Settings &gt; System &gt; Troubleshoot &gt; Other troubleshooters has an Audio entry. If neither helps, the driver ladder is next. In Device Manager, under Sound, video and game controllers: first Update driver and let Windows search automatically. If the mic broke right after an update, open the device's Properties &gt; Driver tab and choose Roll Back Driver. Still stuck? Uninstall the device and restart — Windows reinstalls the driver itself. Last rung, the generic driver: Update driver &gt; Browse my computer &gt; Let me pick &gt; High Definition Audio Device.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="mac">
+  <div class="container">
+    <h2>Microphone Not Working On Mac</h2>
+    <p>
+      On a Mac the microphone settings live in two places, and both must agree: the input selection in Sound, and the permission list in Privacy &amp; Security.
+    </p>
+    <p>
+      Sound first. Open System Settings &gt; Sound &gt; Input, select your microphone, and raise the Input volume slider. Speak while you watch the Input level meter — it should jump as you talk. Flat with the right device selected? The permission is the next stop.
+    </p>
+    <p>
+      Open System Settings &gt; Privacy &amp; Security &gt; Microphone. Every app and browser that may use the mic is listed with its own switch. Turn on your browser — and any app that cannot hear you — then quit that app completely and reopen it: macOS applies the change on relaunch. If the app is missing from the list, open it, let it ask for the microphone once, then check again.
+    </p>
+    <p>
+      A cross-test is built into the Apple kit: an iPhone can be selected as the Mac's microphone under Sound &gt; Input. If the iPhone mic works there and yours does not, the fault is isolated to your microphone or its connection.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="browser">
+  <div class="container">
+    <h2>Microphone Blocked In The Browser?</h2>
+    <img class="page-img" src="images/notworking-2-permissions.webp" srcset="images/notworking-2-permissions-480.webp 480w, images/notworking-2-permissions-768.webp 768w, images/notworking-2-permissions.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 1000px" alt="Two permissions gate a microphone — the browser site permission and the Windows microphone privacy switches" width="1200" height="675" loading="lazy">
+    <p>
+      Every mic test and browser call starts with a permission prompt: Allow while visiting the site, Allow this time, or Never allow. One accidental click on Never allow, and that site can never hear you until you undo it. A blocked mic looks exactly like a broken one.
+    </p>
+    <p>
+      In Chrome, the mic settings live under Settings &gt; Privacy and security &gt; Site settings &gt; Microphone. Pick the microphone you want sites to use from the dropdown, then find this site in the blocked list and remove the block — or open the site, click the icon at the left of the address bar, and allow the microphone there. Reload and test again.
+    </p>
+    <p>
+      Other browsers guard the mic the same way — a per-site permission in the site or privacy settings — though the menus differ. Two rules hold everywhere: the browser can only offer microphones the system already allowed, so the system's permission sits above the browser's; and on a work or school computer, an administrator can lock these mic settings against change.
+    </p>
+    <p>
+      That permission is also what makes this test safe to allow: the browser opens the mic only after your click and shows an indicator while it is in use — and this page analyses your audio here, in your browser. Nothing is uploaded.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="faq">
+  <div class="container">
+    <h2>Microphone Not Working FAQs</h2>
+    <div class="faq">
+      <details>
+        <summary>Why isn't my microphone working?</summary>
+        <p>Almost always one of six causes: a mute or loose connection, the browser's permission blocked, the system's privacy permission off, the wrong default device or a level at zero, one app's own settings, or a driver fault. Run the test at the top of this page first — if the meter moves, the mic works and the cause is an app or a setting; if it stays flat, work through the fix ladder in order. The microphone itself is rarely the broken part.</p>
+      </details>
+      <details>
+        <summary>How do I fix a mic that is not working on my PC?</summary>
+        <p>In order: clear every mute and reseat the plug; allow the browser and system permissions (Settings &gt; Privacy &amp; security &gt; Microphone — access, apps and desktop apps all on); select the right microphone under Settings &gt; System &gt; Sound &gt; Input and raise its volume; then work down the driver ladder — update, roll back, uninstall and restart. Retest after each step.</p>
+      </details>
+      <details>
+        <summary>Why is my laptop microphone not working?</summary>
+        <p>Usually one of three reasons: the privacy switches are off, the laptop's mic-mute function key is engaged, or the system is listening to a different input. Check the permissions (Step 3), select the built-in mic as the input (Step 4), and look for a microphone icon on your function keys. Still nothing? Plug in any headset or phone mic and test it — if that works, the built-in mic or its driver is the fault. Anyone hunting a mic not working on laptop fix should run those three checks first.</p>
+      </details>
+      <details>
+        <summary>How do I allow microphone access on Windows?</summary>
+        <p>Open Settings &gt; Privacy &amp; security &gt; Microphone. Turn on Microphone access, Let apps access your microphone, and Let desktop apps access your microphone — the third switch is the one browsers and desktop call apps answer to, so all three must be on. Then reload the page or reopen the app.</p>
+      </details>
+      <details>
+        <summary>How do I make my microphone the default device?</summary>
+        <p>On Windows, open Settings &gt; System &gt; Sound &gt; Input and select your microphone — choosing it there makes it the device your apps use. On a Mac, System Settings &gt; Sound &gt; Input, and select it there. Then pick the same device inside your app and in the test at the top of this page.</p>
+      </details>
+      <details>
+        <summary>Why is my microphone not showing up in settings?</summary>
+        <p>Work from the outside in: the plug or USB connection first, then another port. On Windows, a disabled mic hides from the normal list — open Settings &gt; System &gt; Sound &gt; Advanced &gt; More sound settings &gt; Recording, open its Properties and set Device usage to Use this device (enable). Absent there too? Reinstall the driver from Device Manager. Missing on two computers means it has failed — a hardware verdict, not a setting.</p>
+      </details>
+      <details>
+        <summary>My headset microphone doesn't work but the headphones do — why?</summary>
+        <p>Three usual causes. The plug is not fully in — the mic contact is the last ring, so a half-in plug gives sound without voice; push it until it clicks. The headset has one combined plug but the socket is split, or the reverse — that pairing needs a splitter adapter. Or it is a Bluetooth headset, whose mic only works on its hands-free profile — pick the Hands-Free device as the input.</p>
+      </details>
+      <details>
+        <summary>Why does my mic work in the test but not in Zoom or Discord?</summary>
+        <p>The test listens through your browser; the app listens through its own device choice. The app has selected a different input — often the built-in mic or a webcam — or its own mute is on. Open the app's audio settings, select the same microphone that passed this test, and undo the mute. Each app keeps these settings elsewhere, so this site has a page per app: <a href="mic-test-for-zoom.html">Zoom</a>, <a href="mic-test-for-teams.html">Teams</a>, <a href="mic-test-for-discord.html">Discord</a> and <a href="mic-test-for-google-meet.html">Google Meet</a> are linked from the symptom cards above.</p>
+      </details>
+      <details>
+        <summary>Why is my microphone so quiet that nobody can hear me?</summary>
+        <p>The input level is too low, or you are too far from the mic. On Windows, Settings &gt; System &gt; Sound &gt; Input: select the mic, raise the Input volume, then use the Start test to check it. On a Mac, System Settings &gt; Sound &gt; Input has the Input volume slider and a live Input level meter. Raise the level before you raise your voice — and move closer instead of maxing the level out.</p>
+      </details>
+      <details>
+        <summary>Should I update my drivers if my microphone stops working?</summary>
+        <p>Yes — after the permission and device checks. In Device Manager, under Sound, video and game controllers, choose Update driver and let Windows search automatically. If the mic stopped right after a Windows update, do the opposite: Properties &gt; Driver tab &gt; Roll Back Driver. If neither works, Uninstall the device and restart — Windows reinstalls the driver itself.</p>
+      </details>
+      <details>
+        <summary>How can I tell if my microphone is broken or it's just a setting?</summary>
+        <p>Cross-test both ways. Put your microphone on another computer or phone: if it fails there too, the mic or its cable has failed. Put a different microphone on this computer: if that one also fails, this computer's settings or driver are at fault. If your mic works elsewhere and another mic works here, the fault is the pairing — go back to the device and driver steps.</p>
+      </details>
+      <details>
+        <summary>Why does my microphone sound distorted, echoey or full of hiss?</summary>
+        <p>Three problems, three fixes. Distorted: the input level is too high — lower the Input volume until your loudest words stay clean. Echoey: your speakers are feeding back into the mic — use headphones, or turn the speakers down and move them away. Hissy: the level is pushed up to catch a quiet voice — move closer so the level can come down. Set the level once, in Step 4, and all three improve.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <h2>More Mic Tests</h2>
+    <div class="related-grid">
+      <a class="related-card" href="index.html"><h3>Mic Test</h3><p>The full-featured free microphone tester.</p></a>
+      <a class="related-card" href="usb-microphone-test.html"><h3>USB Microphone Test</h3><p>Check your USB mic online free.</p></a>
+      <a class="related-card" href="bluetooth-mic-test.html"><h3>Bluetooth Mic Test</h3><p>Check your wireless headset microphone.</p></a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="content-section site-footer">
+  <div class="container">
+    <div class="faq">
+      <details>
+        <summary>Privacy Policy</summary>
+        <p>This tool does not upload, store, or share your audio. All processing happens locally in your browser.</p>
+      </details>
+      <details>
+        <summary>Contact</summary>
+        <p>medicalaffairs803@gmail.com</p>
+      </details>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mic Test Pro</div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
