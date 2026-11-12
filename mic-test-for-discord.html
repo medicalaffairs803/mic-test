@@ -1249,6 +1249,30 @@ details p{
           "@type": "Answer",
           "text": "Error 3002 is Discord's Silent Audio Input error: your microphone is connected, but no sound is reaching Discord. Discord's own checks for it are your system input volume (make sure it is not set very low), a physical or software mute on the mic, and the Mic Test in Voice & Video using the Let's Check button. Run this browser test first — if it is silent too, fix the system input level or the mute switch before changing anything in Discord."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "My mic works in Discord's mic test but not in a call — why?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The mic test only proves Discord can hear your microphone. A live call adds three more gates: the input sensitivity threshold, push-to-talk, and mutes. If the Let's Check playback sounds fine but nobody hears you in a call, check that Input Mode is set to Voice Activity (not Push to Talk with a key you are not holding), lower the input sensitivity slider until your normal speech lights it up, and check you are not muted, deafened or server-muted."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Discord's mic test accurate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is accurate for what it checks: the Let's Check playback shows you your voice after Discord's own processing, close to what other people hear. It does not show the raw signal, so it cannot tell you whether a problem is your microphone or a Discord setting. This browser test shows the raw input level and waveform before Discord touches them — use the two together: if this page looks healthy but the Discord playback sounds bad, the cause is inside Discord's settings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I test my mic on Discord mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Discord's mobile app does not include the desktop Let's Check mic test, so test in your phone's browser first: open this page, allow microphone access, and speak — the waveform and level readings prove your phone's mic or headset works. Then open Discord, join a voice channel, and watch for the green ring around your avatar while you speak; if it lights up, Discord hears you."
+        }
       }
     ]
   }
@@ -1467,6 +1491,18 @@ details p{
       <details>
         <summary>What is Discord error 3002?</summary>
         <p>Error 3002 is Discord's Silent Audio Input error: your microphone is connected, but no sound is reaching Discord. Discord's own checks for it are your system input volume (make sure it is not set very low), a physical or software mute on the mic, and the Mic Test in Voice &amp; Video using the Let's Check button. Run this browser test first — if it is silent too, fix the system input level or the mute switch before changing anything in Discord.</p>
+      </details>
+      <details>
+        <summary>My mic works in Discord's mic test but not in a call — why?</summary>
+        <p>The mic test only proves Discord can hear your microphone. A live call adds three more gates: the input sensitivity threshold, push-to-talk, and mutes. If the Let's Check playback sounds fine but nobody hears you in a call, check that Input Mode is set to Voice Activity (not Push to Talk with a key you are not holding), lower the input sensitivity slider until your normal speech lights it up, and check you are not muted, deafened or server-muted.</p>
+      </details>
+      <details>
+        <summary>Is Discord's mic test accurate?</summary>
+        <p>It is accurate for what it checks: the Let's Check playback shows you your voice after Discord's own processing, close to what other people hear. It does not show the raw signal, so it cannot tell you whether a problem is your microphone or a Discord setting. This browser test shows the raw input level and waveform before Discord touches them — use the two together: if this page looks healthy but the Discord playback sounds bad, the cause is inside Discord's settings.</p>
+      </details>
+      <details>
+        <summary>How do I test my mic on Discord mobile?</summary>
+        <p>Discord's mobile app does not include the desktop Let's Check mic test, so test in your phone's browser first: open this page, allow microphone access, and speak — the waveform and level readings prove your phone's mic or headset works. Then open Discord, join a voice channel, and watch for the green ring around your avatar while you speak; if it lights up, Discord hears you.</p>
       </details>
     </div>
   </div>
