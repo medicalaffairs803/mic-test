@@ -25,7 +25,7 @@
   --border:rgba(15,23,42,.12);
 
   --text:#1a2433;
-  --text2:#4a5a72;
+  --text2:#21304a;
 
   --blue:#16a34a;
   --cyan:#15803d;
@@ -47,8 +47,13 @@
 
 }
 
+/* Global text readability (2026-11-26): root 16px→17.5px so all rem text scales up,
+   body weight 400→450, --text2 darkened #4a5a72→#2b3a52.
+   Round 2 (2026-11-26): root 17.5px→19px, body weight 450→500, --text2 #2b3a52→#21304a;
+   h1/h2 rem sizes trimmed slightly so headings stay proportionate at the larger root. */
 html{
   scroll-behavior:smooth;
+  font-size:19px;
 }
 
 body{
@@ -56,6 +61,8 @@ body{
   font-family:
   'Inter',
   sans-serif;
+
+  font-weight:500;
 
   background:
   var(--bg);
@@ -164,7 +171,7 @@ body{
 
 .hero-content h1{
 
-  font-size:4rem;
+  font-size:3.6rem;
 
   line-height:1.1;
 
@@ -506,7 +513,7 @@ padding: 5px 20px;
 
 .content-section h2{
 
-  font-size:2.3rem;
+  font-size:2.15rem;
 
   margin-bottom:25px;
 
@@ -784,6 +791,21 @@ table td{
 
 }
 
+/* Mobile: wide tables scroll sideways inside their card instead of overflowing the page (2026-11-26) */
+@media(max-width:700px){
+
+  table{
+
+    display:block;
+
+    overflow-x:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+  }
+
+}
+
 /* =========================
    FAQ
 ========================= */
@@ -928,7 +950,7 @@ details p{
 
   .hero-content h1{
 
-    font-size:2.7rem;
+    font-size:2.5rem;
 
   }
 
@@ -970,7 +992,7 @@ details p{
 
   .hero-content h1{
 
-    font-size:2.2rem;
+    font-size:2.05rem;
 
   }
 
@@ -996,7 +1018,7 @@ details p{
 
   .content-section h2{
 
-    font-size:1.8rem;
+    font-size:1.7rem;
 
   }
 
@@ -1692,7 +1714,7 @@ details p{
 .mc-num{width:34px;height:34px;border-radius:50%;background:#ffffff;border:1.5px solid rgba(15,23,42,.25);color:#1a2433;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:1rem}
 .mc-step:first-child .mc-num{background:#16a34a;border-color:#16a34a;color:#fff}
 .mc-step-head h3{font-size:1.3rem;font-weight:800;color:#1a2433;line-height:1.2}
-.mc-step-sub{color:#4a5a72;font-size:.98rem;line-height:1.6}
+.mc-step-sub{color:var(--text2);font-size:.98rem;line-height:1.6}
 .mc-step .status-row{margin-bottom:0}
 .mc-step .visualizer-wrap{margin-bottom:0;padding:14px}
 .mc-step #visualizer{height:110px}

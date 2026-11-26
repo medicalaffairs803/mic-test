@@ -55,7 +55,7 @@
   --border:rgba(15,23,42,.12);
 
   --text:#1a2433;
-  --text2:#4a5a72;
+  --text2:#21304a;
 
   --blue:#16a34a;
   --cyan:#15803d;
@@ -77,8 +77,13 @@
 
 }
 
+/* Global text readability (2026-11-26): root 16px→17.5px so all rem text scales up,
+   body weight 400→450, --text2 darkened #4a5a72→#2b3a52.
+   Round 2 (2026-11-26): root 17.5px→19px, body weight 450→500, --text2 #2b3a52→#21304a;
+   h1/h2 rem sizes trimmed slightly so headings stay proportionate at the larger root. */
 html{
   scroll-behavior:smooth;
+  font-size:19px;
 }
 
 body{
@@ -86,6 +91,8 @@ body{
   font-family:
   'Inter',
   sans-serif;
+
+  font-weight:500;
 
   background:
   var(--bg);
@@ -194,7 +201,7 @@ body{
 
 .hero-content h1{
 
-  font-size:4rem;
+  font-size:3.6rem;
 
   line-height:1.1;
 
@@ -536,7 +543,7 @@ padding: 5px 20px;
 
 .content-section h2{
 
-  font-size:2.3rem;
+  font-size:2.15rem;
 
   margin-bottom:25px;
 
@@ -814,6 +821,21 @@ table td{
 
 }
 
+/* Mobile: wide tables scroll sideways inside their card instead of overflowing the page (2026-11-26) */
+@media(max-width:700px){
+
+  table{
+
+    display:block;
+
+    overflow-x:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+  }
+
+}
+
 /* =========================
    FAQ
 ========================= */
@@ -958,7 +980,7 @@ details p{
 
   .hero-content h1{
 
-    font-size:2.7rem;
+    font-size:2.5rem;
 
   }
 
@@ -1000,7 +1022,7 @@ details p{
 
   .hero-content h1{
 
-    font-size:2.2rem;
+    font-size:2.05rem;
 
   }
 
@@ -1026,7 +1048,7 @@ details p{
 
   .content-section h2{
 
-    font-size:1.8rem;
+    font-size:1.7rem;
 
   }
 
@@ -1722,7 +1744,7 @@ details p{
 .mc-num{width:34px;height:34px;border-radius:50%;background:#ffffff;border:1.5px solid rgba(15,23,42,.25);color:#1a2433;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:1rem}
 .mc-step:first-child .mc-num{background:#16a34a;border-color:#16a34a;color:#fff}
 .mc-step-head h3{font-size:1.3rem;font-weight:800;color:#1a2433;line-height:1.2}
-.mc-step-sub{color:#4a5a72;font-size:.98rem;line-height:1.6}
+.mc-step-sub{color:var(--text2);font-size:.98rem;line-height:1.6}
 .mc-step .status-row{margin-bottom:0}
 .mc-step .visualizer-wrap{margin-bottom:0;padding:14px}
 .mc-step #visualizer{height:110px}
@@ -1932,7 +1954,7 @@ main .content-section h2:has(.h2-icon){display:flex;align-items:center}
     </h1>
 
     <p class="hero-text">
-      Check mic free in 30 seconds — test your microphone instantly in your browser: input level, sound quality, noise, latency and microphone performance in real time, with no download and no sign-up. Thirty seconds here tells you whether your mic works, which microphone your computer is really using, and whether the problem is your hardware or the app you are about to join.
+      Run a free online mic test in 30 seconds — test your microphone instantly in your browser: input level, sound quality, noise, latency and microphone performance in real time, with no download and no sign-up. Thirty seconds here tells you whether your mic works, which microphone your computer is really using, and whether the problem is your hardware or the app you are about to join.
     </p>
 
     <!-- TOOL CARD -->
@@ -2142,11 +2164,12 @@ main .content-section h2:has(.h2-icon){display:flex;align-items:center}
   <div class="container">
 
     <h2><svg class="h2-icon" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0"/><line x1="12" y1="18" x2="12" y2="21"/></svg>What Is A Microphone Test?</h2>
-    <img class="page-img" src="images/home-1-dashboard.webp" srcset="images/home-1-dashboard-480.webp 480w, images/home-1-dashboard-768.webp 768w, images/home-1-dashboard.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 1000px" alt="Mic Test Pro dashboard showing a live microphone waveform with input level, noise level and latency readings" width="1200" height="675" loading="lazy">
 
     <p>
       A microphone test helps you check whether your mic is working correctly. This mic test online detects your microphone directly inside the browser without installing software. You allow access, you speak, and you see and measure what your microphone is actually sending — a live waveform, an input level, a noise reading and a latency figure.
     </p>
+
+    <img class="page-img" src="images/home-1-dashboard.webp" srcset="images/home-1-dashboard-480.webp 480w, images/home-1-dashboard-768.webp 768w, images/home-1-dashboard.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 1000px" alt="Online mic test dashboard showing a live microphone waveform with input level, noise level and latency readings" width="1200" height="675" loading="lazy">
 
     <p>
       You can use this microphone checker to test voice clarity, audio input sensitivity, microphone volume, latency, and background noise before meetings, streaming, gaming, Discord calls, Zoom meetings, online classes, or recording sessions.
@@ -2169,6 +2192,11 @@ main .content-section h2:has(.h2-icon){display:flex;align-items:center}
   <div class="container">
 
     <h2><svg class="h2-icon" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><circle cx="4.5" cy="6" r="1.4" fill="#22D3EE" stroke="none"/><circle cx="4.5" cy="12" r="1.4" fill="#22D3EE" stroke="none"/><circle cx="4.5" cy="18" r="1.4" fill="#22D3EE" stroke="none"/></svg>How To Test Your Microphone Online</h2>
+
+    <p>
+      Testing your microphone online takes six quick steps, and every one of them runs right here in your browser.
+    </p>
+
     <img class="page-img" src="images/home-2-how-it-works.webp" srcset="images/home-2-how-it-works-480.webp 480w, images/home-2-how-it-works-768.webp 768w, images/home-2-how-it-works.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 1000px" alt="How the online mic test works: allow access, speak normally, check the readings and fix any problem" width="1200" height="675" loading="lazy">
 
     <div class="steps">
@@ -2214,6 +2242,11 @@ main .content-section h2:has(.h2-icon){display:flex;align-items:center}
   <div class="container">
 
     <h2><svg class="h2-icon" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>Core Features</h2>
+
+    <p>
+      Whatever microphone you use — a headset, a USB mic, Bluetooth or the one built into your laptop — this test reads it the same way.
+    </p>
+
     <img class="page-img" src="images/home-3-devices.webp" srcset="images/home-3-devices-480.webp 480w, images/home-3-devices-768.webp 768w, images/home-3-devices.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 1000px" alt="A headset microphone — the test works with headsets, USB and Bluetooth microphones" width="1200" height="675" loading="lazy">
 
     <div class="feature-grid">
@@ -2380,11 +2413,12 @@ main .content-section h2:has(.h2-icon){display:flex;align-items:center}
   <div class="container">
 
     <h2><svg class="h2-icon" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="14" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><circle cx="6.2" cy="7.2" r="0.9" fill="#22D3EE" stroke="none"/><circle cx="9.4" cy="7.2" r="0.9" fill="#22D3EE" stroke="none"/></svg>Which Browsers And Devices Does This Mic Test Work With?</h2>
-    <img class="page-img" src="images/home-4-browsers.webp" srcset="images/home-4-browsers-480.webp 480w, images/home-4-browsers-768.webp 768w, images/home-4-browsers.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 1000px" alt="Microphone permission prompt in a web browser — the mic test runs in Chrome, Edge, Firefox and Safari" width="1200" height="675" loading="lazy">
 
     <p>
       Short answer: any modern browser on any device you own — Chrome, Edge, Firefox or Safari, running on Windows, Mac, Linux, Android or iPhone.
     </p>
+
+    <img class="page-img" src="images/home-4-browsers.webp" srcset="images/home-4-browsers-480.webp 480w, images/home-4-browsers-768.webp 768w, images/home-4-browsers.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 1024px) 90vw, 1000px" alt="Microphone permission prompt in a web browser — the mic test runs in Chrome, Edge, Firefox and Safari" width="1200" height="675" loading="lazy">
 
     <p>
       The test needs exactly two things from your browser: the ability to ask for microphone access, and the Web Audio API to analyse the stream. The microphone request uses navigator.mediaDevices.getUserMedia(), which only works in secure contexts — on plain HTTP the browser reports no microphone at all. The browser must ask your permission first and shows a mic-in-use indicator while the test runs. Both have been standard in mainstream browsers for years, so a failure to start almost never means an unsupported browser. It usually means one of three things: the page was opened inside another app's built-in browser (messaging and social apps do this, and their mini-browsers often cannot use the microphone — open the page in your full browser instead), the browser is out of date, or microphone access for this site was denied earlier and stayed denied.
