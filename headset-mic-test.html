@@ -1968,7 +1968,7 @@ details p{
       Start the test above and speak at your normal call volume, with the headset plugged in exactly as you will use it on the call. Watch the Device box as well as the waveform: if it names your headset, the browser is listening in the right place. If it names a laptop mic instead, the browser is listening to the wrong place — and the headset test tells you nothing until that is fixed.
     </p>
     <p>
-      Most silent headset mics are not broken hardware. They are a boom that has drifted away from the mouth, a mute switch nobody noticed, or a plug that was never meant to carry a microphone — a jack mismatch, not a dead mic. This page is a headphone mic test and a sound test headphones owners can run in the browser: it checks the mic your browser can reach, and the guide below finds why it is silent.
+      Most silent headset mics are not broken hardware. They are a boom that has drifted away from the mouth, a mute switch nobody noticed, or a plug that was never meant to carry a microphone — a jack mismatch, not a dead mic. This page is a headphone mic test and a sound test headphones owners can run in the browser: it checks the mic your browser can reach, and the guide below finds why it is silent. Earphones with a built-in mic on the cable work the same way: plug them in exactly as you use them and run the test — the jack table below covers their plug too.
     </p>
   </div>
 </section>
@@ -1983,6 +1983,21 @@ details p{
       <div class="step"><span>4</span><p>Run an audio test for headphones as well as the mic: play a short clip and check you hear it in both ears. Sound in one ear only, or sound with no mic at all, points at the plug — see the jack table below.</p></div>
       <div class="step"><span>5</span><p>When this test passes, open the app you are about to join and select the same headset device there. Test headset microphone input here first — if it works here, you know the headset works before the app gets a say.</p></div>
     </div>
+    <p>
+      If more than one microphone is connected, choose your headset from the Microphone dropdown before you start — otherwise the test may listen to the laptop mic while you speak into the boom. The latency reading is shown in milliseconds (ms): the delay between speaking and your browser receiving the sound. Lower is better.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="record-playback">
+  <div class="container">
+    <h2>Record Your Voice And Check The Boom</h2>
+    <p>
+      A moving waveform proves the mic works; a recording proves it sounds right. Press Record Voice, speak at your normal call volume, then stop and listen to the playback. If your voice sounds quiet, distant or full of breath noise, move the boom closer to the corner of your mouth and record again — the difference is easy to hear. Recordings run up to 60 seconds, you can download the clip as a WAV file, and the audio never leaves your browser.
+    </p>
+    <p>
+      Two more checks live on the same panel. Test Speakers plays a short test sound through your chosen output, so you can check both ears without hunting for a clip to play. Hear Yourself plays your own voice back live while you speak, which is the quickest way to judge boom position as you adjust it.
+    </p>
   </div>
 </section>
 
@@ -2129,6 +2144,14 @@ details p{
       <details>
         <summary>Does this headset mic test record or upload my voice?</summary>
         <p>Only if you press Record Voice. This tool analyses the microphone in your browser so you can see the waveform and readings. If you choose to record, the recording is created and kept only in your own browser so you can play it back or download it — your audio is never uploaded or stored on any server.</p>
+      </details>
+      <details>
+        <summary>Does this work with earphones that have a mic?</summary>
+        <p>Yes. Earphones with a built-in microphone on the cable — the kind with a small mic and button module — test the same way as a headset: plug them in, allow microphone access, and speak. If the waveform stays flat, check the plug first: earphones with three rings on the plug carry a mic wire, while two-ring plugs are audio only and can never work as a microphone. The jack table above shows which is which.</p>
+      </details>
+      <details>
+        <summary>Can I test my headset speakers with this tool too?</summary>
+        <p>Yes. Press Test Speakers and the tool plays a short test sound through your chosen output. If you hear it clearly in both ears, the listening side works; if one ear is silent, push the plug fully in and check the output device before blaming the headset. Testing the speakers and the mic on the same page separates a sound problem from a voice problem in seconds.</p>
       </details>
     </div>
   </div>

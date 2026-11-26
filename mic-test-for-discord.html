@@ -2031,6 +2031,21 @@ details p{
       <div class="step"><span>4</span><p>If the level stays flat here, stop. Change your system's default input device (Windows: Settings &gt; System &gt; Sound &gt; Input; Mac: System Settings &gt; Sound &gt; Input), check for a physical mute switch on the headset or cable, and test again.</p></div>
       <div class="step"><span>5</span><p>Once this test passes, open Discord: User Settings (cogwheel) &gt; Voice &amp; Video. Set Input Device to the same mic, confirm Input Mode is Voice Activity unless you mean to use push-to-talk, then click Let's Check under Mic Test and listen to the playback.</p></div>
     </div>
+    <p>
+      The latency reading is shown in milliseconds (ms): the delay between speaking and your browser receiving the sound. Lower is better — a high reading here means your voice will arrive late in voice chat too, especially on Bluetooth.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="record-playback">
+  <div class="container">
+    <h2>Record Your Voice Before You Join</h2>
+    <p>
+      Discord's Let's Check plays your voice back after Discord's own processing. This page can play back the raw version first: press Record Voice, speak at your normal call volume, then stop and listen to the playback. That is your microphone before the sensitivity gate and Krisp touch it — if the recording is quiet, noisy or muffled here, no Discord setting will make it clean. Recordings run up to 60 seconds, you can download the clip as a WAV file, and the audio never leaves your browser.
+    </p>
+    <p>
+      Two more checks live on the same panel. Test Speakers plays a short test sound through your chosen output, so you can confirm you will hear the voice channel before you join it. Hear Yourself plays your own voice back live while you speak — use headphones, or your mic will pick up your speakers and your friends will hear themselves echo.
+    </p>
   </div>
 </section>
 
@@ -2159,6 +2174,14 @@ details p{
       <details>
         <summary>How do I test my mic on Discord mobile?</summary>
         <p>Discord's mobile app does not include the desktop Let's Check mic test, so test in your phone's browser first: open this page, allow microphone access, and speak — the waveform and level readings prove your phone's mic or headset works. Then open Discord, join a voice channel, and watch for the green ring around your avatar while you speak; if it lights up, Discord hears you.</p>
+      </details>
+      <details>
+        <summary>How do I test my mic on Discord?</summary>
+        <p>In two steps. First, test here: click Start Mic Test above, allow microphone access, and speak — if the waveform and input level move, your mic and system settings work. Then open Discord, click the cogwheel for User Settings, open Voice &amp; Video, set Input Device to the same microphone, and click Let's Check under Mic Test to hear the playback. If this page hears you but Discord does not, the fault is in Discord's device choice or sensitivity settings, not your microphone.</p>
+      </details>
+      <details>
+        <summary>Can I test my speakers with this tool too?</summary>
+        <p>Yes. Press Test Speakers and the tool plays a short test sound through your chosen output. If you hear it clearly, you will hear the voice channel when you join; if you hear nothing, check the output device in your system sound settings and in Discord's Voice &amp; Video settings before blaming the channel.</p>
       </details>
     </div>
   </div>

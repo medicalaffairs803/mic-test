@@ -1806,7 +1806,7 @@ details p{
         "name": "Can I test my mic and speakers together in Teams?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, with Teams' own test call: in the desktop app, go to Settings and more > Settings > Devices and select Make a test call. The bot records a short message and plays it back, which tests your microphone and your speakers in one go. For your camera, Teams shows a preview on the screen before you join a meeting — check yourself there. This browser page tests the microphone only; it does not test speakers or cameras."
+          "text": "Yes, with Teams' own test call: in the desktop app, go to Settings and more > Settings > Devices and select Make a test call. The bot records a short message and plays it back, which tests your microphone and your speakers in one go. For your camera, Teams shows a preview on the screen before you join a meeting — check yourself there. This browser page tests your microphone and, with the Test Speakers button, your speakers or headphones too. It does not test cameras."
         }
       }
     ]
@@ -2006,6 +2006,9 @@ details p{
       <div class="step"><span>4</span><p>Check the device name carefully. Many laptops show similar names for the built-in mic, a webcam mic and a headset. If the name is not the device in front of you, change the computer's input first: on Windows, Settings &gt; System &gt; Sound &gt; Input; on a Mac, System Settings &gt; Sound &gt; Input. Then test again.</p></div>
       <div class="step"><span>5</span><p>When this test passes, open Teams and choose the same microphone there: Settings and more &gt; Settings &gt; Devices, then select it under Microphone. Finish with Make a test call on that screen. The Test Call Bot records a short message and plays it back, so you hear your voice through the same route your meeting will use.</p></div>
     </div>
+    <p>
+      The latency reading is shown in milliseconds (ms): the delay between speaking and your browser receiving the sound. Lower is better — a high reading, often from a Bluetooth headset, means your voice will lag in the meeting too.
+    </p>
   </div>
 </section>
 
@@ -2079,13 +2082,16 @@ details p{
       Microsoft's built-in test call is the best final check inside Teams — a real teams test microphone check, because the bot records your voice and plays it back. Open Settings and more, choose Settings, then Devices. Under Audio settings, confirm your speaker and microphone, then select Make a test call. You hear ringing first, then a voice asks you to record a short message. It plays the message back, gives you a summary, and leaves you in the right place to change device settings if the result is poor.
     </p>
     <p>
-      Playback used to be the test call's advantage over this page. Our browser tool shows whether sound is reaching the microphone and how the level, noise and latency behave, and the Record Voice button now lets you record a short clip and play it back here too. The Teams test call still goes one step further: it sends your voice through the actual Teams route, so you judge muffling, distortion and room echo the way another participant would hear them. If the waveform and playback here sound healthy but the Teams playback is unclear, pay attention to microphone position, distance and background noise.
+      Playback used to be the test call's advantage over this page. Our browser tool shows whether sound is reaching the microphone and how the level, noise and latency behave, and the Record Voice button now lets you record a short clip and play it back here too. The Teams test call still goes one step further: it sends your voice through the actual Teams route, so you judge muffling, distortion and room echo the way another participant would hear them. If the waveform and playback here sound healthy but the Teams playback is unclear, pay attention to microphone position, distance and background noise. Clips here run up to 60 seconds, can be downloaded as WAV files, and never leave your browser.
     </p>
     <p>
       The test call also has limits. It is tied to the device Teams selected at that moment, so it cannot tell you whether another connected microphone would perform better. It is currently limited to the Teams desktop app for Windows and Mac, is offered in English only, and is unavailable in Teams for the web. On a phone, or in a browser, use this page as the device check and then verify the browser or app permission separately.
     </p>
     <p>
       A sensible routine takes less than a minute. First, pass this browser test with the correct device name. Secondly, open Teams Devices and select exactly that device. Thirdly, make a test call and listen to the playback. If all three agree, join the meeting. If they disagree, the disagreement tells you which layer to fix instead of sending you through a random list of settings.
+    </p>
+    <p>
+      This page can check the listening side before you open Teams, too. Press Test Speakers and the tool plays a short test sound through your chosen output, so you know your speakers or headphones work before the test call. Hear Yourself plays your own voice back live while you speak — use headphones, or your mic will pick up your speakers and the meeting will hear an echo.
     </p>
   </div>
 </section>
@@ -2155,7 +2161,7 @@ details p{
       </details>
       <details>
         <summary>Can I test my mic and speakers together in Teams?</summary>
-        <p>Yes, with Teams' own test call: in the desktop app, go to Settings and more &gt; Settings &gt; Devices and select Make a test call. The bot records a short message and plays it back, which tests your microphone and your speakers in one go. For your camera, Teams shows a preview on the screen before you join a meeting — check yourself there. This browser page tests the microphone only; it does not test speakers or cameras.</p>
+        <p>Yes, with Teams' own test call: in the desktop app, go to Settings and more &gt; Settings &gt; Devices and select Make a test call. The bot records a short message and plays it back, which tests your microphone and your speakers in one go. For your camera, Teams shows a preview on the screen before you join a meeting — check yourself there. This browser page tests your microphone and, with the Test Speakers button, your speakers or headphones too. It does not test cameras.</p>
       </details>
     </div>
   </div>

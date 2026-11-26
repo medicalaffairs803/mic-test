@@ -2110,6 +2110,11 @@ details p{
         <p>If a reading is wrong, fix that layer before opening your app: wrong device name means change the system input; high noise means move the mic closer, lower the gain, or quiet the room; no movement at all means permission or connection, in that order.</p>
       </div>
 
+      <div class="step">
+        <span>6</span>
+        <p>Want to hear how you actually sound? Press Record Voice, speak for a few seconds, then stop and listen to the playback. You can download the clip as a WAV file too — recordings run up to 60 seconds and never leave your browser.</p>
+      </div>
+
     </div>
 
   </div>
@@ -2142,7 +2147,7 @@ details p{
 
       <div class="feature-card">
         <h3>Latency Check</h3>
-        <p>Measure microphone response delay. It matters for gaming, streaming and singing along to anything — and it is the one problem you cannot hear in your own headphones while it annoys everyone else.</p>
+        <p>Measure microphone response delay. The reading is in milliseconds (ms): the delay between speaking and your browser receiving the sound, and lower is better. It matters for gaming, streaming and singing along to anything — and it is the one problem you cannot hear in your own headphones while it annoys everyone else.</p>
       </div>
 
       <div class="feature-card">
@@ -2153,6 +2158,26 @@ details p{
       <div class="feature-card">
         <h3>Privacy Friendly</h3>
         <p>Audio never leaves your browser. The analysis happens on your device with the Web Audio API, so you can test a microphone before a sensitive call without your voice touching a server.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Speaker Test</h3>
+        <p>Check the listening side too. The Test Speakers button plays a short test sound through your chosen output, so you can confirm your speakers or headphones work before a call — a mic test and a speaker test on the same page.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Choose Your Microphone</h3>
+        <p>More than one mic connected — a headset, a webcam, a USB mic? Pick the one you want from the Microphone dropdown before you start, so the test listens to the right device instead of whichever one the browser found first.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Hear Yourself Live</h3>
+        <p>Turn on Hear Yourself to monitor your own voice live while you speak, the way your listeners hear it. Use headphones for this — on speakers, your mic picks up the sound coming out and you get echo.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Your Test Result</h3>
+        <p>While the test runs, the result card gathers your readings in one place — input level, noise level, latency and device name — so you can judge the whole picture at a glance. The spectrum bars beside it show your voice by pitch, bass on the left and treble on the right.</p>
       </div>
 
     </div>
@@ -2288,7 +2313,7 @@ details p{
     </p>
 
     <p>
-      On phones the same test covers the built-in microphone, wired earbuds and Bluetooth headsets. The phone decides which microphone is live, and it does not always choose the one you are holding — which is why the tap test appears throughout this site: tap the headset, then tap the phone, and the tap that moves the meter is the microphone you are really using.
+      On phones the same test covers the built-in microphone, wired earbuds and Bluetooth headsets. The phone decides which microphone is live, and it does not always choose the one you are holding — which is why the tap test appears throughout this site: tap the headset, then tap the phone, and the tap that moves the meter is the microphone you are really using. Wired earphones with a mic on the cable work the same way: plug them in, allow access, and run the test.
     </p>
 
     <p>
@@ -2380,6 +2405,21 @@ details p{
       <details>
         <summary>Can I test my microphone volume here?</summary>
         <p>Yes — the input level reading is your live volume meter. Speak at your normal volume and watch it move: it should rise strongly without staying pinned at the very top. If it barely moves, raise the input volume in your system sound settings — in Windows, Settings &gt; System &gt; Sound &gt; Input; on a Mac, System Settings &gt; Sound &gt; Input — then test again.</p>
+      </details>
+
+      <details>
+        <summary>Is my mic on?</summary>
+        <p>Start the test above, allow microphone access, and speak. If the waveform and input level move when you talk, your mic is on and the browser can hear it. While the test runs, your browser also shows a mic-in-use indicator, which is another sign the microphone is live. If nothing moves, the mic may be muted, blocked by the browser permission, or the wrong device may be selected — the readings and the Device line on this page show which.</p>
+      </details>
+
+      <details>
+        <summary>Is my mic working?</summary>
+        <p>Speak at your normal volume and watch three things: the waveform moves with your voice, the input level rises strongly without staying pinned at the top, and the Device line names the microphone you meant to use. If all three behave, your mic is working. If the level stays flat, check the browser permission first, then the connection and the selected device — the question above about a microphone not being detected walks through the order.</p>
+      </details>
+
+      <details>
+        <summary>Can I test my speakers with this tool too?</summary>
+        <p>Yes. Press the Test Speakers button and the tool plays a short test sound through your chosen output, so you can check your speakers or headphones on the same page as your microphone. If you hear the sound clearly in both ears, the listening side works; if you hear nothing, check the output device and volume in your system sound settings.</p>
       </details>
 
     </div>

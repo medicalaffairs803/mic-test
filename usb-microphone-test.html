@@ -2010,7 +2010,11 @@ details p{
       <div class="feature-card"><h3>Input Level</h3><p>Confirms the mic is capturing sound at a usable volume — and at your real speaking distance. USB mics are voiced for close speech, so a level that only looks right when you lean in double-distance is telling you your placement, not your gain, needs changing.</p></div>
       <div class="feature-card"><h3>Noise Floor</h3><p>Flags high background noise before you start a recording session. With USB mics the noise that matters is often electrical — a faint buzz or whine under everything — rather than the room itself. Silence plus this page's noise reading tells you whether you have a room problem or a power problem, and they have completely different fixes.</p></div>
       <div class="feature-card"><h3>Device Recognition</h3><p>Shows whether your browser correctly identifies the USB mic by name. This single line settles the most common USB argument — 'it is plugged in' versus 'the computer is using it'. Plugged in is not selected, and selected is not necessarily your mic. USB microphones are USB Audio Class devices (Base Class 10h) — the class covers audio data and Gain and Tone control, so the mic registers as a proper audio device, not a generic USB gadget.</p></div>
-      <div class="feature-card"><h3>Real Latency Reading</h3><p>Reports actual measured audio latency from your system's audio engine. USB mics are quick, but hubs and long chains of adapters add up, and latency you can measure here is latency you would otherwise discover while monitoring your own voice mid-stream — a special kind of distracting.</p></div>
+      <div class="feature-card"><h3>Real Latency Reading</h3><p>Reports actual measured audio latency from your system's audio engine. The reading is in milliseconds (ms): the delay between speaking and your browser receiving the sound, and lower is better. USB mics are quick, but hubs and long chains of adapters add up, and latency you can measure here is latency you would otherwise discover while monitoring your own voice mid-stream — a special kind of distracting.</p></div>
+      <div class="feature-card"><h3>Record And Play Back</h3><p>Press Record Voice, speak at your real recording distance, then stop and listen to the playback. Buzz, hum, room echo and speaking into the wrong side of the mic are all obvious on playback before you open your recording software. Recordings run up to 60 seconds, you can download the clip as a WAV file, and the audio never leaves your browser.</p></div>
+      <div class="feature-card"><h3>Speaker Test</h3><p>Check the listening side too. The Test Speakers button plays a short test sound through your chosen output, so you can confirm your headphones or speakers work before a session — useful when your USB mic has its own headphone jack for monitoring.</p></div>
+      <div class="feature-card"><h3>Choose Your Microphone</h3><p>A USB mic rarely travels alone — webcam mics and built-in mics are usually connected too. Pick your USB mic from the Microphone dropdown before you start, so the test measures the right device instead of whichever one the browser found first.</p></div>
+      <div class="feature-card"><h3>Hear Yourself</h3><p>Turn on Hear Yourself to monitor your own voice live while you speak, the way your listeners will hear it. Use headphones for this — on speakers, the mic picks up the sound coming out and you get echo.</p></div>
     </div>
   </div>
 </section>
@@ -2106,6 +2110,10 @@ details p{
       <details>
         <summary>How do I know whether the problem is my mic or my software?</summary>
         <p>This page is the dividing line. The test reads your mic through your browser with no recording software in between. Pass here and fail in your app means the app is using the wrong device or a filter is damaging the sound. Fail here as well means the chain below the app — mic, cable, port, or system input setting — needs fixing first, and no software setting will change that.</p>
+      </details>
+      <details>
+        <summary>Can I test my speakers with this tool too?</summary>
+        <p>Yes. Press Test Speakers and the tool plays a short test sound through your chosen output. If you hear it clearly, your headphones or speakers work; if you hear nothing, check the output device and volume in your system sound settings. Many USB mics have a headphone jack for monitoring — this check confirms that side of the setup before you record.</p>
       </details>
     </div>
   </div>

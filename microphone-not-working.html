@@ -2039,6 +2039,21 @@ details p{
       <div class="step"><span>6</span><p><strong>Run the troubleshooter, then the driver ladder.</strong> Windows can check itself: the Get Help app runs an automated audio troubleshooter. If that fails, open Device Manager and work down the rungs in the Windows section below — update, roll back, reinstall.</p></div>
       <div class="step"><span>7</span><p><strong>Cross-test for the hardware verdict.</strong> Plug the microphone into another device, and a different microphone into this one. The result tells you whether you are fixing a setting or replacing a mic — the FAQ's last questions walk through it.</p></div>
     </div>
+    <p>
+      If more than one microphone is connected, you can pick the one to test from the Microphone dropdown in the tool above — useful when the wrong device is the whole problem. The latency reading is shown in milliseconds (ms): the delay between speaking and your browser receiving the sound. Lower is better.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" id="record-playback">
+  <div class="container">
+    <h2>Record Before And After The Fix</h2>
+    <p>
+      When the meter finally moves, prove the fix with your ears. Press Record Voice, speak at your normal volume, then stop and listen to the playback. If you changed a setting — raised the level, picked a different device, moved the mic — record again and compare the two clips. You can download each one as a WAV file, recordings run up to 60 seconds, and the audio never leaves your browser.
+    </p>
+    <p>
+      Two more checks live on the same panel, and both help with diagnosis. Test Speakers plays a short test sound through your chosen output: if you hear it but the mic stays flat, the fault is on the microphone side, not the sound side. Hear Yourself plays your own voice back live while you speak — use headphones, or your speakers will feed back into the mic and echo.
+    </p>
   </div>
 </section>
 
@@ -2191,6 +2206,10 @@ details p{
       <details>
         <summary>Why does my microphone sound distorted, echoey or full of hiss?</summary>
         <p>Three problems, three fixes. Distorted: the input level is too high — lower the Input volume until your loudest words stay clean. Echoey: your speakers are feeding back into the mic — use headphones, or turn the speakers down and move them away. Hissy: the level is pushed up to catch a quiet voice — move closer so the level can come down. Set the level once, in Step 4, and all three improve.</p>
+      </details>
+      <details>
+        <summary>Can I test my speakers with this tool too?</summary>
+        <p>Yes. Press Test Speakers and the tool plays a short test sound through your chosen output. It is a useful split for diagnosis: if you hear the test sound but the mic test stays flat, your speakers work and the fault is on the microphone side — a mute, a permission, or the wrong input device. If you hear nothing at all, check the output device and volume in your system sound settings first.</p>
       </details>
     </div>
   </div>
