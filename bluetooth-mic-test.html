@@ -50,6 +50,7 @@
   --card:#ffffff;
   --card2:#eef2f0;
   --border:rgba(15,23,42,.12);
+  --table-border:#94a3b8;
 
   --text:#1a2433;
   --text2:#21304a;
@@ -775,6 +776,9 @@ rgba(22,163,74,.45);
 
 /* =========================
    TABLE
+   Lines highlighted (2026-11-26): cell borders use --table-border
+   (medium slate #94a3b8) instead of the faint --border, and the
+   header row gets a green-tinted background + stronger bottom line.
 ========================= */
 
 table{
@@ -798,14 +802,17 @@ table td{
   18px;
 
   border:
-  1px solid var(--border);
+  1px solid var(--table-border);
 
 }
 
 table th{
 
   background:
-  var(--card2);
+  #e6efe9;
+
+  border-bottom:
+  2px solid #64748b;
 
 }
 

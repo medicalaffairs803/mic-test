@@ -53,6 +53,7 @@
   --card:#ffffff;
   --card2:#eef2f0;
   --border:rgba(15,23,42,.12);
+  --table-border:#94a3b8;
 
   --text:#1a2433;
   --text2:#21304a;
@@ -778,6 +779,9 @@ rgba(22,163,74,.45);
 
 /* =========================
    TABLE
+   Lines highlighted (2026-11-26): cell borders use --table-border
+   (medium slate #94a3b8) instead of the faint --border, and the
+   header row gets a green-tinted background + stronger bottom line.
 ========================= */
 
 table{
@@ -801,14 +805,17 @@ table td{
   18px;
 
   border:
-  1px solid var(--border);
+  1px solid var(--table-border);
 
 }
 
 table th{
 
   background:
-  var(--card2);
+  #e6efe9;
+
+  border-bottom:
+  2px solid #64748b;
 
 }
 
@@ -2454,92 +2461,6 @@ main .content-section h2:has(.h2-icon){display:flex;align-items:center}
 
 </section>
 
-<!-- FAQ -->
-
-<section class="content-section" id="faq">
-
-  <div class="container">
-
-    <h2><svg class="h2-icon" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.3 2.3c-.6.3-.9.8-.9 1.5"/><circle cx="12" cy="16.8" r="1" fill="#15803d" stroke="none"/></svg>Frequently Asked Questions</h2>
-
-    <div class="faq">
-
-      <details>
-        <summary>Is this mic test free?</summary>
-        <p>Yes, this mic test site is completely free. There is no sign-up, no download and no limit on how many times you can test.</p>
-      </details>
-
-      <details>
-        <summary>Does this tool record audio?</summary>
-        <p>Only when you press Record Voice. Audio stays inside your browser. The test analyses your microphone stream on your own device to draw the waveform and calculate the readings. If you record, the clip is created and kept only in your own browser so you can play it back or download it — nothing is uploaded or stored on any server.</p>
-      </details>
-
-      <details>
-        <summary>Which browsers can I use for this mic test?</summary>
-        <p>Any modern browser that can ask for microphone access: Chrome, Edge, Firefox and Safari, on Windows, Mac, Linux, Android and iPhone. If the Start button does nothing, the browser is usually too old, in a private or in-app browser window (for example, a browser inside a social media app), or the site has been denied microphone access before — open the page in your main browser and check the permission in the address bar.</p>
-      </details>
-
-      <details>
-        <summary>Can I test my microphone on my phone?</summary>
-        <p>Yes. Open this page in your phone's browser, tap Start Mic Test and allow microphone access. It works for the built-in phone mic and for connected headsets and earbuds. One phone habit to watch: phones switch to whichever microphone was connected last, and Bluetooth earbuds may be selected for sound but not for voice — if the level does not move when you speak into the headset, tap near the headset and then near the phone; whichever tap spikes the level is the live mic.</p>
-      </details>
-
-      <details>
-        <summary>Why does the browser ask for microphone permission — and what if I blocked it?</summary>
-        <p>The browser asks because no website may listen to your microphone without your say-so; that permission popup is the security system working, and this test cannot start without it. If you clicked Block by mistake, the test will stay silent forever until you undo it: click the lock or site-settings icon in the address bar, find Microphone, change it to Allow, and reload the page. On Windows also check Settings &gt; Privacy &amp; security &gt; Microphone is on for your browser; on a Mac, System Settings &gt; Privacy &amp; Security &gt; Microphone.</p>
-      </details>
-
-      <details>
-        <summary>Can I test a USB microphone?</summary>
-        <p>Yes, USB microphones are supported — plug the mic in before you start the test so the browser can offer it, and check that the Device reading on this page names your USB mic. If your USB mic misbehaves (not detected, buzzing, vanishing mid-call), the dedicated USB microphone test page has a full troubleshooting table for exactly those problems.</p>
-      </details>
-
-      <details>
-        <summary>Why is my microphone not detected?</summary>
-        <p>Check browser permission settings and device connection first — a blocked permission and an unplugged or unselected device cause most cases. Then check the system level: in Windows, Settings &gt; System &gt; Sound &gt; Input should list and show your mic reacting; on a Mac, System Settings &gt; Sound &gt; Input. If the system cannot see the mic, no website can. If the system sees it but this page does not, the browser permission is the blocker — reset it as described in the permission question above.</p>
-      </details>
-
-      <details>
-        <summary>My mic works in this test but not in Zoom or Teams — why?</summary>
-        <p>Because those apps keep their own microphone choice and do not always follow your system or browser. Your hardware just passed here, so go straight to the app's audio settings and pick the same microphone by name instead of leaving it on a default that may point at a webcam or a disconnected headset. There is a dedicated Zoom mic test page on this site with the exact Zoom settings and fixes, if Zoom is your problem app.</p>
-      </details>
-
-      <details>
-        <summary>How do I know if my microphone quality is good enough?</summary>
-        <p>Use the three readings together. Input level: normal speech should move the meter strongly without sitting pinned at the very top (that is distortion). Noise level: stay silent for a few seconds — the reading should stay low; a high silent reading means your listeners hear your room as much as you. Latency: lower is better, and anything in the low tens of milliseconds is fine for calls and meetings. If all three behave at your normal speaking distance and volume, your quality is good enough for meetings, classes, streaming and gaming — the remaining differences between microphones are taste, not problems.</p>
-      </details>
-
-      <details>
-        <summary>Can I hear a playback of my voice with this test?</summary>
-        <p>Yes. This test shows your microphone live — the waveform, input level, noise level and latency — and with the Record Voice button you can record a short clip, play it back and download it, all inside your browser. For a final check inside a specific app, you can still use the app's own check: a Teams test call, Discord's Let's Check mic test, or a Zoom test meeting.</p>
-      </details>
-
-      <details>
-        <summary>Can I test my microphone volume here?</summary>
-        <p>Yes — the input level reading is your live volume meter. Speak at your normal volume and watch it move: it should rise strongly without staying pinned at the very top. If it barely moves, raise the input volume in your system sound settings — in Windows, Settings &gt; System &gt; Sound &gt; Input; on a Mac, System Settings &gt; Sound &gt; Input — then test again.</p>
-      </details>
-
-      <details>
-        <summary>Is my mic on?</summary>
-        <p>Start the test above, allow microphone access, and speak. If the waveform and input level move when you talk, your mic is on and the browser can hear it. While the test runs, your browser also shows a mic-in-use indicator, which is another sign the microphone is live. If nothing moves, the mic may be muted, blocked by the browser permission, or the wrong device may be selected — the readings and the Device line on this page show which.</p>
-      </details>
-
-      <details>
-        <summary>Is my mic working?</summary>
-        <p>Speak at your normal volume and watch three things: the waveform moves with your voice, the input level rises strongly without staying pinned at the top, and the Device line names the microphone you meant to use. If all three behave, your mic is working. If the level stays flat, check the browser permission first, then the connection and the selected device — the question above about a microphone not being detected walks through the order.</p>
-      </details>
-
-      <details>
-        <summary>Can I test my speakers with this tool too?</summary>
-        <p>Yes. Press the Test Speakers button and the tool plays a short test sound through your chosen output, so you can check your speakers or headphones on the same page as your microphone. If you hear the sound clearly in both ears, the listening side works; if you hear nothing, check the output device and volume in your system sound settings.</p>
-      </details>
-
-    </div>
-
-  </div>
-
-</section>
-
 <!-- AFFILIATE -->
 
 <section class="content-section">
@@ -2633,6 +2554,92 @@ main .content-section h2:has(.h2-icon){display:flex;align-items:center}
         <h3>USB Microphone Test</h3>
         <p>Verify your USB mic before recording or streaming.</p>
       </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="content-section" id="faq">
+
+  <div class="container">
+
+    <h2><svg class="h2-icon" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.3 2.3c-.6.3-.9.8-.9 1.5"/><circle cx="12" cy="16.8" r="1" fill="#15803d" stroke="none"/></svg>Frequently Asked Questions</h2>
+
+    <div class="faq">
+
+      <details>
+        <summary>Is this mic test free?</summary>
+        <p>Yes, this mic test site is completely free. There is no sign-up, no download and no limit on how many times you can test.</p>
+      </details>
+
+      <details>
+        <summary>Does this tool record audio?</summary>
+        <p>Only when you press Record Voice. Audio stays inside your browser. The test analyses your microphone stream on your own device to draw the waveform and calculate the readings. If you record, the clip is created and kept only in your own browser so you can play it back or download it — nothing is uploaded or stored on any server.</p>
+      </details>
+
+      <details>
+        <summary>Which browsers can I use for this mic test?</summary>
+        <p>Any modern browser that can ask for microphone access: Chrome, Edge, Firefox and Safari, on Windows, Mac, Linux, Android and iPhone. If the Start button does nothing, the browser is usually too old, in a private or in-app browser window (for example, a browser inside a social media app), or the site has been denied microphone access before — open the page in your main browser and check the permission in the address bar.</p>
+      </details>
+
+      <details>
+        <summary>Can I test my microphone on my phone?</summary>
+        <p>Yes. Open this page in your phone's browser, tap Start Mic Test and allow microphone access. It works for the built-in phone mic and for connected headsets and earbuds. One phone habit to watch: phones switch to whichever microphone was connected last, and Bluetooth earbuds may be selected for sound but not for voice — if the level does not move when you speak into the headset, tap near the headset and then near the phone; whichever tap spikes the level is the live mic.</p>
+      </details>
+
+      <details>
+        <summary>Why does the browser ask for microphone permission — and what if I blocked it?</summary>
+        <p>The browser asks because no website may listen to your microphone without your say-so; that permission popup is the security system working, and this test cannot start without it. If you clicked Block by mistake, the test will stay silent forever until you undo it: click the lock or site-settings icon in the address bar, find Microphone, change it to Allow, and reload the page. On Windows also check Settings &gt; Privacy &amp; security &gt; Microphone is on for your browser; on a Mac, System Settings &gt; Privacy &amp; Security &gt; Microphone.</p>
+      </details>
+
+      <details>
+        <summary>Can I test a USB microphone?</summary>
+        <p>Yes, USB microphones are supported — plug the mic in before you start the test so the browser can offer it, and check that the Device reading on this page names your USB mic. If your USB mic misbehaves (not detected, buzzing, vanishing mid-call), the dedicated USB microphone test page has a full troubleshooting table for exactly those problems.</p>
+      </details>
+
+      <details>
+        <summary>Why is my microphone not detected?</summary>
+        <p>Check browser permission settings and device connection first — a blocked permission and an unplugged or unselected device cause most cases. Then check the system level: in Windows, Settings &gt; System &gt; Sound &gt; Input should list and show your mic reacting; on a Mac, System Settings &gt; Sound &gt; Input. If the system cannot see the mic, no website can. If the system sees it but this page does not, the browser permission is the blocker — reset it as described in the permission question above.</p>
+      </details>
+
+      <details>
+        <summary>My mic works in this test but not in Zoom or Teams — why?</summary>
+        <p>Because those apps keep their own microphone choice and do not always follow your system or browser. Your hardware just passed here, so go straight to the app's audio settings and pick the same microphone by name instead of leaving it on a default that may point at a webcam or a disconnected headset. There is a dedicated Zoom mic test page on this site with the exact Zoom settings and fixes, if Zoom is your problem app.</p>
+      </details>
+
+      <details>
+        <summary>How do I know if my microphone quality is good enough?</summary>
+        <p>Use the three readings together. Input level: normal speech should move the meter strongly without sitting pinned at the very top (that is distortion). Noise level: stay silent for a few seconds — the reading should stay low; a high silent reading means your listeners hear your room as much as you. Latency: lower is better, and anything in the low tens of milliseconds is fine for calls and meetings. If all three behave at your normal speaking distance and volume, your quality is good enough for meetings, classes, streaming and gaming — the remaining differences between microphones are taste, not problems.</p>
+      </details>
+
+      <details>
+        <summary>Can I hear a playback of my voice with this test?</summary>
+        <p>Yes. This test shows your microphone live — the waveform, input level, noise level and latency — and with the Record Voice button you can record a short clip, play it back and download it, all inside your browser. For a final check inside a specific app, you can still use the app's own check: a Teams test call, Discord's Let's Check mic test, or a Zoom test meeting.</p>
+      </details>
+
+      <details>
+        <summary>Can I test my microphone volume here?</summary>
+        <p>Yes — the input level reading is your live volume meter. Speak at your normal volume and watch it move: it should rise strongly without staying pinned at the very top. If it barely moves, raise the input volume in your system sound settings — in Windows, Settings &gt; System &gt; Sound &gt; Input; on a Mac, System Settings &gt; Sound &gt; Input — then test again.</p>
+      </details>
+
+      <details>
+        <summary>Is my mic on?</summary>
+        <p>Start the test above, allow microphone access, and speak. If the waveform and input level move when you talk, your mic is on and the browser can hear it. While the test runs, your browser also shows a mic-in-use indicator, which is another sign the microphone is live. If nothing moves, the mic may be muted, blocked by the browser permission, or the wrong device may be selected — the readings and the Device line on this page show which.</p>
+      </details>
+
+      <details>
+        <summary>Is my mic working?</summary>
+        <p>Speak at your normal volume and watch three things: the waveform moves with your voice, the input level rises strongly without staying pinned at the top, and the Device line names the microphone you meant to use. If all three behave, your mic is working. If the level stays flat, check the browser permission first, then the connection and the selected device — the question above about a microphone not being detected walks through the order.</p>
+      </details>
+
+      <details>
+        <summary>Can I test my speakers with this tool too?</summary>
+        <p>Yes. Press the Test Speakers button and the tool plays a short test sound through your chosen output, so you can check your speakers or headphones on the same page as your microphone. If you hear the sound clearly in both ears, the listening side works; if you hear nothing, check the output device and volume in your system sound settings.</p>
+      </details>
 
     </div>
 
