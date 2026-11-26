@@ -1139,6 +1139,565 @@ details p{
   color:var(--cyan);
   text-decoration:underline;
 }
+
+/* =========================
+   RECORD / PLAYBACK / DOWNLOAD
+   (added 2026-11-26)
+========================= */
+
+.record-panel{
+
+  background:
+  var(--card2);
+
+  border:
+  1px solid var(--border);
+
+  border-radius:
+  16px;
+
+  padding:
+  22px;
+
+  margin-bottom:
+  35px;
+
+}
+
+.record-row{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:16px;
+
+  flex-wrap:wrap;
+
+  margin-bottom:16px;
+
+}
+
+#recordBtn{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px;
+
+  border:none;
+
+  padding:
+  15px 28px;
+
+  border-radius:
+  14px;
+
+  cursor:pointer;
+
+  font-size:1rem;
+
+  font-weight:700;
+
+  transition:.3s;
+
+  background:
+  linear-gradient(
+  135deg,
+  var(--red),
+  #f97316
+  );
+
+  color:white;
+
+  min-height:52px;
+
+}
+
+#recordBtn:hover:not(:disabled){
+
+  transform:
+  translateY(-2px);
+
+}
+
+#recordBtn:disabled{
+
+  opacity:.45;
+
+  cursor:not-allowed;
+
+}
+
+.record-dot{
+
+  width:12px;
+
+  height:12px;
+
+  border-radius:50%;
+
+  background:white;
+
+  flex:none;
+
+}
+
+#recordBtn.recording .record-dot{
+
+  animation:pulse 1s infinite;
+
+}
+
+.record-timer{
+
+  font-size:1.15rem;
+
+  font-weight:800;
+
+  color:var(--red);
+
+  font-variant-numeric:
+  tabular-nums;
+
+}
+
+.record-status{
+
+  color:var(--cyan);
+
+  font-size:.95rem;
+
+  font-weight:600;
+
+  text-align:center;
+
+  min-height:1.6em;
+
+  margin-bottom:16px;
+
+}
+
+.record-status:empty{
+
+  margin-bottom:0;
+
+}
+
+.playback-wrap{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:14px;
+
+  align-items:center;
+
+  margin-bottom:16px;
+
+}
+
+.playback-wrap[hidden]{
+
+  display:none;
+
+}
+
+.playback-wrap audio{
+
+  width:100%;
+
+  max-width:520px;
+
+}
+
+.download-btn{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:
+  13px 26px;
+
+  border-radius:
+  14px;
+
+  background:
+  linear-gradient(
+  135deg,
+  var(--green),
+  var(--cyan)
+  );
+
+  color:white;
+
+  font-weight:700;
+
+  text-decoration:none;
+
+  transition:.3s;
+
+  min-height:48px;
+
+}
+
+.download-btn:hover{
+
+  transform:
+  translateY(-2px);
+
+}
+
+.record-note{
+
+  color:var(--text2);
+
+  font-size:.95rem;
+
+  text-align:center;
+
+  max-width:640px;
+
+  margin:auto;
+
+}
+
+@media(max-width:700px){
+
+  .record-panel{
+
+    padding:18px;
+
+  }
+
+  #recordBtn{
+
+    width:100%;
+
+  }
+
+  .download-btn{
+
+    width:100%;
+
+  }
+
+}
+
+/* =========================
+   EXTRA TOOL FEATURES
+   (added 2026-11-26)
+   Speaker test, mic select,
+   hear-yourself monitor,
+   spectrum, result summary
+========================= */
+
+.extras-panel{
+
+  background:
+  var(--card2);
+
+  border:
+  1px solid var(--border);
+
+  border-radius:
+  16px;
+
+  padding:
+  22px;
+
+  margin-bottom:
+  35px;
+
+}
+
+.extras-row{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:14px;
+
+  flex-wrap:wrap;
+
+  margin-bottom:16px;
+
+}
+
+.extras-label{
+
+  color:var(--text2);
+
+  font-size:.9rem;
+
+  font-weight:700;
+
+  letter-spacing:.04em;
+
+  text-transform:uppercase;
+
+}
+
+.mic-select{
+
+  background:var(--card);
+
+  color:var(--text);
+
+  border:
+  1px solid var(--border);
+
+  border-radius:12px;
+
+  padding:12px 14px;
+
+  font-size:1rem;
+
+  font-weight:600;
+
+  min-height:48px;
+
+  max-width:100%;
+
+  cursor:pointer;
+
+}
+
+.extras-btn{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px;
+
+  border:none;
+
+  padding:
+  13px 26px;
+
+  border-radius:
+  14px;
+
+  cursor:pointer;
+
+  font-size:1rem;
+
+  font-weight:700;
+
+  transition:.3s;
+
+  background:
+  linear-gradient(
+  135deg,
+  var(--blue),
+  var(--cyan)
+  );
+
+  color:white;
+
+  min-height:48px;
+
+}
+
+.extras-btn:hover:not(:disabled){
+
+  transform:
+  translateY(-2px);
+
+}
+
+.extras-btn:disabled{
+
+  opacity:.45;
+
+  cursor:not-allowed;
+
+}
+
+.monitor-btn.on{
+
+  background:
+  linear-gradient(
+  135deg,
+  var(--green),
+  var(--cyan)
+  );
+
+}
+
+.extras-status{
+
+  color:var(--cyan);
+
+  font-size:.95rem;
+
+  font-weight:600;
+
+  text-align:center;
+
+  min-height:1.6em;
+
+  margin-bottom:10px;
+
+}
+
+.extras-status:empty{
+
+  margin-bottom:0;
+
+  min-height:0;
+
+}
+
+.monitor-warning{
+
+  color:var(--yellow);
+
+  font-size:.9rem;
+
+  font-weight:600;
+
+  text-align:center;
+
+  margin-bottom:18px;
+
+}
+
+.spectrum-wrap{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:8px;
+
+  margin-bottom:20px;
+
+}
+
+#spectrumCanvas{
+
+  width:100%;
+
+  height:90px;
+
+  background:rgba(0,0,0,.35);
+
+  border:
+  1px solid var(--border);
+
+  border-radius:12px;
+
+}
+
+.summary-card{
+
+  background:var(--card);
+
+  border:
+  1px solid var(--border);
+
+  border-radius:14px;
+
+  padding:18px;
+
+}
+
+.summary-title{
+
+  font-size:1.05rem;
+
+  font-weight:800;
+
+  text-align:center;
+
+  margin-bottom:12px;
+
+}
+
+.summary-row{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:16px;
+
+  padding:7px 2px;
+
+  border-bottom:
+  1px solid var(--border);
+
+  color:var(--text2);
+
+  font-size:.95rem;
+
+}
+
+.summary-row span:last-child{
+
+  color:var(--text);
+
+  font-weight:700;
+
+  text-align:right;
+
+  overflow-wrap:anywhere;
+
+}
+
+.summary-card .extras-row{
+
+  margin-top:16px;
+
+  margin-bottom:6px;
+
+}
+
+@media(max-width:700px){
+
+  .extras-panel{
+
+    padding:18px;
+
+  }
+
+  .extras-btn{
+
+    width:100%;
+
+  }
+
+  .mic-select{
+
+    width:100%;
+
+  }
+
+  .extras-row .extras-label{
+
+    width:100%;
+
+    text-align:center;
+
+  }
+
+}
 </style>
   
   
@@ -1239,7 +1798,7 @@ details p{
         "name": "Does this mic test record or upload my voice?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. This tool analyses the microphone in your browser so you can see the waveform and readings. It does not need you to record a message, and your audio is not uploaded or stored by this page."
+          "text": "Only if you press Record Voice. This tool analyses the microphone in your browser so you can see the waveform and readings. If you choose to record, the recording is created and kept only in your own browser so you can play it back or download it — your audio is never uploaded or stored on any server."
         }
       },
       {
@@ -1305,6 +1864,103 @@ details p{
       <div class="tool-actions">
         <button id="startBtn" aria-label="Start microphone test">Start Mic Test</button>
         <button id="stopBtn" aria-label="Stop microphone test">Stop Test</button>
+      </div>
+
+      <div class="record-panel">
+
+        <div class="record-row">
+
+          <button id="recordBtn" aria-label="Record your voice" disabled>
+            <span class="record-dot"></span>
+            <span id="recordBtnText">Record Voice</span>
+          </button>
+
+          <span id="recordTimer" class="record-timer" hidden>00:00</span>
+
+        </div>
+
+        <p id="recordStatus" class="record-status" role="status" aria-live="polite"></p>
+
+        <div id="playbackWrap" class="playback-wrap" hidden>
+
+          <audio id="playbackAudio" controls aria-label="Play back your recording"></audio>
+
+          <a id="downloadBtn" class="download-btn" href="#" download="mic-test-recording.wav">Download Recording (.wav)</a>
+
+        </div>
+
+        <p class="record-note">
+          Optional: start the test, then press Record Voice to hear how you sound (up to 60 seconds). Your recording is created and kept only in your own browser — nothing is uploaded or stored on any server. Press Download to save it to your device.
+        </p>
+
+      </div>
+
+      <div class="extras-panel">
+
+        <div class="extras-row">
+
+          <label class="extras-label" for="micSelect">Microphone</label>
+
+          <select id="micSelect" class="mic-select" aria-label="Choose which microphone to test">
+            <option value="">Default microphone</option>
+          </select>
+
+        </div>
+
+        <div class="extras-row">
+
+          <button id="speakerBtn" class="extras-btn" aria-label="Play a test sound to check your speakers or headphones">
+            Test Speakers
+          </button>
+
+          <button id="monitorBtn" class="extras-btn monitor-btn" aria-pressed="false" aria-label="Hear your own voice through your headphones">
+            <span id="monitorBtnText">Hear Yourself: Off</span>
+          </button>
+
+        </div>
+
+        <p id="speakerStatus" class="extras-status" role="status" aria-live="polite"></p>
+
+        <p id="monitorStatus" class="extras-status" role="status" aria-live="polite"></p>
+
+        <p class="monitor-warning">
+          Hear Yourself: use headphones — with speakers you will hear echo and feedback.
+        </p>
+
+        <div class="spectrum-wrap">
+
+          <span class="extras-label">Sound spectrum (bass to treble)</span>
+
+          <canvas id="spectrumCanvas" role="img" aria-label="Live sound spectrum bars, bass on the left to treble on the right"></canvas>
+
+        </div>
+
+        <div class="summary-card">
+
+          <h3 class="summary-title">Your Test Result</h3>
+
+          <div class="summary-row"><span>Mic status</span><span id="sumStatus">Not started</span></div>
+
+          <div class="summary-row"><span>Input level</span><span id="sumLevel">0%</span></div>
+
+          <div class="summary-row"><span>Noise level</span><span id="sumNoise">--</span></div>
+
+          <div class="summary-row"><span>Latency</span><span id="sumLatency">--</span></div>
+
+          <div class="summary-row"><span>Device</span><span id="sumDevice">Not Connected</span></div>
+
+          <div class="extras-row">
+
+            <button id="copyResultBtn" class="extras-btn" aria-label="Copy your test result as text">
+              Copy Result
+            </button>
+
+          </div>
+
+          <p id="copyStatus" class="extras-status" role="status" aria-live="polite"></p>
+
+        </div>
+
       </div>
 
       <div class="tool-grid">
@@ -1423,7 +2079,7 @@ details p{
       Microsoft's built-in test call is the best final check inside Teams — a real teams test microphone check, because the bot records your voice and plays it back. Open Settings and more, choose Settings, then Devices. Under Audio settings, confirm your speaker and microphone, then select Make a test call. You hear ringing first, then a voice asks you to record a short message. It plays the message back, gives you a summary, and leaves you in the right place to change device settings if the result is poor.
     </p>
     <p>
-      Playback is the test call's advantage over this page. Our browser tool shows whether sound is reaching the microphone and how the level, noise and latency behave, but it does not ask you to listen to a recording of yourself. The Teams playback lets you judge muffling, distortion and room echo in the way another participant would hear them. If the waveform here looks healthy but your playback sounds unclear, pay attention to microphone position, distance and background noise.
+      Playback used to be the test call's advantage over this page. Our browser tool shows whether sound is reaching the microphone and how the level, noise and latency behave, and the Record Voice button now lets you record a short clip and play it back here too. The Teams test call still goes one step further: it sends your voice through the actual Teams route, so you judge muffling, distortion and room echo the way another participant would hear them. If the waveform and playback here sound healthy but the Teams playback is unclear, pay attention to microphone position, distance and background noise.
     </p>
     <p>
       The test call also has limits. It is tied to the device Teams selected at that moment, so it cannot tell you whether another connected microphone would perform better. It is currently limited to the Teams desktop app for Windows and Mac, is offered in English only, and is unavailable in Teams for the web. On a phone, or in a browser, use this page as the device check and then verify the browser or app permission separately.
@@ -1495,7 +2151,7 @@ details p{
       </details>
       <details>
         <summary>Does this mic test record or upload my voice?</summary>
-        <p>No. This tool analyses the microphone in your browser so you can see the waveform and readings. It does not need you to record a message, and your audio is not uploaded or stored by this page.</p>
+        <p>Only if you press Record Voice. This tool analyses the microphone in your browser so you can see the waveform and readings. If you choose to record, the recording is created and kept only in your own browser so you can play it back or download it — your audio is never uploaded or stored on any server.</p>
       </details>
       <details>
         <summary>Can I test my mic and speakers together in Teams?</summary>
